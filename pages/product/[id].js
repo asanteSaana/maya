@@ -45,7 +45,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
           <p>
             {error || "This product may have been removed by the farmer."}
           </p>
-          <Link href="/shop-grid">
+          <Link href="/products">
             <a className="theme-btn style-two">
               Back to shop <i className="fas fa-angle-double-right" />
             </a>
@@ -179,7 +179,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
                     <span>:</span>
                     {categories.length ? (
                       categories.map((name) => (
-                        <Link href="/shop-grid" key={name}>
+                        <Link href="/products" key={name}>
                           <a>{name}</a>
                         </Link>
                       ))

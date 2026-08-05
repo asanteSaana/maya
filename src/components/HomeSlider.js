@@ -25,7 +25,7 @@ export const HomeSlider1 = () => {
                 <h1>Organic Foods &amp; Vegetables</h1>
                 <h6>2 Years of experience in agriculture farming</h6>
                 <div className="slider-btns mt-30">
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -109,7 +109,7 @@ export const HomeSlider1 = () => {
                 <h1>Organic Foods &amp; Vegetables</h1>
                 <h6>2 Years of experience in agriculture farming</h6>
                 <div className="slider-btns mt-30">
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -184,7 +184,7 @@ export const HomeSlider2 = () => {
                 <div className="sub-title mb-20">Welcome to mayaTek</div>
                 <h1>Organic Foods &amp; Vegetables</h1>
                 <div className="slider-btns mt-30">
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -231,7 +231,7 @@ export const HomeSlider2 = () => {
                       Learn More <i className="fas fa-angle-double-right" />
                     </a>
                   </Link>
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -293,7 +293,7 @@ export const HomeSlider3 = () => {
                   visit local farms and help those battling hunger, we are transforming the food system.
                 </p>
                 <div className="slider-btns mt-20">
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -344,7 +344,7 @@ export const HomeSlider3 = () => {
                   visit local farms and help those battling hunger, we are transforming the food system.
                 </p>
                 <div className="slider-btns mt-20">
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>

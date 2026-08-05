@@ -239,7 +239,7 @@ const Services = () => {
                   <span className="sub-title">35% Off Foods</span>
                   <h4>Organic Vegetables</h4>
                   <p>Best Foods For Your Family</p>
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -259,7 +259,7 @@ const Services = () => {
                   <span className="sub-title">35% Off Foods</span>
                   <h4>Fresh Organic Fruits</h4>
                   <p>Best Foods For Your Family</p>
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -279,7 +279,7 @@ const Services = () => {
                   <span className="sub-title">35% Off Foods</span>
                   <h4>Ripe Strawberries</h4>
                   <p>Best Foods For Your Family</p>
-                  <Link href="/shop-grid">
+                  <Link href="/products">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>

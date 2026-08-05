@@ -2,19 +2,8 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { useAuth } from "../context/AuthContext";
 
-export const Home = () => (
-  <Fragment>
-    <li>
-      <Link href="/">Home One</Link>
-    </li>
-    <li>
-      <Link href="/index2">Home Two</Link>
-    </li>
-    <li>
-      <Link href="/index3">Home Three</Link>
-    </li>
-  </Fragment>
-);
+// The template shipped three homepage and three shop-layout variants. Those are
+// collapsed into "/" and "/products"; what remains is one entry per real page.
 
 export const PagesDasktop = () => (
   <Fragment>
@@ -41,11 +30,9 @@ export const PagesDasktop = () => (
     <li>
       <Link href="/farmers">Farmers</Link>
     </li>
-    <li>
-      <Link href="/404">404 error</Link>
-    </li>
   </Fragment>
 );
+
 export const PagesMobile = () => (
   <Fragment>
     <li>
@@ -63,24 +50,26 @@ export const PagesMobile = () => (
     <li>
       <Link href="/farmers">Farmers</Link>
     </li>
-    <li>
-      <Link href="/404">404 error</Link>
-    </li>
   </Fragment>
 );
-export const Portfolio = () => (
+
+// Labelled "Gallery" in the header. These are the template's portfolio pages,
+// kept as marketing content — naming them "Products" would collide with the
+// actual marketplace listing at /products.
+export const Gallery = () => (
   <Fragment>
     <li>
-      <Link href="/portfolio-grid">Portfolio grid</Link>
+      <Link href="/portfolio-grid">Gallery grid</Link>
     </li>
     <li>
-      <Link href="/portfolio-fluid">Portfolio Fluid</Link>
+      <Link href="/portfolio-fluid">Gallery fluid</Link>
     </li>
     <li>
-      <Link href="/portfolio-details">Portfolio details</Link>
+      <Link href="/portfolio-details">Gallery details</Link>
     </li>
   </Fragment>
 );
+
 export const Blog = () => (
   <Fragment>
     <li>
@@ -94,16 +83,11 @@ export const Blog = () => (
     </li>
   </Fragment>
 );
+
 export const Shop = () => (
   <Fragment>
     <li>
-      <Link href="/shop-grid">shop Grid</Link>
-    </li>
-    <li>
-      <Link href="/shop-left-sidebar">shop left sidebar</Link>
-    </li>
-    <li>
-      <Link href="/shop-right-sidebar">shop right sidebar</Link>
+      <Link href="/products">All products</Link>
     </li>
     <li>
       <Link href="/cart">cart page</Link>
@@ -116,6 +100,7 @@ export const Shop = () => (
     </li>
   </Fragment>
 );
+
 export const Contact = () => (
   <Fragment>
     <li>

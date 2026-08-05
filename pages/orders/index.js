@@ -50,7 +50,7 @@ const Orders = () => {
               title="No orders yet"
               message="Once you place an order it will show up here."
               action={
-                <Link href="/shop-grid">
+                <Link href="/products">
                   <a className="theme-btn style-two">
                     Start shopping <i className="fas fa-angle-double-right" />
                   </a>

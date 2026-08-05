@@ -4,15 +4,7 @@ import { Fragment, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 import { sidebarToggle } from "../utils";
-import {
-  Account,
-  Blog,
-  Contact,
-  Home,
-  PagesDasktop,
-  Portfolio,
-  Shop,
-} from "./Menus";
+import { Account, Blog, Contact, Gallery, PagesDasktop, Shop } from "./Menus";
 import MobileMenu from "./MobileMenu";
 
 const Header = ({ header }) => {
@@ -88,14 +80,11 @@ const HeaderUserButton = () => {
 
 const DaskTopMenu = () => (
   <ul className="navigation clearfix d-none d-lg-flex">
-    <li className="dropdown">
-      <a href="#">Home</a>
-      <ul>
-        <Home />
-      </ul>
-      <div className="dropdown-btn">
-        <span className="fas fa-chevron-down" />
-      </div>
+    <li>
+      <Link href="/">Home</Link>
+    </li>
+    <li>
+      <Link href="/products">Products</Link>
     </li>
     <li className="dropdown">
       <a href="#">pages</a>
@@ -107,9 +96,9 @@ const DaskTopMenu = () => (
       </div>
     </li>
     <li className="dropdown">
-      <a href="#">Products</a>
+      <a href="#">gallery</a>
       <ul>
-        <Portfolio />
+        <Gallery />
       </ul>
       <div className="dropdown-btn">
         <span className="fas fa-chevron-down" />

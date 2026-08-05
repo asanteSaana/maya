@@ -107,7 +107,7 @@ const DefaultFooter = () => (
                 </Link>
               </li>
               <li>
-                <Link href="/shop-grid">
+                <Link href="/products">
                   <a>Best Products</a>
                 </Link>
               </li>

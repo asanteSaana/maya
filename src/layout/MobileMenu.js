@@ -1,13 +1,6 @@
+import Link from "next/link";
 import { useState } from "react";
-import {
-  Account,
-  Blog,
-  Contact,
-  Home,
-  PagesMobile,
-  Portfolio,
-  Shop,
-} from "./Menus";
+import { Account, Blog, Contact, Gallery, PagesMobile, Shop } from "./Menus";
 const MobileMenu = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const activeMenuSet = (value) =>
@@ -16,14 +9,11 @@ const MobileMenu = () => {
       value === activeMenu ? { display: "block" } : { display: "none" };
   return (
     <ul className="navigation clearfix d-block d-lg-none mobile-header">
-      <li className="dropdown">
-        <a href="#">Home</a>
-        <ul style={activeLi("home")}>
-          <Home />
-        </ul>
-        <div className="dropdown-btn" onClick={() => activeMenuSet("home")}>
-          <span className="fas fa-chevron-down" />
-        </div>
+      <li>
+        <Link href="/">Home</Link>
+      </li>
+      <li>
+        <Link href="/products">Products</Link>
       </li>
       <li className="dropdown">
         <a href="#">pages</a>
@@ -35,14 +25,11 @@ const MobileMenu = () => {
         </div>
       </li>
       <li className="dropdown">
-        <a href="#">portfolio</a>
-        <ul style={activeLi("portfolio")}>
-          <Portfolio />
+        <a href="#">gallery</a>
+        <ul style={activeLi("gallery")}>
+          <Gallery />
         </ul>
-        <div
-          className="dropdown-btn"
-          onClick={() => activeMenuSet("portfolio")}
-        >
+        <div className="dropdown-btn" onClick={() => activeMenuSet("gallery")}>
           <span className="fas fa-chevron-down" />
         </div>
       </li>

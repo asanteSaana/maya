@@ -126,7 +126,7 @@ const Checkout = () => {
             title="Your cart is empty"
             message="Add a few items before checking out."
             action={
-              <Link href="/shop-grid">
+              <Link href="/products">
                 <a className="theme-btn style-two">
                   Start shopping <i className="fas fa-angle-double-right" />
                 </a>

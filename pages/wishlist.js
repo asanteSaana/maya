@@ -33,7 +33,7 @@ const WishlistPage = () => {
               title="Your wishlist is empty"
               message="Tap the heart on any product to save it for later."
               action={
-                <Link href="/shop-grid">
+                <Link href="/products">
                   <a className="theme-btn style-two">
                     Browse products <i className="fas fa-angle-double-right" />
                   </a>

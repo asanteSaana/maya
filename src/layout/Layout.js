@@ -12,12 +12,10 @@ const Layout = ({ header, footer, children }) => {
     animation();
     niceSelect();
   }, []);
+  // The "home-three" body class belonged to the deleted index3 variant. Any
+  // stale copy is cleared so it cannot leak the alternate theme onto a page.
   useEffect(() => {
-    if (window.location.pathname === "/index3") {
-      document.querySelector("body").classList.add("home-three");
-    } else {
-      document.querySelector("body").classList.remove("home-three");
-    }
+    document.querySelector("body").classList.remove("home-three");
   }, []);
   return (
     <Fragment>

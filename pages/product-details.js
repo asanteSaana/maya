@@ -4,7 +4,7 @@ const ProductDetails = () => null;
 
 export const getServerSideProps = async ({ query }) => ({
   redirect: {
-    destination: query.id ? `/product/${query.id}` : "/shop-grid",
+    destination: query.id ? `/product/${query.id}` : "/products",
     permanent: false,
   },
 });
