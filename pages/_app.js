@@ -6,7 +6,10 @@ import "react-circular-progressbar/dist/styles.css";
 import { AuthProvider } from "../src/context/AuthContext";
 import { CartProvider } from "../src/context/CartContext";
 import { WishlistProvider } from "../src/context/WishlistContext";
+import useChunkRecovery from "../src/useChunkRecovery";
 function MyApp({ Component, pageProps }) {
+  useChunkRecovery();
+
   return (
     <Fragment>
       <Head>
