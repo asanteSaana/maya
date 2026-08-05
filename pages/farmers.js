@@ -1,6 +1,7 @@
 import ClientLogoSlider from "../src/components/ClientLogoSlider";
 import Counter from "../src/components/Counter";
 import FeedbackTwoSlider from "../src/components/FeedbackTwoSlider";
+import FarmerCta from "../src/components/farmer/FarmerCta";
 import PageBanner from "../src/components/PageBanner";
 import ProgressBar from "../src/components/ProgressBar";
 import ExperienceTeam from "../src/components/slider/ExperienceTeam";
@@ -12,6 +13,7 @@ const Farmers = () => {
       <section className="team-page-area pt-130 rpt-100 pb-95 rpb-65">
         <div className="container">
           <ExperienceTeam />
+          <FarmerCta />
         </div>
       </section>
       {/* Team Area End */}

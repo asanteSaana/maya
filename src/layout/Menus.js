@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
+import { useAuth } from "../context/AuthContext";
 
 export const Home = () => (
   <Fragment>
@@ -105,9 +106,6 @@ export const Shop = () => (
       <Link href="/shop-right-sidebar">shop right sidebar</Link>
     </li>
     <li>
-      <Link href="/product-details">Product details</Link>
-    </li>
-    <li>
       <Link href="/cart">cart page</Link>
     </li>
     <li>
@@ -125,3 +123,41 @@ export const Contact = () => (
     </li>
   </Fragment>
 );
+
+export const Account = () => {
+  const { isAuthenticated, isPartner, isReady } = useAuth();
+
+  // Render the signed-out links until the session resolves, so the server and
+  // first client render agree and React does not warn about a mismatch.
+  if (!isReady || !isAuthenticated) {
+    return (
+      <Fragment>
+        <li>
+          <Link href="/login">Sign in</Link>
+        </li>
+        <li>
+          <Link href="/register">Create account</Link>
+        </li>
+      </Fragment>
+    );
+  }
+
+  return (
+    <Fragment>
+      <li>
+        <Link href="/account">My account</Link>
+      </li>
+      <li>
+        <Link href="/orders">My orders</Link>
+      </li>
+      <li>
+        <Link href="/wishlist">Wishlist</Link>
+      </li>
+      {isPartner && (
+        <li>
+          <Link href="/farmer/dashboard">Farmer dashboard</Link>
+        </li>
+      )}
+    </Fragment>
+  );
+};

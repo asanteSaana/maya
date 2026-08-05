@@ -1,64 +1,85 @@
 import Link from "next/link";
-import { useState } from "react";
 import ClientLogoSlider from "../src/components/ClientLogoSlider";
 import PageBanner from "../src/components/PageBanner";
+import { EmptyState, LoadingState } from "../src/components/shop/StateMessage";
+import { useCart } from "../src/context/CartContext";
+import { useWishlist } from "../src/context/WishlistContext";
 import Layout from "../src/layout/Layout";
+import { formatPrice } from "../src/services/constants";
+
 const WishlistPage = () => {
-  const [wishList, setwishList] = useState([
-    {
-      id: 1,
-      title: "Orange Fruits", // "Cart Item 1",
-      description: "Cart Item 1", // "Cart Item 1",
-      quantity: 1,
-      image: "assets/images/widgets/product2.png",
-      price: 250,
-    },
-    {
-      id: 2,
-      title: "Fresh Broccoli", // "Cart Item  2",
-      description: "Cart Item 2", // "Cart Item 2",
-      quantity: 1,
-      image: "assets/images/widgets/product3.png",
-      price: 250,
-    },
-    {
-      id: 3,
-      title: "Bread Grains", // "Cart Item 3",
-      description: "Cart Item 3", // "Cart Item 3",
-      quantity: 1,
-      image: "assets/images/widgets/product4.png",
-      price: 250,
-    },
-  ]);
+  const { addItem } = useCart();
+  const { isReady, items, removeItem } = useWishlist();
+
+  const handleAddToCart = (item) => {
+    // Wishlist rows store the flat product summary the cart already understands.
+    addItem(item, 1, {
+      id: item.catalogueId,
+      price: item.price,
+      size: item.size,
+    });
+    removeItem(item.productId);
+  };
+
   return (
     <Layout>
       <PageBanner pageName={"Wishlist Page"} />
       <div className="wishlist-area py-130 rpy-100">
         <div className="container">
-          <div className="cart-item-wrap wow fadeInUp delay-0-2s">
-            {wishList.map((w, i) => (
-              <div className="cart-single-item" key={i}>
-                <button
-                  type="button"
-                  className="close"
-                  onClick={() =>
-                    setwishList(wishList.filter((c) => c.id !== w.id))
-                  }
-                >
-                  <span aria-hidden="true">×</span>
-                </button>
-                <div className="cart-img">
-                  <img src={w.image} alt="Product Image" />
-                </div>
-                <h5 className="product-name">{w.title}</h5>
-                <span className="product-price">{w.price}</span>
-                <strong className="stock">In Stock</strong>
-                <Link href="/cart">
-                  <a className="theme-btn style-two">Add to Cart</a>
+          {!isReady && <LoadingState message="Loading your wishlist…" />}
+
+          {isReady && items.length === 0 && (
+            <EmptyState
+              title="Your wishlist is empty"
+              message="Tap the heart on any product to save it for later."
+              action={
+                <Link href="/shop-grid">
+                  <a className="theme-btn style-two">
+                    Browse products <i className="fas fa-angle-double-right" />
+                  </a>
                 </Link>
-              </div>
-            ))}
-          </div>
+              }
+            />
+          )}
+
+          {isReady && items.length > 0 && (
+            <div className="cart-item-wrap wow fadeInUp delay-0-2s">
+              {items.map((item) => (
+                <div className="cart-single-item" key={item.productId}>
+                  <button
+                    type="button"
+                    className="close"
+                    aria-label={`Remove ${item.title}`}
+                    onClick={() => removeItem(item.productId)}
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                  <div className="cart-img">
+                    <img src={item.image} alt={item.title} />
+                  </div>
+                  <h5 className="product-name">
+                    <Link href={`/product/${item.productId}`}>
+                      {item.title}
+                    </Link>
+                  </h5>
+                  <span className="product-price">
+                    {formatPrice(item.price)}
+                  </span>
+                  <strong className="stock">
+                    {item.stock > 0 ? "In Stock" : "Out of Stock"}
+                  </strong>
+                  <button
+                    type="button"
+                    className="theme-btn style-two"
+                    disabled={item.stock <= 0}
+                    onClick={() => handleAddToCart(item)}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       {/* Wishlist Area End */}

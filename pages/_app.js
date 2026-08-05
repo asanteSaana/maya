@@ -3,6 +3,9 @@ import "../styles/globals.css";
 
 import Head from "next/head";
 import "react-circular-progressbar/dist/styles.css";
+import { AuthProvider } from "../src/context/AuthContext";
+import { CartProvider } from "../src/context/CartContext";
+import { WishlistProvider } from "../src/context/WishlistContext";
 function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
@@ -38,7 +41,13 @@ function MyApp({ Component, pageProps }) {
         {/* Main Style */}
         <link rel="stylesheet" href="assets/css/style.css" />
       </Head>
-      <Component {...pageProps} />
+      <AuthProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <Component {...pageProps} />
+          </WishlistProvider>
+        </CartProvider>
+      </AuthProvider>
     </Fragment>
   );
 }

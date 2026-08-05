@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import munfirmSlider from "../munfirmSlider";
+import useMunfirmSlider from "../munfirmSlider";
 export const HomeSlider1 = () => {
-  const { active, setActive } = munfirmSlider();
+  const { active, setActive } = useMunfirmSlider();
   return (
     <Fragment>
       <button
@@ -162,7 +162,7 @@ export const HomeSlider1 = () => {
   );
 };
 export const HomeSlider2 = () => {
-  const { active, setActive } = munfirmSlider();
+  const { active, setActive } = useMunfirmSlider();
   return (
     <Fragment>
       <button
@@ -266,7 +266,7 @@ export const HomeSlider2 = () => {
   );
 };
 export const HomeSlider3 = () => {
-  const { active, setActive } = munfirmSlider();
+  const { active, setActive } = useMunfirmSlider();
   return (
     <Fragment>
       <button

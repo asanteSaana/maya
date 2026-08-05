@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Blog, Contact, Home, PagesMobile, Portfolio, Shop } from "./Menus";
+import {
+  Account,
+  Blog,
+  Contact,
+  Home,
+  PagesMobile,
+  Portfolio,
+  Shop,
+} from "./Menus";
 const MobileMenu = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const activeMenuSet = (value) =>
@@ -53,6 +61,15 @@ const MobileMenu = () => {
           <Shop />
         </ul>
         <div className="dropdown-btn" onClick={() => activeMenuSet("shop")}>
+          <span className="fas fa-chevron-down" />
+        </div>
+      </li>
+      <li className="dropdown">
+        <a href="#">account</a>
+        <ul style={activeLi("account")}>
+          <Account />
+        </ul>
+        <div className="dropdown-btn" onClick={() => activeMenuSet("account")}>
           <span className="fas fa-chevron-down" />
         </div>
       </li>

@@ -1,7 +1,18 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 import { sidebarToggle } from "../utils";
-import { Blog, Contact, Home, PagesDasktop, Portfolio, Shop } from "./Menus";
+import {
+  Account,
+  Blog,
+  Contact,
+  Home,
+  PagesDasktop,
+  Portfolio,
+  Shop,
+} from "./Menus";
 import MobileMenu from "./MobileMenu";
 
 const Header = ({ header }) => {
@@ -41,6 +52,40 @@ const SearchBtn = () => {
     </Fragment>
   );
 };
+
+const HeaderCartButton = ({ showCount = true }) => {
+  const router = useRouter();
+  const { itemCount } = useCart();
+
+  return (
+    <button
+      type="button"
+      className="cart"
+      aria-label="View cart"
+      onClick={() => router.push("/cart")}
+    >
+      <i className="far fa-shopping-basket" />
+      {showCount && <span>{itemCount}</span>}
+    </button>
+  );
+};
+
+const HeaderUserButton = () => {
+  const router = useRouter();
+  const { isAuthenticated } = useAuth();
+
+  return (
+    <button
+      type="button"
+      className="user"
+      aria-label={isAuthenticated ? "View account" : "Sign in"}
+      onClick={() => router.push(isAuthenticated ? "/account" : "/login")}
+    >
+      <i className="far fa-user-circle" />
+    </button>
+  );
+};
+
 const DaskTopMenu = () => (
   <ul className="navigation clearfix d-none d-lg-flex">
     <li className="dropdown">
@@ -83,6 +128,15 @@ const DaskTopMenu = () => (
       <a href="#">shop</a>
       <ul>
         <Shop />
+      </ul>
+      <div className="dropdown-btn">
+        <span className="fas fa-chevron-down" />
+      </div>
+    </li>
+    <li className="dropdown">
+      <a href="#">account</a>
+      <ul>
+        <Account />
       </ul>
       <div className="dropdown-btn">
         <span className="fas fa-chevron-down" />
@@ -208,13 +262,8 @@ const DefaultHeader = () => (
             <div className="nav-search py-15">
               <SearchBtn />
             </div>
-            <button className="cart">
-              <i className="far fa-shopping-basket" />
-              <span>5</span>
-            </button>
-            <button className="user">
-              <i className="far fa-user-circle" />
-            </button>
+            <HeaderCartButton />
+            <HeaderUserButton />
             <Link href="/contact">
               <a className="theme-btn">
                 Consultations <i className="fas fa-angle-double-right" />
@@ -313,13 +362,8 @@ const Header1 = () => (
             <div className="nav-search py-15">
               <SearchBtn />
             </div>
-            <button className="cart">
-              <i className="far fa-shopping-basket" />
-              <span>5</span>
-            </button>
-            <button className="user">
-              <i className="far fa-user-circle" />
-            </button>
+            <HeaderCartButton />
+            <HeaderUserButton />
             <Link href="/contact">
               <a className="theme-btn">
                 Consultations <i className="fas fa-angle-double-right" />
@@ -432,9 +476,7 @@ const Header2 = () => (
                 <button type="submit" className="searchbutton far fa-search" />
               </form>
             </div>
-            <button className="cart">
-              <i className="far fa-shopping-basket" />
-            </button>
+            <HeaderCartButton showCount={false} />
             {/* menu sidbar */}
             <div className="menu-sidebar" onClick={() => sidebarToggle()}>
               <button>
@@ -514,13 +556,8 @@ const Header3 = () => (
               />
               <button type="submit" className="searchbutton far fa-search" />
             </form>
-            <button className="cart">
-              <i className="far fa-shopping-basket" />
-              <span>5</span>
-            </button>
-            <button className="user">
-              <i className="far fa-user-circle" />
-            </button>
+            <HeaderCartButton />
+            <HeaderUserButton />
             <button className="heart">
               <i className="far fa-heart" />
             </button>

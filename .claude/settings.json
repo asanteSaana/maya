@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"productActive\\\\|product-item\\\\|Slider {...\\\\|product-section\" pages/index2.js)",
+      "Bash(python -c ' *)",
+      "Bash(npm run *)",
+      "Read(//tmp/**)"
+    ]
+  }
+}

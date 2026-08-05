@@ -1,460 +1,444 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
+import FormAlert from "../src/components/FormAlert";
 import PageBanner from "../src/components/PageBanner";
+import { EmptyState, LoadingState } from "../src/components/shop/StateMessage";
+import { useAuth } from "../src/context/AuthContext";
+import { useCart } from "../src/context/CartContext";
 import Layout from "../src/layout/Layout";
+import { formatPrice } from "../src/services/constants";
+import { createOrder } from "../src/services/orders";
+
+const EMPTY_ADDRESS = {
+  firstName: "",
+  lastName: "",
+  phone: "",
+  email: "",
+  country: "",
+  city: "",
+  state: "",
+  zip: "",
+  street: "",
+  apartment: "",
+  notes: "",
+};
+
 const Checkout = () => {
-  const [cartData, setCartData] = useState([]);
-  const [vat, setVat] = useState(0);
-  const [shipping, setShipping] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const router = useRouter();
+  const { isAuthenticated, isReady: authReady, login, user } = useAuth();
+  const {
+    clearCart,
+    isReady: cartReady,
+    items,
+    shipping,
+    subTotal,
+    totalPrice,
+    vat,
+  } = useCart();
+
+  const [address, setAddress] = useState(EMPTY_ADDRESS);
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [loginError, setLoginError] = useState("");
+  const [orderError, setOrderError] = useState("");
+  const [isPlacing, setIsPlacing] = useState(false);
 
   useEffect(() => {
-    let localStorageData = JSON.parse(localStorage.getItem("munfirm"));
-    setTotalPrice(localStorageData.totalPrice);
-    setShipping(localStorageData.shipping);
-    setVat(localStorageData.vat);
-    setCartData(localStorageData.cartData);
-  }, []);
+    if (user?.email) {
+      setAddress((current) => ({
+        ...current,
+        email: current.email || user.email,
+      }));
+    }
+  }, [user]);
+
+  const handleAddressChange = (event) => {
+    const { name, value } = event.target;
+    setAddress((current) => ({ ...current, [name]: value }));
+  };
+
+  const handleInlineLogin = async (event) => {
+    event.preventDefault();
+    setLoginError("");
+
+    try {
+      await login(credentials);
+    } catch (requestError) {
+      setLoginError(requestError.message);
+    }
+  };
+
+  const handlePlaceOrder = async (event) => {
+    event.preventDefault();
+
+    if (!isAuthenticated) {
+      router.push("/login?redirect=/checkout");
+      return;
+    }
+
+    setOrderError("");
+    setIsPlacing(true);
+
+    try {
+      const order = await createOrder({
+        items,
+        // The documented address schema is { city }. The rest of the billing
+        // form rides along and is kept if the backend's schema accepts it.
+        address: {
+          city: address.city,
+          state: address.state,
+          country: address.country,
+          zip: address.zip,
+          street: address.street,
+          apartment: address.apartment,
+          phone: address.phone,
+          recipient: `${address.firstName} ${address.lastName}`.trim(),
+          notes: address.notes,
+        },
+      });
+
+      clearCart();
+      router.push(order?.id ? `/orders/${order.id}` : "/orders");
+    } catch (requestError) {
+      setOrderError(requestError.message);
+      setIsPlacing(false);
+    }
+  };
+
+  if (!cartReady || !authReady) {
+    return (
+      <Layout>
+        <PageBanner pageName={"Checkout"} />
+        <div className="container py-130 rpy-100">
+          <LoadingState message="Preparing your checkout…" />
+        </div>
+      </Layout>
+    );
+  }
+
+  if (items.length === 0) {
+    return (
+      <Layout>
+        <PageBanner pageName={"Checkout"} />
+        <div className="container py-130 rpy-100">
+          <EmptyState
+            title="Your cart is empty"
+            message="Add a few items before checking out."
+            action={
+              <Link href="/shop-grid">
+                <a className="theme-btn style-two">
+                  Start shopping <i className="fas fa-angle-double-right" />
+                </a>
+              </Link>
+            }
+          />
+        </div>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       <PageBanner pageName={"Checkout"} />
       <div className="checkout-form-area py-130 rpy-100">
         <div className="container">
-          <Accordion
-            className="checkout-faqs wow fadeInUp delay-0-2s"
-            id="checkout-faqs"
-          >
-            <div className="alert bg-lighter">
-              <h6>
-                Returning customer?{" "}
-                <Accordion.Toggle
-                  as={"a"}
-                  className="collapsed card-header c-cursor"
-                  data-toggle="collapse"
-                  data-target="#collapse0"
-                  aria-expanded="false"
-                  eventKey="collapse0"
-                >
-                  Click here to login
-                </Accordion.Toggle>
-              </h6>
-              <Accordion.Collapse eventKey="collapse0" className="content">
-                <form onSubmit={(e) => e.preventDefault()} action="#">
-                  <p>Please login your accont.</p>
+          {!isAuthenticated && (
+            <Accordion
+              className="checkout-faqs wow fadeInUp delay-0-2s"
+              id="checkout-faqs"
+            >
+              <div className="alert bg-lighter">
+                <h6>
+                  Returning customer?{" "}
+                  <Accordion.Toggle
+                    as={"a"}
+                    className="collapsed card-header c-cursor"
+                    eventKey="collapse0"
+                  >
+                    Click here to login
+                  </Accordion.Toggle>
+                </h6>
+                <Accordion.Collapse eventKey="collapse0" className="content">
+                  <form onSubmit={handleInlineLogin}>
+                    <p>Sign in to place your order.</p>
+                    <FormAlert error={loginError} />
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <input
+                            type="email"
+                            name="email"
+                            className="form-control"
+                            placeholder="Your Email Address"
+                            value={credentials.email}
+                            onChange={(event) =>
+                              setCredentials((current) => ({
+                                ...current,
+                                email: event.target.value,
+                              }))
+                            }
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <input
+                            type="password"
+                            name="password"
+                            className="form-control"
+                            placeholder="Your Password"
+                            value={credentials.password}
+                            onChange={(event) =>
+                              setCredentials((current) => ({
+                                ...current,
+                                password: event.target.value,
+                              }))
+                            }
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-footer">
+                      <button type="submit" className="theme-btn style-two">
+                        login <i className="fas fa-angle-double-right" />
+                      </button>
+                    </div>
+                    <p className="pt-15 mb-0">
+                      No account yet?{" "}
+                      <Link href="/register">
+                        <a>Create one</a>
+                      </Link>
+                    </p>
+                  </form>
+                </Accordion.Collapse>
+              </div>
+            </Accordion>
+          )}
+
+          <form onSubmit={handlePlaceOrder}>
+            <div className="row pt-25">
+              <div className="col-lg-7">
+                <div className="checkout-billing-details wow fadeInUp delay-0-2s">
+                  <h4 className="form-title mb-25">Billing Details</h4>
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
                         <input
-                          type="email"
-                          id="email-address"
-                          name="email-address"
+                          type="text"
+                          name="firstName"
                           className="form-control"
-                          defaultValue=""
-                          placeholder="Your Email Address"
-                          required=""
+                          placeholder="First Name"
+                          value={address.firstName}
+                          onChange={handleAddressChange}
+                          required
                         />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
                         <input
-                          type="password"
-                          id="password"
-                          name="password"
+                          type="text"
+                          name="lastName"
                           className="form-control"
-                          defaultValue=""
-                          placeholder="Your Password"
-                          required=""
+                          placeholder="Last Name"
+                          value={address.lastName}
+                          onChange={handleAddressChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="tel"
+                          name="phone"
+                          className="form-control"
+                          placeholder="Phone Number"
+                          value={address.phone}
+                          onChange={handleAddressChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="email"
+                          name="email"
+                          className="form-control"
+                          placeholder="Email Address"
+                          value={address.email}
+                          onChange={handleAddressChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="col-lg-12">
+                      <h6>Your Address</h6>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="city"
+                          className="form-control"
+                          placeholder="City"
+                          value={address.city}
+                          onChange={handleAddressChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="state"
+                          className="form-control"
+                          placeholder="State / Region"
+                          value={address.state}
+                          onChange={handleAddressChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="country"
+                          className="form-control"
+                          placeholder="Country"
+                          value={address.country}
+                          onChange={handleAddressChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="zip"
+                          className="form-control"
+                          placeholder="Zip / Postal Code"
+                          value={address.zip}
+                          onChange={handleAddressChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="street"
+                          className="form-control"
+                          placeholder="House, street name"
+                          value={address.street}
+                          onChange={handleAddressChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="apartment"
+                          className="form-control"
+                          placeholder="Apartment, suite, unit etc. (optional)"
+                          value={address.apartment}
+                          onChange={handleAddressChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-lg-12">
+                      <h6>Order Notes (optional)</h6>
+                    </div>
+                    <div className="col-md-12">
+                      <div className="form-group mb-0">
+                        <textarea
+                          name="notes"
+                          className="form-control"
+                          rows={4}
+                          placeholder="Notes about your order, e.g. special delivery instructions"
+                          value={address.notes}
+                          onChange={handleAddressChange}
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="form-footer">
-                    <button type="submit" className="theme-btn style-two">
-                      login <i className="fas fa-angle-double-right" />
-                    </button>
-                    <input
-                      type="checkbox"
-                      name="loss-passowrd"
-                      id="loss-passowrd"
-                      required=""
-                    />
-                    <label htmlFor="loss-passowrd">Remember me</label>
-                  </div>
-                  <a href="#">Lost your password?</a>
-                </form>
-              </Accordion.Collapse>
-            </div>
-            <div className="alert bg-lighter">
-              <h6>
-                Have a coupon?{" "}
-                <Accordion.Toggle
-                  as={"a"}
-                  className="collapsed card-header c-cursor"
-                  data-toggle="collapse"
-                  data-target="#collapse3"
-                  aria-expanded="false"
-                  eventKey="collapse3"
-                >
-                  Click here to enter your code
-                </Accordion.Toggle>
-              </h6>
-              <Accordion.Collapse eventKey="collapse3" className="content">
-                <form onSubmit={(e) => e.preventDefault()} action="#">
-                  <p>If you have a coupon code, please apply it below.</p>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      id="coupon-code"
-                      name="coupon-code"
-                      className="form-control"
-                      defaultValue=""
-                      placeholder="Coupon Code"
-                      required=""
-                    />
-                  </div>
-                  <button type="submit" className="theme-btn style-two">
-                    apply coupon <i className="fas fa-angle-double-right" />
-                  </button>
-                </form>
-              </Accordion.Collapse>
-            </div>
-          </Accordion>
-          <h4 className="form-title mt-50 mb-25">Billing Details</h4>
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            id="checkout-form"
-            className="checkout-form wow fadeInUp delay-0-2s"
-            name="checkout-form"
-            action="#"
-            method="post"
-          >
-            <div className="row">
-              <div className="col-lg-12">
-                <h6>Personal Information</h6>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="first-name"
-                    name="first-name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="First Name"
-                    required=""
-                  />
                 </div>
               </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="last-name"
-                    name="last-name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Last Name"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="number"
-                    name="number"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Phone Number"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Email Address"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="company-name"
-                    name="company-name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Company name (optional)"
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="company-address"
-                    name="company-address"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Company Address (optional)"
-                  />
-                </div>
-              </div>
-              <div className="col-lg-12">
-                <h6>Your Address</h6>
-              </div>
-              <div className="col-md-6 mb-30">
-                <div className="form-group">
-                  <select name="country" id="country">
-                    <option value="value1">Select Country</option>
-                    <option value="value2">Australia</option>
-                    <option value="value3">Canada</option>
-                    <option value="value4">China</option>
-                    <option value="value5">Morocco</option>
-                    <option value="value6">Saudi Arabia</option>
-                    <option value="value7">United Kingdom (UK)</option>
-                    <option value="value8">United States (US)</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="City"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="state"
-                    name="state"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="State"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="zip"
-                    name="zip"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Zip"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="street-name"
-                    name="street-name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="House, street name"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="apartment-name"
-                    name="apartment-name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Apartment, suite, unit etc. (optional)"
-                  />
-                </div>
-              </div>
-              <div className="col-lg-12">
-                <h6>Order Notes (optional)</h6>
-              </div>
-              <div className="col-md-12">
-                <div className="form-group mb-0">
-                  <textarea
-                    name="order-note"
-                    id="order-note"
-                    className="form-control"
-                    rows={5}
-                    placeholder="Notes about your order, e.g. special notes for delivery."
-                    defaultValue={""}
-                  />
-                </div>
-              </div>
-            </div>
-          </form>
-          <div className="payment-cart-total pt-25">
-            <div className="row justify-content-between">
-              <div className="col-lg-6">
-                <div className="payment-method mt-45 wow fadeInUp delay-0-2s">
-                  <h4 className="form-title my-25">Payment Method</h4>
-                  <Accordion
-                    defaultActiveKey="collapseOne"
-                    as="ul"
-                    id="paymentMethod"
-                    className="mb-30"
-                  >
-                    {/* Default unchecked */}
-                    <li className="custom-control custom-radio">
-                      <input
-                        type="radio"
-                        className="custom-control-input"
-                        id="methodone"
-                        name="defaultExampleRadios"
-                        defaultChecked
-                      />
-                      <Accordion.Toggle
-                        as="label"
-                        className="custom-control-label"
-                        htmlFor="methodone"
-                        data-toggle="collapse"
-                        data-target="#collapseOne"
-                        eventKey="collapseOne"
-                      >
-                        Direct Bank Transfer{" "}
-                        <i className="fas fa-money-check" />
-                      </Accordion.Toggle>
-                      <Accordion.Collapse
-                        eventKey="collapseOne"
-                        data-parent="#paymentMethod"
-                        style={{}}
-                      >
-                        <p>
-                          Make your payment directly into our bank account.
-                          Please use your Order ID as the payment reference.
-                          Your order will not be shipped our account.
-                        </p>
-                      </Accordion.Collapse>
-                    </li>
-                    {/* Default unchecked */}
-                    <li className="custom-control custom-radio">
-                      <input
-                        type="radio"
-                        className="custom-control-input"
-                        id="methodtwo"
-                        name="defaultExampleRadios"
-                      />
-                      <Accordion.Toggle
-                        as="label"
-                        className="custom-control-label collapsed"
-                        htmlFor="methodtwo"
-                        data-toggle="collapse"
-                        data-target="#collapseTwo"
-                        eventKey="collapseTwo"
-                      >
-                        Cash On Delivery <i className="fas fa-truck" />
-                      </Accordion.Toggle>
-                      <Accordion.Collapse
-                        eventKey="collapseTwo"
-                        data-parent="#paymentMethod"
-                        style={{}}
-                      >
-                        <p>Pay with cash upon delivery.</p>
-                      </Accordion.Collapse>
-                    </li>
-                    {/* Default unchecked */}
-                    <li className="custom-control custom-radio">
-                      <input
-                        type="radio"
-                        className="custom-control-input"
-                        id="methodthree"
-                        name="defaultExampleRadios"
-                      />
-                      <Accordion.Toggle
-                        as="label"
-                        className="custom-control-label collapsed"
-                        htmlFor="methodthree"
-                        data-toggle="collapse"
-                        data-target="#collapsethree"
-                        eventKey="collapsethree"
-                      >
-                        Paypal <i className="fab fa-cc-paypal" />
-                      </Accordion.Toggle>
-                      <Accordion.Collapse
-                        eventKey="collapsethree"
-                        data-parent="#paymentMethod"
-                        style={{}}
-                      >
-                        <p>
-                          Pay via PayPal; you can pay with your credit card if
-                          you don’t have a PayPal account.
-                        </p>
-                      </Accordion.Collapse>
-                    </li>
-                  </Accordion>
-                  <p>
-                    Your personal data will be used to process your order,
-                    support your experience throughout this website, and for
-                    other purposes described in our privacy policy.
-                  </p>
-                  <button type="button" className="theme-btn mt-15">
-                    Place order
-                  </button>
-                </div>
-              </div>
+
               <div className="col-lg-5">
-                <div className="shoping-cart-total mt-45 wow fadeInUp delay-0-4s">
-                  <h4 className="form-title m-25">Cart Totals</h4>
+                <div className="shoping-cart-total mt-0 wow fadeInUp delay-0-4s">
+                  <h4 className="form-title mb-25">Your Order</h4>
                   <table>
                     <tbody>
-                      {cartData.map((card) => (
-                        <tr key={card.id}>
+                      {items.map((item) => (
+                        <tr key={`${item.productId}:${item.catalogueId}`}>
                           <td>
-                            {card.title} <strong>× {card.quantity}</strong>
+                            {item.title}
+                            {item.size ? ` (${item.size})` : ""} ×{" "}
+                            {item.quantity}
                           </td>
-                          <td>${(card.quantity * card.price).toFixed(2)}</td>
+                          <td>{formatPrice(item.price * item.quantity)}</td>
                         </tr>
                       ))}
-
+                      <tr>
+                        <td>Cart Subtotal</td>
+                        <td className="sub-total-price">
+                          {formatPrice(subTotal)}
+                        </td>
+                      </tr>
                       <tr>
                         <td>Shipping Fee</td>
-                        <td>${shipping.toFixed(2)}</td>
+                        <td className="shipping-price">
+                          {formatPrice(shipping)}
+                        </td>
                       </tr>
                       <tr>
                         <td>Vat</td>
-                        <td>${Number(vat).toFixed(2)}</td>
+                        <td>{formatPrice(vat)}</td>
                       </tr>
                       <tr>
                         <td>
                           <strong>Order Total</strong>
                         </td>
                         <td>
-                          <strong>${Number(totalPrice).toFixed(2)}</strong>
+                          <strong className="total-price">
+                            {formatPrice(totalPrice)}
+                          </strong>
                         </td>
                       </tr>
                     </tbody>
                   </table>
+
+                  <div className="pt-25">
+                    <FormAlert error={orderError} />
+                    <button
+                      type="submit"
+                      className="theme-btn style-two w-100"
+                      disabled={isPlacing}
+                    >
+                      {isPlacing
+                        ? "Placing your order…"
+                        : isAuthenticated
+                        ? "Place Order"
+                        : "Sign in to Place Order"}
+                      <i className="fas fa-angle-double-right" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </Layout>
   );
 };
+
 export default Checkout;

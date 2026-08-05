@@ -4,6 +4,7 @@ import { Nav, Tab } from "react-bootstrap";
 import Slider from "react-slick";
 import ClientLogoSlider from "../src/components/ClientLogoSlider";
 import { HomeSlider1 } from "../src/components/HomeSlider";
+import FeaturedProductSlider from "../src/components/shop/FeaturedProductSlider";
 import CustomerReviews from "../src/components/slider/CustomerReviews";
 import PhotoGallery from "../src/components/slider/PhotoGallery";
 import Layout from "../src/layout/Layout";
@@ -292,158 +293,10 @@ const Index = () => {
             </span>
             <h2>Quality Fruits &amp; Vegetables</h2>
           </div>
-          <Slider {...productActive} className="product-active">
-            <div className="product-item wow fadeInUp delay-0-2s">
-              <span className="offer">53 Off</span>
-              <div className="image">
-                <img src="assets/images/products/product1.png" alt="Product" />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                </div>
-                <h5>
-                  <Link href="/product-details">Organic Brocolli</Link>
-                </h5>
-                <span className="price">
-                  <del>25</del>
-                  <span>18</span>
-                </span>
-              </div>
-            </div>
-            <div className="product-item wow fadeInUp delay-0-3s">
-              <div className="image">
-                <img src="assets/images/products/product2.png" alt="Product" />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                </div>
-                <h5>
-                  <Link href="/product-details">Fresh Carrots</Link>
-                </h5>
-                <span className="price">
-                  <span>49.58</span>
-                </span>
-              </div>
-            </div>
-            <div className="product-item wow fadeInUp delay-0-4s">
-              <span className="offer bg-red">sale</span>
-              <div className="image">
-                <img src="assets/images/products/product3.png" alt="Product" />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                </div>
-                <h5>
-                  <Link href="/product-details">Organic Brocolli</Link>
-                </h5>
-                <span className="price">
-                  <del>25</del>
-                  <span>18</span>
-                </span>
-              </div>
-            </div>
-            <div className="product-item wow fadeInUp delay-0-5s">
-              <span className="offer">20 Off</span>
-              <div className="image">
-                <img src="assets/images/products/product4.png" alt="Product" />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                </div>
-                <h5>
-                  <Link href="/product-details">Chiken Egg</Link>
-                </h5>
-                <span className="price">
-                  <del>55</del>
-                  <span>36</span>
-                </span>
-              </div>
-            </div>
-            <div className="product-item wow fadeInUp delay-0-6s">
-              <div className="image">
-                <img src="assets/images/products/product5.png" alt="Product" />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                </div>
-                <h5>
-                  <Link href="/product-details">Fresh Gooseberry</Link>
-                </h5>
-                <span className="price">
-                  <span>205</span>
-                </span>
-              </div>
-            </div>
-            <div className="product-item wow fadeInUp delay-0-7s">
-              <span className="offer">53 Off</span>
-              <div className="image">
-                <img src="assets/images/products/product6.png" alt="Product" />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                </div>
-                <h5>
-                  <Link href="/product-details">Fresh Croissants</Link>
-                </h5>
-                <span className="price">
-                  <del>25</del>
-                  <span>18</span>
-                </span>
-              </div>
-            </div>
-            <div className="product-item wow fadeInUp delay-0-8s">
-              <span className="offer">25 Off</span>
-              <div className="image">
-                <img src="assets/images/products/product7.png" alt="Product" />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                </div>
-                <h5>
-                  <Link href="/product-details">Chiken Egg’s</Link>
-                </h5>
-                <span className="price">
-                  <del>25</del>
-                  <span>18</span>
-                </span>
-              </div>
-            </div>
-          </Slider>
+          <FeaturedProductSlider
+            sliderProps={productActive}
+            className="product-active"
+          />
         </div>
       </section>
       {/* Product Section End */}
