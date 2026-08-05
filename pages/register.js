@@ -6,6 +6,7 @@ import PageBanner from "../src/components/PageBanner";
 import { useAuth } from "../src/context/AuthContext";
 import Layout from "../src/layout/Layout";
 import { ROLE_IDS } from "../src/services/constants";
+import { safeRedirect } from "../src/services/navigation";
 
 const Register = () => {
   const router = useRouter();
@@ -20,11 +21,13 @@ const Register = () => {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const redirect = safeRedirect(router.query.redirect, "/account");
+
   useEffect(() => {
     if (isReady && isAuthenticated) {
-      router.replace("/account");
+      router.replace(redirect);
     }
-  }, [isAuthenticated, isReady, router]);
+  }, [isAuthenticated, isReady, redirect, router]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -51,11 +54,19 @@ const Register = () => {
         roleId: ROLE_IDS[form.accountType] || undefined,
       });
 
-      router.push(
-        form.accountType === "farmer" && user?.isPartner
-          ? "/farmer/dashboard"
-          : "/account"
-      );
+      if (form.accountType !== "farmer") {
+        router.push(redirect);
+        return;
+      }
+
+      if (user?.isPartner) {
+        router.push("/farmer/dashboard");
+        return;
+      }
+
+      // Self-registration currently always returns the Customer role, so say
+      // so plainly instead of dropping the user on /account unexplained.
+      router.push("/account?notice=farmer-pending");
     } catch (requestError) {
       setError(requestError.message);
     } finally {
@@ -84,6 +95,7 @@ const Register = () => {
                       id="username"
                       name="username"
                       className="form-control"
+                      autoComplete="username"
                       placeholder="Your name"
                       value={form.username}
                       onChange={handleChange}
@@ -97,6 +109,7 @@ const Register = () => {
                       id="email"
                       name="email"
                       className="form-control"
+                      autoComplete="email"
                       placeholder="you@example.com"
                       value={form.email}
                       onChange={handleChange}
@@ -112,6 +125,7 @@ const Register = () => {
                           id="password"
                           name="password"
                           className="form-control"
+                          autoComplete="new-password"
                           placeholder="Create a password"
                           value={form.password}
                           onChange={handleChange}
@@ -128,6 +142,7 @@ const Register = () => {
                           id="confirmPassword"
                           name="confirmPassword"
                           className="form-control"
+                          autoComplete="new-password"
                           placeholder="Repeat your password"
                           value={form.confirmPassword}
                           onChange={handleChange}
@@ -149,6 +164,13 @@ const Register = () => {
                       <option value="customer">Buy fresh produce</option>
                       <option value="farmer">Sell my produce</option>
                     </select>
+                    {form.accountType === "farmer" && (
+                      <small>
+                        Seller accounts need to be enabled by Maya after signup.
+                        You can create your account now and we will confirm once
+                        selling is switched on.
+                      </small>
+                    )}
                   </div>
                   <div className="form-group mb-0">
                     <button
@@ -163,7 +185,13 @@ const Register = () => {
                 </form>
                 <p className="pt-25 mb-0">
                   Already have an account?{" "}
-                  <Link href="/login">
+                  <Link
+                    href={
+                      redirect === "/account"
+                        ? "/login"
+                        : `/login?redirect=${encodeURIComponent(redirect)}`
+                    }
+                  >
                     <a>Sign in</a>
                   </Link>
                 </p>

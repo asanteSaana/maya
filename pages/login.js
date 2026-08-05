@@ -5,6 +5,7 @@ import FormAlert from "../src/components/FormAlert";
 import PageBanner from "../src/components/PageBanner";
 import { useAuth } from "../src/context/AuthContext";
 import Layout from "../src/layout/Layout";
+import { safeRedirect } from "../src/services/navigation";
 
 const Login = () => {
   const router = useRouter();
@@ -13,8 +14,8 @@ const Login = () => {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const redirect =
-    typeof router.query.redirect === "string" ? router.query.redirect : "/account";
+  // Never navigate to an attacker-supplied origin after sign-in.
+  const redirect = safeRedirect(router.query.redirect, "/account");
 
   useEffect(() => {
     if (isReady && isAuthenticated) {
@@ -63,6 +64,7 @@ const Login = () => {
                       id="email"
                       name="email"
                       className="form-control"
+                      autoComplete="email"
                       placeholder="you@example.com"
                       value={form.email}
                       onChange={handleChange}
@@ -76,6 +78,7 @@ const Login = () => {
                       id="password"
                       name="password"
                       className="form-control"
+                      autoComplete="current-password"
                       placeholder="Your password"
                       value={form.password}
                       onChange={handleChange}
@@ -95,7 +98,13 @@ const Login = () => {
                 </form>
                 <p className="pt-25 mb-0">
                   New to Maya?{" "}
-                  <Link href="/register">
+                  <Link
+                    href={
+                      redirect === "/account"
+                        ? "/register"
+                        : `/register?redirect=${encodeURIComponent(redirect)}`
+                    }
+                  >
                     <a>Create an account</a>
                   </Link>
                 </p>

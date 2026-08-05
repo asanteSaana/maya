@@ -110,6 +110,14 @@ const Account = () => {
             <div className="col-lg-8">
               <div className="contact-page-form wow fadeInUp delay-0-4s">
                 <h4 className="mb-25">Account details</h4>
+                {router.query.notice === "farmer-pending" && !isPartner && (
+                  <div className="alert alert-warning mb-20" role="status">
+                    <strong>Your account was created as a customer.</strong> You
+                    can shop straight away, but selling has to be enabled by
+                    Maya before your farmer dashboard opens. Quote your account
+                    id <code>{user.id}</code> when you get in touch.
+                  </div>
+                )}
                 <FormAlert error={error} success={success} />
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
