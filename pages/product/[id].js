@@ -9,6 +9,7 @@ import { useCart } from "../../src/context/CartContext";
 import { useWishlist } from "../../src/context/WishlistContext";
 import Layout from "../../src/layout/Layout";
 import { formatPrice } from "../../src/services/constants";
+import { isSoldOut } from "../../src/services/normalizers";
 import {
   loadProduct,
   loadProducts,
@@ -60,7 +61,8 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
     product.catalogue[0] ||
     {};
   const price = Number(selected.price || product.price || 0);
-  const stock = Number(selected.stock ?? product.stock ?? 0);
+  const stock = selected.stock ?? product.stock ?? null;
+  const soldOut = isSoldOut(stock);
   const categories = Array.isArray(product.categories)
     ? product.categories
     : [product.categories].filter(Boolean);
@@ -87,7 +89,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
             <div className="col-xl-5 col-lg-6">
               <div className="product-details-content mb-30 wow fadeInRight delay-0-2s">
                 <div className="off-ratting mb-15">
-                  {stock <= 0 && <span className="off bg-red">Sold out</span>}
+                  {soldOut && <span className="off bg-red">Sold out</span>}
                   <div className="ratting">
                     <i className="fas fa-star" />
                     <i className="fas fa-star" />
@@ -115,7 +117,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
                       {product.catalogue.map((entry) => (
                         <option value={entry.id} key={entry.id}>
                           {entry.size || "Standard"} — {formatPrice(entry.price)}
-                          {entry.stock <= 0 ? " (sold out)" : ""}
+                          {isSoldOut(entry.stock) ? " (sold out)" : ""}
                         </option>
                       ))}
                     </select>
@@ -123,10 +125,12 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
                 )}
 
                 <p className="mb-10">
-                  {stock > 0 ? (
-                    <strong className="stock">{stock} in stock</strong>
-                  ) : (
+                  {soldOut ? (
                     <strong className="stock text-danger">Out of stock</strong>
+                  ) : (
+                    <strong className="stock">
+                      {stock === null ? "In stock" : `${stock} in stock`}
+                    </strong>
                   )}
                 </p>
 
@@ -135,7 +139,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
                     type="number"
                     value={quantity}
                     min={1}
-                    max={Math.max(1, stock)}
+                    max={stock === null ? undefined : Math.max(1, stock)}
                     onChange={(event) =>
                       setQuantity(
                         Math.max(1, Number(event.target.value || 1))
@@ -146,7 +150,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
                   <button
                     type="submit"
                     className="theme-btn"
-                    disabled={stock <= 0}
+                    disabled={soldOut}
                   >
                     Add to Cart <i className="fas fa-angle-double-right" />
                   </button>
@@ -224,8 +228,8 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
                 <ul className="list-style-one mt-25 mb-25">
                   {product.catalogue.map((entry) => (
                     <li key={entry.id}>
-                      {entry.size || "Standard"} — {formatPrice(entry.price)} (
-                      {entry.stock} in stock)
+                      {entry.size || "Standard"} — {formatPrice(entry.price)}
+                      {entry.stock === null ? "" : ` (${entry.stock} in stock)`}
                     </li>
                   ))}
                   {product.color && <li>Colour: {product.color}</li>}

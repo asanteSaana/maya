@@ -6,7 +6,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { normalizeProduct } from "../services/normalizers";
+import { normalizeProduct, toStock } from "../services/normalizers";
 
 // The backend has no wishlist endpoint, so this is device-local only. It
 // deliberately mirrors the CartContext shape so the two are interchangeable if
@@ -52,7 +52,7 @@ const toWishlistItem = (product) => {
     image: normalized.image,
     price: Number(catalogue.price || normalized.price || 0),
     size: catalogue.size || normalized.size || "",
-    stock: Number(catalogue.stock || normalized.stock || 0),
+    stock: toStock(catalogue.stock ?? normalized.stock),
   };
 };
 

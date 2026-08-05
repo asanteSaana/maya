@@ -6,6 +6,7 @@ import { useCart } from "../src/context/CartContext";
 import { useWishlist } from "../src/context/WishlistContext";
 import Layout from "../src/layout/Layout";
 import { formatPrice } from "../src/services/constants";
+import { isSoldOut } from "../src/services/normalizers";
 
 const WishlistPage = () => {
   const { addItem } = useCart();
@@ -66,12 +67,12 @@ const WishlistPage = () => {
                     {formatPrice(item.price)}
                   </span>
                   <strong className="stock">
-                    {item.stock > 0 ? "In Stock" : "Out of Stock"}
+                    {isSoldOut(item.stock) ? "Out of Stock" : "In Stock"}
                   </strong>
                   <button
                     type="button"
                     className="theme-btn style-two"
-                    disabled={item.stock <= 0}
+                    disabled={isSoldOut(item.stock)}
                     onClick={() => handleAddToCart(item)}
                   >
                     Add to Cart

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import { formatPrice } from "../../services/constants";
+import { isSoldOut } from "../../services/normalizers";
 
 // The template staggers card animations across a four-step cycle.
 const DELAYS = ["delay-0-2s", "delay-0-4s", "delay-0-6s", "delay-0-8s"];
@@ -12,12 +13,13 @@ const ProductCard = ({ product, index = 0 }) => {
 
   const catalogue = product.catalogue[0] || {};
   const price = Number(catalogue.price || product.price || 0);
-  const stock = Number(catalogue.stock ?? product.stock ?? 0);
+  const stock = catalogue.stock ?? product.stock ?? null;
+  const soldOut = isSoldOut(stock);
   const isWishlisted = has(product.id);
 
   return (
     <div className={`product-item wow fadeInUp ${DELAYS[index % DELAYS.length]}`}>
-      {stock <= 0 && <span className="offer bg-red">Sold out</span>}
+      {soldOut && <span className="offer bg-red">Sold out</span>}
       <div className="image">
         <Link href={`/product/${product.id}`}>
           <a>
@@ -43,10 +45,10 @@ const ProductCard = ({ product, index = 0 }) => {
           <button
             type="button"
             className="theme-btn style-two"
-            disabled={stock <= 0}
+            disabled={soldOut}
             onClick={() => addItem(product, 1, catalogue)}
           >
-            {stock > 0 ? "Add to Cart" : "Sold Out"}
+            {soldOut ? "Sold Out" : "Add to Cart"}
           </button>
           <button
             type="button"

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { categoryKey } from "../services/normalizers";
 
 export const SORT_OPTIONS = [
   { value: "default", label: "Best Selling" },
@@ -45,17 +46,30 @@ export const useProductCatalog = (products, { pageSize = 8 } = {}) => {
   const [sort, setSort] = useState("default");
   const [page, setPage] = useState(1);
 
+  // The live catalogue spells the same category several ways ("Breakfast" vs
+  // "BreaKfast"), which would otherwise render as separate filters splitting
+  // the same products. Group on a folded key and show the most common spelling.
   const categories = useMemo(() => {
-    const counts = new Map();
+    const groups = new Map();
 
     products.forEach((product) => {
       toCategoryList(product).forEach((name) => {
-        counts.set(name, (counts.get(name) || 0) + 1);
+        const key = categoryKey(name);
+        const group = groups.get(key) || { key, count: 0, labels: new Map() };
+        group.count += 1;
+        group.labels.set(name, (group.labels.get(name) || 0) + 1);
+        groups.set(key, group);
       });
     });
 
-    return Array.from(counts.entries())
-      .map(([name, count]) => ({ name, count }))
+    return Array.from(groups.values())
+      .map((group) => ({
+        key: group.key,
+        count: group.count,
+        name: Array.from(group.labels.entries()).sort(
+          (a, b) => b[1] - a[1] || a[0].localeCompare(b[0])
+        )[0][0],
+      }))
       .sort((a, b) => a.name.localeCompare(b.name));
   }, [products]);
 
@@ -71,7 +85,10 @@ export const useProductCatalog = (products, { pageSize = 8 } = {}) => {
         }
       }
 
-      if (category && !toCategoryList(product).includes(category)) {
+      if (
+        category &&
+        !toCategoryList(product).some((name) => categoryKey(name) === category)
+      ) {
         return false;
       }
 

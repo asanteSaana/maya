@@ -50,14 +50,14 @@ const ShopSidebar = ({ catalog, products }) => {
             <span>({products.length})</span>
           </li>
           {catalog.categories.map((entry) => (
-            <li key={entry.name}>
+            <li key={entry.key}>
               <a
                 href="#"
-                className={catalog.category === entry.name ? "active" : ""}
+                className={catalog.category === entry.key ? "active" : ""}
                 onClick={(event) => {
                   event.preventDefault();
                   catalog.setCategory(
-                    catalog.category === entry.name ? "" : entry.name
+                    catalog.category === entry.key ? "" : entry.key
                   );
                 }}
               >
@@ -156,10 +156,10 @@ const ShopSidebar = ({ catalog, products }) => {
             {catalog.categories.slice(0, 8).map((entry) => (
               <a
                 href="#"
-                key={entry.name}
+                key={entry.key}
                 onClick={(event) => {
                   event.preventDefault();
-                  catalog.setCategory(entry.name);
+                  catalog.setCategory(entry.key);
                 }}
               >
                 {entry.name}

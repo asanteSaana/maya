@@ -6,6 +6,7 @@ import {
   LoadingState,
 } from "../../src/components/shop/StateMessage";
 import { formatPrice } from "../../src/services/constants";
+import { isSoldOut } from "../../src/services/normalizers";
 import { getPartnerOrders, getPrivateProducts } from "../../src/services/partner";
 
 const FarmerDashboard = () => {
@@ -39,8 +40,12 @@ const FarmerDashboard = () => {
   const pending = orders.filter((order) => order.status === "pending");
   const accepted = orders.filter((order) => order.status === "accepted");
   const revenue = accepted.reduce((sum, order) => sum + order.amount, 0);
-  const outOfStock = products.filter((product) =>
-    product.catalogue.every((entry) => entry.stock <= 0)
+  // Only listings that actually declare a zero count; untracked stock is not
+  // "out of stock", and a listing with no catalogue has nothing to restock.
+  const outOfStock = products.filter(
+    (product) =>
+      product.catalogue.length > 0 &&
+      product.catalogue.every((entry) => isSoldOut(entry.stock))
   );
 
   const stats = [

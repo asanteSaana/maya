@@ -62,10 +62,14 @@ const FarmerProducts = () => {
           </div>
           <div className="cart-item-wrap wow fadeInUp delay-0-2s">
             {products.map((product) => {
-              const totalStock = product.catalogue.reduce(
-                (sum, entry) => sum + Number(entry.stock || 0),
-                0
+              // A listing with no catalogue carries no stock figure at all, so
+              // it reads as "not tracked" rather than as zero.
+              const tracked = product.catalogue.filter(
+                (entry) => entry.stock !== null
               );
+              const totalStock = tracked.length
+                ? tracked.reduce((sum, entry) => sum + Number(entry.stock), 0)
+                : null;
 
               return (
                 <div className="cart-single-item" key={product.id}>
@@ -86,10 +90,14 @@ const FarmerProducts = () => {
                   </span>
                   <strong
                     className={`stock ${
-                      totalStock > 0 ? "text-success" : "text-danger"
+                      totalStock === 0 ? "text-danger" : "text-success"
                     }`}
                   >
-                    {totalStock > 0 ? `${totalStock} in stock` : "Out of stock"}
+                    {totalStock === null
+                      ? "Stock not tracked"
+                      : totalStock === 0
+                      ? "Out of stock"
+                      : `${totalStock} in stock`}
                   </strong>
                   <Link href={`/farmer/products/${product.id}/edit`}>
                     <a className="theme-btn style-two">Edit</a>
