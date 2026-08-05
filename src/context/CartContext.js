@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { createCart, getCart, updateCart } from "../services/cart";
+import { createCart, getCart, toCartPayload } from "../services/cart";
 import { SHIPPING_FEE, VAT_RATE } from "../services/constants";
 import { normalizeProduct } from "../services/normalizers";
 import { getProducts } from "../services/products";
@@ -15,7 +15,6 @@ import { useAuth } from "./AuthContext";
 
 const CART_STORAGE_KEY = "maya.cart";
 const LEGACY_CART_STORAGE_KEY = "munfirm";
-const SYNC_DEBOUNCE_MS = 800;
 
 const CartContext = createContext(null);
 
@@ -147,14 +146,10 @@ export const CartProvider = ({ children }) => {
   const [isReady, setIsReady] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
   const [error, setError] = useState("");
-  // Stays false until the guest/remote merge settles, so the debounced writer
-  // cannot race the merge and push a half-formed cart.
-  const [canSync, setCanSync] = useState(false);
 
   const itemsRef = useRef(items);
   const hasRemoteCartRef = useRef(false);
   const hasMergedRef = useRef(false);
-  const syncTimerRef = useRef(null);
 
   useEffect(() => {
     itemsRef.current = items;
@@ -171,21 +166,37 @@ export const CartProvider = ({ children }) => {
     }
   }, [isReady, items]);
 
-  // PUT updates an existing cart; the backend needs POST /create the first time.
-  const persistCart = useCallback(async (nextItems) => {
-    if (hasRemoteCartRef.current) {
-      try {
-        return await updateCart(nextItems);
-      } catch (updateError) {
-        if (updateError.status !== 404) {
-          throw updateError;
-        }
-      }
+  /**
+   * The saved cart is write-once. This backend implements only GET /api/carts
+   * and POST /api/carts/create — PUT and DELETE both answer "Cannot <METHOD>
+   * /api/carts", and a unique index on userId rejects a second create. So the
+   * remote cart can be seeded when the shopper has none, and after that it can
+   * never be changed.
+   *
+   * The local cart is therefore the source of truth. This is best-effort: a
+   * failure here must never block shopping, because checkout posts its line
+   * items to /api/orders/create directly and does not read the saved cart.
+   */
+  const seedRemoteCart = useCallback(async (nextItems) => {
+    if (hasRemoteCartRef.current || !nextItems.length) {
+      return null;
     }
 
-    const created = await createCart(nextItems);
-    hasRemoteCartRef.current = true;
-    return created;
+    const payload = toCartPayload(nextItems);
+
+    if (!payload.products.length) {
+      return null;
+    }
+
+    try {
+      const created = await createCart(nextItems);
+      hasRemoteCartRef.current = true;
+      return created;
+    } catch (createError) {
+      // A duplicate means a cart already existed; nothing more can be done.
+      hasRemoteCartRef.current = true;
+      return null;
+    }
   }, []);
 
   const loadRemoteCart = useCallback(async () => {
@@ -224,16 +235,13 @@ export const CartProvider = ({ children }) => {
 
       setItems(merged);
 
-      if (merged.length) {
-        await persistCart(merged);
-      }
+      await seedRemoteCart(merged);
     } catch (requestError) {
       setError(requestError.message);
     } finally {
       setIsSyncing(false);
-      setCanSync(true);
     }
-  }, [persistCart]);
+  }, [seedRemoteCart]);
 
   useEffect(() => {
     if (!authReady || !isReady) {
@@ -243,7 +251,6 @@ export const CartProvider = ({ children }) => {
     if (!isAuthenticated) {
       hasMergedRef.current = false;
       hasRemoteCartRef.current = false;
-      setCanSync(false);
       return;
     }
 
@@ -261,33 +268,15 @@ export const CartProvider = ({ children }) => {
         return null;
       }
 
-      setIsSyncing(true);
-      setError("");
-
-      try {
-        return await persistCart(nextItems);
-      } catch (requestError) {
-        setError(requestError.message);
-        return null;
-      } finally {
-        setIsSyncing(false);
-      }
+      return seedRemoteCart(nextItems);
     },
-    [isAuthenticated, persistCart]
+    [isAuthenticated, seedRemoteCart]
   );
 
-  // Quantity steppers fire rapidly; coalesce them into one write.
-  useEffect(() => {
-    if (!isReady || !isAuthenticated || !canSync) {
-      return undefined;
-    }
-
-    syncTimerRef.current = setTimeout(() => {
-      syncCart(items);
-    }, SYNC_DEBOUNCE_MS);
-
-    return () => clearTimeout(syncTimerRef.current);
-  }, [canSync, isAuthenticated, isReady, items, syncCart]);
+  // There is deliberately no write-on-every-change effect. Updating the saved
+  // cart is impossible (see seedRemoteCart), and the backend allows only 10
+  // requests per minute, so retrying a doomed write would exhaust that budget
+  // and start failing the reads the shop actually needs.
 
   const addItem = useCallback((product, quantity = 1, selectedCatalogue) => {
     const nextItem = toCartItem(product, quantity, selectedCatalogue);

@@ -81,7 +81,7 @@ const Checkout = () => {
     setIsPlacing(true);
 
     try {
-      const order = await createOrder({
+      const orders = await createOrder({
         items,
         // The documented address schema is { city }. The rest of the billing
         // form rides along and is kept if the backend's schema accepts it.
@@ -99,9 +99,20 @@ const Checkout = () => {
       });
 
       clearCart();
-      router.push(order?.id ? `/orders/${order.id}` : "/orders");
+
+      // Each basket line becomes its own order, so a multi-item basket has no
+      // single order to land on.
+      router.push(
+        orders.length === 1 && orders[0].id
+          ? `/orders/${orders[0].id}`
+          : "/orders"
+      );
     } catch (requestError) {
-      setOrderError(requestError.message);
+      setOrderError(
+        requestError.partial
+          ? `${requestError.message} Some items may still have been ordered — check your orders before trying again.`
+          : requestError.message
+      );
       setIsPlacing(false);
     }
   };
@@ -418,6 +429,14 @@ const Checkout = () => {
 
                   <div className="pt-25">
                     <FormAlert error={orderError} />
+                    {orderError && (
+                      <p className="mb-15">
+                        <Link href="/orders">
+                          <a>Check your orders</a>
+                        </Link>{" "}
+                        before placing this again.
+                      </p>
+                    )}
                     <button
                       type="submit"
                       className="theme-btn style-two w-100"

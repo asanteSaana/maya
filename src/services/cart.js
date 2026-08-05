@@ -11,7 +11,7 @@ export const toCartPayload = (items = []) => ({
 });
 
 export const getCart = async () => {
-  const payload = await apiRequest("/api/carts/");
+  const payload = await apiRequest("/api/carts");
   return unwrapApiData(payload);
 };
 
@@ -21,10 +21,25 @@ export const createCart = (items) =>
     body: toCartPayload(items),
   });
 
-export const updateCart = (items) =>
-  apiRequest("/api/carts/", {
-    method: "PUT",
-    body: toCartPayload(items),
-  });
+export const deleteCart = () => apiRequest("/api/carts", { method: "DELETE" });
 
-export const deleteCart = () => apiRequest("/api/carts/", { method: "DELETE" });
+/**
+ * Replaces the saved cart.
+ *
+ * The documented `PUT /api/carts` is not implemented — every variant answers
+ * "Cannot PUT /api/carts" — and a second `POST /api/carts/create` is rejected
+ * by a unique index on userId. Delete-then-create is the only path the backend
+ * actually supports.
+ */
+export const replaceCart = async (items) => {
+  try {
+    await deleteCart();
+  } catch (error) {
+    // No cart to remove yet is the expected state on a first save.
+    if (error.status !== 404 && error.status !== 400) {
+      throw error;
+    }
+  }
+
+  return createCart(items);
+};

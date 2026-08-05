@@ -59,6 +59,36 @@ const notifyUnauthorized = () => {
   }
 };
 
+// Mongo's duplicate-key errors are forwarded verbatim by the backend and are
+// meaningless to a shopper.
+const isInternalDatabaseError = (message) =>
+  /E11000|duplicate key|MongoError|ValidationError:/i.test(message);
+
+/**
+ * The backend does not always answer with JSON — the rate limiter replies with
+ * a bare string — so plain-text bodies have to be read as the message too,
+ * otherwise the useful part is dropped for a generic status line.
+ */
+const errorMessage = (data, status) => {
+  const raw =
+    (data && typeof data === "object" && (data.message || data.error)) ||
+    (typeof data === "string" ? data.trim() : "");
+
+  if (status === 429 || /exceeded your .* limit/i.test(raw)) {
+    return "Too many requests just now. Please wait a moment and try again.";
+  }
+
+  if (!raw) {
+    return `Request failed with status ${status}`;
+  }
+
+  if (isInternalDatabaseError(raw)) {
+    return "We could not save that. Please refresh and try again.";
+  }
+
+  return raw.length > 200 ? `${raw.slice(0, 200)}…` : raw;
+};
+
 const request = async (
   url,
   { method = "GET", body, headers = {}, signal, notifyOn401 = true } = {}
@@ -90,11 +120,10 @@ const request = async (
       notifyUnauthorized();
     }
 
-    const message =
-      (data && typeof data === "object" && (data.message || data.error)) ||
-      `Request failed with status ${response.status}`;
-
-    throw new ApiError(message, { status: response.status, data });
+    throw new ApiError(errorMessage(data, response.status), {
+      status: response.status,
+      data,
+    });
   }
 
   return data;
