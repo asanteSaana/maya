@@ -7,19 +7,10 @@ import { sidebarToggle } from "../utils";
 import { Account, Blog, Contact, Gallery, PagesDasktop, Shop } from "./Menus";
 import MobileMenu from "./MobileMenu";
 
-const Header = ({ header }) => {
-  switch (header) {
-    case 1:
-      return <Header1 />;
-    case 2:
-      return <Header2 />;
-    case 3:
-      return <Header3 />;
+// header={1} is the home page's overlay treatment; every other page uses the
+// standard bar.
+const Header = ({ header }) => <SiteHeader absolute={header === 1} />;
 
-    default:
-      return <DefaultHeader />;
-  }
-};
 export default Header;
 
 const SearchBtn = () => {
@@ -173,407 +164,103 @@ const Nav = () => {
   );
 };
 
-const DefaultHeader = () => (
-  <header className="main-header">
-    <div className="header-top-wrap bg-light-green text-white py-10">
-      <div className="container-fluid">
-        <div className="header-top">
-          <div className="row">
-            <div className="col-xl-7 col-lg-6">
-              <div className="top-left">
-                <ul>
-                  <li>
-                    <i className="far fa-envelope" /> <b>Email Us :</b>{" "}
-                    <a href="mailto:support@gmail.com">mayatek@gmail.com</a>
-                  </li>
-                  <li>
-                    <i className="far fa-clock" /> <b>Working Hours :</b> Monday
-                    - Friday, 08 am - 05 pm
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-5 col-lg-6">
-              <div className="top-right text-lg-right">
-                <ul>
-                  <li>
-                    <i className="far fa-phone" /> <b>Call :</b>{" "}
-                    <a href="callto:+012(345)67899">+233 579 2200</a>
-                  </li>
-                  <li>
-                    <div className="social-style-one">
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/*Header-Upper*/}
-    <div className="header-upper">
-      <div className="container-fluid clearfix">
-        <div className="header-inner d-flex align-items-center">
-          <div className="logo-outer">
-            <div className="logo">
-              <Link href="/">
-                <a>
-                  <img
-                    src="/assets/images/logos/logo.png"
-                    alt="Logo"
-                    title="Logo"
-                  />
-                </a>
-              </Link>
-            </div>
-          </div>
-          <div className="nav-outer clearfix">
-            {/* Main Menu */}
-            <Nav />
-            {/* Main Menu End*/}
-          </div>
-          {/* Menu Button */}
-          <div className="menu-icons">
-            {/* Nav Search */}
-            <div className="nav-search py-15">
-              <SearchBtn />
-            </div>
-            <HeaderCartButton />
-            <HeaderUserButton />
-            <Link href="/contact">
-              <a className="theme-btn">
-                Consultations <i className="fas fa-angle-double-right" />
-              </a>
-            </Link>
-            {/* menu sidbar */}
-            <div className="menu-sidebar" onClick={() => sidebarToggle()}>
-              <button>
-                <i className="far fa-ellipsis-h" />
-                <i className="far fa-ellipsis-h" />
-                <i className="far fa-ellipsis-h" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/*End Header Upper*/}
-  </header>
-);
-const Header1 = () => (
-  <header className="main-header menu-absolute">
-    <div className="header-top-wrap bg-light-green text-white py-10">
-      <div className="container-fluid">
-        <div className="header-top">
-          <div className="row">
-            <div className="col-xl-7 col-lg-6">
-              <div className="top-left">
-                <ul>
-                  <li>
-                    <i className="far fa-envelope" /> <b>Email Us :</b>{" "}
-                    <a href="mailto:mayatek@gmail.com">mayatek@gmail.com</a>
-                  </li>
-                  <li>
-                    <i className="far fa-clock" /> <b>Working Hours :</b> Monday
-                    - Friday, 08 am - 05 pm
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-5 col-lg-6">
-              <div className="top-right text-lg-right">
-                <ul>
-                  <li>
-                    <i className="far fa-phone" /> <b>Call :</b>{" "}
-                    <a href="callto:+012(345)67899">+233 579 2200</a>
-                  </li>
-                  <li>
-                    <div className="social-style-one">
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/*Header-Upper*/}
-    <div className="header-upper">
-      <div className="container-fluid clearfix">
-        <div className="header-inner d-flex align-items-center">
-          <div className="logo-outer">
-            <div className="logo">
-              <Link href="/">
-                <a>
-                  <img
-                    src="/assets/images/logos/logo.png"
-                    alt="Logo"
-                    title="Logo"
-                  />
-                </a>
-              </Link>
-            </div>
-          </div>
-          <div className="nav-outer clearfix">
-            {/* Main Menu */}
-            <Nav />
-            {/* Main Menu End*/}
-          </div>
-          {/* Menu Button */}
-          <div className="menu-icons">
-            {/* Nav Search */}
-            <div className="nav-search py-15">
-              <SearchBtn />
-            </div>
-            <HeaderCartButton />
-            <HeaderUserButton />
-            <Link href="/contact">
-              <a className="theme-btn">
-                Consultations <i className="fas fa-angle-double-right" />
-              </a>
-            </Link>
-            {/* menu sidbar */}
-            <div className="menu-sidebar" onClick={() => sidebarToggle()}>
-              <button>
-                <i className="far fa-ellipsis-h" />
-                <i className="far fa-ellipsis-h" />
-                <i className="far fa-ellipsis-h" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/*End Header Upper*/}
-  </header>
-);
-const Header2 = () => (
-  <header className="main-header header-two">
-    <div className="header-top-wrap">
-      <div className="container">
-        <div className="header-top bg-light-green text-white py-10">
-          <div className="row">
-            <div className="col-xl-7 col-lg-6">
-              <div className="top-left">
-                <ul>
-                  <li>
-                    <i className="far fa-envelope" /> <b>Email Us :</b>{" "}
-                    <a href="mailto:support@gmail.com">mayatek@gmail.com</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-5 col-lg-6">
-              <div className="top-right text-lg-right">
-                <ul>
-                  <li>
-                    <i className="far fa-phone" /> <b>Call :</b>{" "}
-                    <a href="callto:+012(345)67899">+233 579 2200</a>
-                  </li>
-                  <li>
-                    <div className="social-style-one">
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/*Header-Upper*/}
-    <div className="header-upper">
-      <div className="container rel clearfix">
-        <div className="header-inner d-flex align-items-center">
-          <div className="logo-outer">
-            <div className="logo">
-              <Link href="/">
-                <a>
-                  <img
-                    src="/assets/images/logos/logo.png"
-                    alt="Logo"
-                    title="Logo"
-                  />
-                  <img
-                    src="/assets/images/logos/logo-white.png"
-                    alt="Logo"
-                    title="Logo"
-                  />
-                </a>
-              </Link>
-            </div>
-          </div>
-          <div className="nav-outer clearfix">
-            {/* Main Menu */}
-            <Nav />
-            {/* Main Menu End*/}
-          </div>
-          {/* Menu Button */}
-          <div className="menu-icons">
-            {/* Nav Search */}
-            <div className="nav-search py-15">
-              <button className="far fa-search" />
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                action="#"
-                className="hide"
-              >
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="searchbox"
-                  required=""
-                />
-                <button type="submit" className="searchbutton far fa-search" />
-              </form>
-            </div>
-            <HeaderCartButton showCount={false} />
-            {/* menu sidbar */}
-            <div className="menu-sidebar" onClick={() => sidebarToggle()}>
-              <button>
-                <i className="far fa-ellipsis-h" />
-                <i className="far fa-ellipsis-h" />
-                <i className="far fa-ellipsis-h" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/*End Header Upper*/}
-  </header>
-);
-const Header3 = () => (
-  <header className="main-header header-three menu-absolute">
-    <div className="header-top-wrap bgc-primary py-10">
-      <div className="container-fluid">
-        <div className="header-top px-0">
-          <ul>
-            <li>25% OFF Upcoming Product</li>
-            <li>100% Fresh &amp; natural foods</li>
-            <li>free shipping over $99</li>
-            <li>money back guarantee</li>
-            <li>cash on delivery</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="header-middle py-15">
-      <div className="container-fluid">
-        <div className="header-middle-inner">
-          <div className="menu-middle-left">
-            <select name="currentcy" id="currentcy">
-              <option value="USD">GS</option>
-              {/* <option value="BDT">BDT</option>
-              <option value="EURO">EURO</option> */}
-            </select>
 
-            <select name="language" id="language">
-              <option value="English">English</option>
-              <option value="French">French</option>
-            </select>
+const CONTACT_EMAIL = "mayatek@gmail.com";
+const CONTACT_PHONE = "+233 579 2200";
 
-            <div className="follower">
-              <i className="fab fa-facebook" />
-              <a href="#">250k+ Followers</a>
+/**
+ * The template shipped four header variants that differed only in a class name
+ * and stray placeholder copy. Two of them belonged to homepages that no longer
+ * exist. One component now covers every page; `absolute` is the overlay
+ * treatment the home hero needs.
+ */
+const TopBar = () => (
+  <div className="header-top-wrap bg-light-green text-white py-10">
+    <div className="container-fluid">
+      <div className="header-top">
+        <div className="row align-items-center">
+          <div className="col-lg-6">
+            <div className="top-left">
+              <ul>
+                <li>
+                  <i className="far fa-envelope" /> <b>Email :</b>{" "}
+                  <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                </li>
+              </ul>
             </div>
           </div>
+          <div className="col-lg-6">
+            <div className="top-right text-lg-right">
+              <ul>
+                <li>
+                  <i className="far fa-phone" /> <b>Call :</b>{" "}
+                  <a href={`tel:${CONTACT_PHONE.replace(/[^0-9+]/g, "")}`}>
+                    {CONTACT_PHONE}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const HeaderActions = () => {
+  const { isPartner, isReady } = useAuth();
+
+  return (
+    <div className="menu-icons">
+      <div className="nav-search py-15">
+        <SearchBtn />
+      </div>
+      <HeaderCartButton />
+      <HeaderUserButton />
+      {/* Recruiting sellers is what this marketplace needs; farmers who are
+          already selling get their dashboard instead. */}
+      <Link href={isReady && isPartner ? "/farmer/dashboard" : "/register"}>
+        <a className="theme-btn d-none d-md-inline-block">
+          {isReady && isPartner ? "My dashboard" : "Sell your produce"}{" "}
+          <i className="fas fa-angle-double-right" />
+        </a>
+      </Link>
+      <div className="menu-sidebar" onClick={() => sidebarToggle()}>
+        <button type="button" aria-label="Open menu">
+          <i className="far fa-ellipsis-h" />
+          <i className="far fa-ellipsis-h" />
+          <i className="far fa-ellipsis-h" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const SiteHeader = ({ absolute = false }) => (
+  <header className={`main-header ${absolute ? "menu-absolute" : ""}`}>
+    <TopBar />
+    <div className="header-upper">
+      <div className="container-fluid clearfix">
+        <div className="header-inner d-flex align-items-center">
           <div className="logo-outer">
             <div className="logo">
               <Link href="/">
                 <a>
                   <img
-                    src="/assets/images/logos/logo-two.png"
-                    alt="Logo"
-                    title="Logo"
+                    src="/assets/images/logos/logo.png"
+                    alt="Maya"
+                    title="Maya"
                   />
                 </a>
               </Link>
             </div>
           </div>
-          {/* Menu Button */}
-          <div className="menu-icons">
-            {/* Nav Search */}
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              action="#"
-              className="nav-search"
-            >
-              <input
-                type="text"
-                placeholder="Search here"
-                className="searchbox"
-                required=""
-              />
-              <button type="submit" className="searchbutton far fa-search" />
-            </form>
-            <HeaderCartButton />
-            <HeaderUserButton />
-            <button className="heart">
-              <i className="far fa-heart" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/*Header-Upper*/}
-    <div className="header-upper px-0">
-      <div className="container-fluid clearfix">
-        <div className="header-inner d-flex align-items-center">
           <div className="nav-outer clearfix">
-            {/* Main Menu */}
             <Nav />
-            {/* Main Menu End*/}
           </div>
-          {/* menu sidbar */}
-          <div className="menu-sidebar" onClick={() => sidebarToggle()}>
-            <button>
-              <i className="far fa-ellipsis-h" />
-              <i className="far fa-ellipsis-h" />
-              <i className="far fa-ellipsis-h" />
-            </button>
-          </div>
+          <HeaderActions />
         </div>
       </div>
     </div>
-    {/*End Header Upper*/}
   </header>
 );

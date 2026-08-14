@@ -243,3 +243,111 @@ img.mfp-img {
 .sub-total-price:before {
   content: none;
 }
+
+/* ---------------------------------------------------------------------------
+   Action hierarchy
+   Buttons are ranked by consequence, so the eye lands on the expected action
+   and an irreversible one cannot be hit by mistake. The template offers only
+   two filled styles, which left Accept, Reject and Delete looking equivalent.
+   --------------------------------------------------------------------------- */
+
+.order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Secondary: available, but not where the eye should land first. */
+.btn-quiet {
+  background: transparent;
+  border: 1px solid rgba(39, 76, 59, 0.3);
+  color: var(--heading-color, #274c3b);
+  border-radius: 4px;
+  padding: 9px 22px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-quiet:hover:not(:disabled) {
+  background: rgba(126, 182, 147, 0.12);
+  border-color: rgba(39, 76, 59, 0.55);
+}
+
+/* Destructive: set apart from the pair it must not be confused with, and
+   pushed to the far end of the row so it is a deliberate reach. */
+.btn-destructive {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #c0392b;
+  border-radius: 4px;
+  padding: 9px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-destructive:hover:not(:disabled) {
+  background: rgba(192, 57, 43, 0.08);
+  border-color: rgba(192, 57, 43, 0.35);
+}
+
+.btn-quiet:disabled,
+.btn-destructive:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 575px) {
+  .btn-destructive {
+    margin-left: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Order lists
+   The template's checklist bullets read as "completed" against order lines,
+   which are simply contents. Replaced with a quiet divider instead.
+   --------------------------------------------------------------------------- */
+
+.order-lines {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.order-lines li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.order-lines .line-name {
+  font-weight: 600;
+}
+
+.order-lines .line-meta {
+  color: #6b726c;
+}
+
+/* Status wording carries the colour, so a badge is not needed twice over. */
+.stock.status-pending {
+  color: #b7791f;
+}
+
+.stock.status-accepted {
+  color: #2f7a4d;
+}
+
+.stock.status-rejected {
+  color: #c0392b;
+}

@@ -44,7 +44,10 @@ const Login = () => {
   };
 
   return (
-    <Layout>
+    <Layout
+      title="Sign in"
+      description="Sign in to your Maya account to order produce or manage your listings."
+    >
       <PageBanner pageName={"Login"} />
       <div className="contact-page-form-area py-130 rpy-100">
         <div className="container">

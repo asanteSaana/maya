@@ -44,21 +44,8 @@ const SideBar = () => {
               </div>
             </form>
           </div>
-          {/*Social Icons*/}
-          <div className="social-style-one">
-            <a href="#">
-              <i className="fab fa-twitter" />
-            </a>
-            <a href="#">
-              <i className="fab fa-facebook-f" />
-            </a>
-            <a href="#">
-              <i className="fab fa-instagram" />
-            </a>
-            <a href="#">
-              <i className="fab fa-pinterest-p" />
-            </a>
-          </div>
+          {/* The template's social icons all pointed at "#". Icons that lead
+              nowhere cost trust; they return once there are real accounts. */}
         </div>
       </section>
     </Fragment>

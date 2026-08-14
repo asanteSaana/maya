@@ -4,7 +4,10 @@ import Pagination from "../src/components/Pagination";
 import Layout from "../src/layout/Layout";
 const BlogGrid = () => {
   return (
-    <Layout>
+    <Layout
+      title="Blog"
+      description="News and growing advice from the Maya community."
+    >
       <PageBanner pageName={"Blog Grid"} />
       <section className="news-page-section rel z-1 py-130 rpy-100">
         <div className="container">

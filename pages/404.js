@@ -3,7 +3,10 @@ import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layout/Layout";
 const E404 = () => {
   return (
-    <Layout>
+    <Layout
+      title="Page not found"
+      description="The page you were looking for is not here."
+    >
       <PageBanner pageName={"404"} pageTitle={"404 Error"} />
       <section className="error-section rel z-1 py-130 rpy-100">
         <div className="container">

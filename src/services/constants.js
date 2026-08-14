@@ -21,10 +21,12 @@ export const ORDER_STATUS_LABELS = {
 };
 
 // Maps an order status onto the template's existing badge colour utilities.
+// Bootstrap's text-warning is too pale on white to read as a status. These map
+// to project styles with enough contrast to be legible.
 export const ORDER_STATUS_CLASSES = {
-  pending: "text-warning",
-  accepted: "text-success",
-  rejected: "text-danger",
+  pending: "status-pending",
+  accepted: "status-accepted",
+  rejected: "status-rejected",
 };
 
 export const SHIPPING_FEE = 10;

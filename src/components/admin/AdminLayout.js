@@ -32,7 +32,7 @@ const AdminLayout = ({ pageName, children }) => {
 
   if (!isReady || !isAuthenticated) {
     return (
-      <Layout>
+      <Layout title={pageName}>
         <PageBanner pageName={pageName} />
         <div className="container py-130 rpy-100">
           <LoadingState message="Checking your account…" />
@@ -43,7 +43,7 @@ const AdminLayout = ({ pageName, children }) => {
 
   if (!isAdmin) {
     return (
-      <Layout>
+      <Layout title={pageName}>
         <PageBanner pageName={pageName} />
         <div className="container py-130 rpy-100 text-center">
           <h4>Administrator access required</h4>
@@ -64,7 +64,7 @@ const AdminLayout = ({ pageName, children }) => {
   }
 
   return (
-    <Layout>
+    <Layout title={pageName}>
       <PageBanner pageName={pageName} />
       <div className="account-area py-130 rpy-100">
         <div className="container">

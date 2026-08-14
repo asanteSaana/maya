@@ -22,7 +22,10 @@ const CartPage = () => {
   } = useCart();
 
   return (
-    <Layout>
+    <Layout
+      title="Your basket"
+      description="Review the produce in your basket and continue to checkout."
+    >
       <PageBanner pageName={"Cart Page"} />
       <div className="cart-area py-130 rpy-100">
         <div className="container">

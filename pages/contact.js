@@ -2,7 +2,10 @@ import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layout/Layout";
 const ContactUs = () => {
   return (
-    <Layout>
+    <Layout
+      title="Contact"
+      description="Get in touch with the Maya team."
+    >
       <PageBanner pageName={"Contact Us"} />{" "}
       <section className="contact-info-area rel z-1 pt-130 rpt-100">
         <div className="container">

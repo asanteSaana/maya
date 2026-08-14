@@ -13,7 +13,10 @@ const PortfolioFluidIsotope = dynamic(
 
 const PortfolioFluid = () => {
   return (
-    <Layout>
+    <Layout
+      title="Gallery"
+      description="A look at the produce and the farms behind it."
+    >
       <PageBanner pageName={"Portfolio Fluid"} />
       <PortfolioFluidIsotope />
       {/* Portfolio Fluid End */}

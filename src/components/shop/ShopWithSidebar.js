@@ -68,7 +68,10 @@ const ShopWithSidebar = ({
   );
 
   return (
-    <Layout>
+    <Layout
+      title={pageName}
+      description="Browse fresh produce listed by local farmers, filter by category and price, and order direct."
+    >
       <PageBanner pageName={pageName} />
       <section className="shop-page rel z-1 pt-65 rpt-35 pb-130 rpb-100">
         <div className="container">

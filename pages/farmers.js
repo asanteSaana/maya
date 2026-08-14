@@ -8,7 +8,10 @@ import ExperienceTeam from "../src/components/slider/ExperienceTeam";
 import Layout from "../src/layout/Layout";
 const Farmers = () => {
   return (
-    <Layout>
+    <Layout
+      title="Our farmers"
+      description="Meet the growers supplying produce on Maya."
+    >
       <PageBanner pageName={"Expert Farmers"} />
       <section className="team-page-area pt-130 rpt-100 pb-95 rpb-65">
         <div className="container">

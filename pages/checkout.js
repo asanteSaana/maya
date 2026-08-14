@@ -119,7 +119,10 @@ const Checkout = () => {
 
   if (!cartReady || !authReady) {
     return (
-      <Layout>
+      <Layout
+        title="Checkout"
+        description="Confirm your delivery details and place your order with the farmer."
+      >
         <PageBanner pageName={"Checkout"} />
         <div className="container py-130 rpy-100">
           <LoadingState message="Preparing your checkout…" />
@@ -130,7 +133,10 @@ const Checkout = () => {
 
   if (items.length === 0) {
     return (
-      <Layout>
+      <Layout
+        title="Checkout"
+        description="Confirm your delivery details and place your order with the farmer."
+      >
         <PageBanner pageName={"Checkout"} />
         <div className="container py-130 rpy-100">
           <EmptyState
@@ -150,7 +156,10 @@ const Checkout = () => {
   }
 
   return (
-    <Layout>
+    <Layout
+      title="Checkout"
+      description="Confirm your delivery details and place your order with the farmer."
+    >
       <PageBanner pageName={"Checkout"} />
       <div className="checkout-form-area py-130 rpy-100">
         <div className="container">

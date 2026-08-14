@@ -4,7 +4,10 @@ import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layout/Layout";
 const PortfolioDetails = () => {
   return (
-    <Layout>
+    <Layout
+      title="Gallery"
+      description="A look at the produce and the farms behind it."
+    >
       <PageBanner pageName={"Portfolio Details"} />
       <section className="portfolio-details-area rel z-1 py-130 rpy-100">
         <div className="container">

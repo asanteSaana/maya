@@ -7,7 +7,10 @@ import PhotoGallery from "../src/components/slider/PhotoGallery";
 import Layout from "../src/layout/Layout";
 const About = () => {
   return (
-    <Layout>
+    <Layout
+      title="About"
+      description="Why Maya connects farmers and customers directly, and what that changes for both."
+    >
       <PageBanner pageName={"about us"} />
       {/* Page Banner End */}
       {/* About Section Start */}

@@ -54,7 +54,7 @@ const OrderDetails = () => {
   ].filter(Boolean);
 
   return (
-    <Layout>
+    <Layout title="Order details">
       <PageBanner pageName={"Order Details"} />
       <div className="cart-area py-130 rpy-100">
         <div className="container">

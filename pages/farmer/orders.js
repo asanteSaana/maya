@@ -111,36 +111,43 @@ const FarmerOrders = () => {
                   <OrderStatusBadge status={order.status} />
                 </div>
 
-                <ul className="list-style-one pt-15">
+                <ul className="order-lines pt-15">
                   {order.products.map((product, index) => (
                     <li key={`${product.productId}:${product.size}:${index}`}>
-                      {product.productName}
-                      {product.size ? ` (${product.size})` : ""} ×{" "}
-                      {product.quantity} — {formatPrice(product.amount)}
+                      <span className="line-name">
+                        {product.productName}
+                        {product.size ? ` (${product.size})` : ""}
+                      </span>
+                      <span className="line-meta">
+                        × {product.quantity} — {formatPrice(product.amount)}
+                      </span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="pt-10">
+                {/* Ranked by consequence: accepting is the expected action, so
+                    it carries the weight; deleting is irreversible, so it is
+                    set apart from the pair it must not be confused with. */}
+                <div className="order-actions pt-10">
                   <button
                     type="button"
                     className="theme-btn"
                     disabled={busyId === order.id || order.status === "accepted"}
                     onClick={() => handleStatus(order.id, "accepted")}
                   >
-                    Accept
+                    {order.status === "accepted" ? "Accepted" : "Accept"}
                   </button>
                   <button
                     type="button"
-                    className="theme-btn style-two ml-10"
+                    className="btn-quiet"
                     disabled={busyId === order.id || order.status === "rejected"}
                     onClick={() => handleStatus(order.id, "rejected")}
                   >
-                    Reject
+                    {order.status === "rejected" ? "Rejected" : "Reject"}
                   </button>
                   <button
                     type="button"
-                    className="theme-btn style-two ml-10"
+                    className="btn-destructive"
                     disabled={busyId === order.id}
                     onClick={() => handleDelete(order.id)}
                   >

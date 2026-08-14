@@ -5,7 +5,10 @@ import Layout from "../src/layout/Layout";
 import { newsSlider } from "../src/sliderProps";
 const BlogDetails = () => {
   return (
-    <Layout>
+    <Layout
+      title="Blog"
+      description="News and growing advice from the Maya community."
+    >
       <PageBanner pageName={"Blog Details"} />
       <section className="news-details-page rel z-1 pt-65 rpt-35 pb-130 rpb-100">
         <div className="container">

@@ -13,9 +13,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <Head>
-        <title>
-          mayaTek &amp; Organic Food
-        </title>
+        {/* Each page sets its own title through Layout; this is the fallback
+            for anything rendered outside it. */}
+        <title>Maya — Farm-fresh produce, direct from the grower</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Favicon Icon */}
         <link
           rel="shortcut icon"

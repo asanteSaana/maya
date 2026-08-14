@@ -37,7 +37,10 @@ const Orders = () => {
   }, [load]);
 
   return (
-    <Layout>
+    <Layout
+      title="My orders"
+      description="Track the orders you have placed and see how each farmer has responded."
+    >
       <PageBanner pageName={"My Orders"} />
       <div className="cart-area py-130 rpy-100">
         <div className="container">

@@ -75,7 +75,10 @@ const Register = () => {
   };
 
   return (
-    <Layout>
+    <Layout
+      title="Create account"
+      description="Create a Maya account to buy fresh produce, or to start selling your own harvest."
+    >
       <PageBanner pageName={"Create Account"} />
       <div className="contact-page-form-area py-130 rpy-100">
         <div className="container">

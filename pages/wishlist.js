@@ -23,7 +23,10 @@ const WishlistPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout
+      title="Wishlist"
+      description="Produce you have saved to buy later."
+    >
       <PageBanner pageName={"Wishlist Page"} />
       <div className="wishlist-area py-130 rpy-100">
         <div className="container">

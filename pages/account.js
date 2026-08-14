@@ -60,7 +60,10 @@ const Account = () => {
 
   if (!isReady || !user) {
     return (
-      <Layout>
+      <Layout
+        title="My account"
+        description="Manage your Maya account details."
+      >
         <PageBanner pageName={"My Account"} />
         <div className="py-130 rpy-100 text-center">
           <i className="fas fa-spinner fa-spin fa-2x" aria-hidden="true" />
@@ -70,7 +73,10 @@ const Account = () => {
   }
 
   return (
-    <Layout>
+    <Layout
+      title="My account"
+      description="Manage your Maya account details."
+    >
       <PageBanner pageName={"My Account"} />
       <div className="account-area py-130 rpy-100">
         <div className="container">

@@ -30,7 +30,7 @@ const FarmerLayout = ({ pageName, children }) => {
 
   if (!isReady || !isAuthenticated) {
     return (
-      <Layout>
+      <Layout title={pageName}>
         <PageBanner pageName={pageName} />
         <div className="container py-130 rpy-100">
           <LoadingState message="Checking your account…" />
@@ -41,7 +41,7 @@ const FarmerLayout = ({ pageName, children }) => {
 
   if (!isPartner) {
     return (
-      <Layout>
+      <Layout title={pageName}>
         <PageBanner pageName={pageName} />
         <div className="container py-130 rpy-100 text-center">
           <h4>Farmer account required</h4>
@@ -60,7 +60,7 @@ const FarmerLayout = ({ pageName, children }) => {
   }
 
   return (
-    <Layout>
+    <Layout title={pageName}>
       <PageBanner pageName={pageName} />
       <div className="account-area py-130 rpy-100">
         <div className="container">

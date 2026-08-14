@@ -28,7 +28,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
 
   if (requiresAuth) {
     return (
-      <Layout>
+      <Layout title="Product">
         <PageBanner pageName={"Product Details"} />
         <div className="container py-130 rpy-100">
           <SignInPrompt message="Sign in to view this product." />
@@ -39,7 +39,7 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
 
   if (error || !product) {
     return (
-      <Layout>
+      <Layout title="Product">
         <PageBanner pageName={"Product Details"} />
         <div className="container py-130 rpy-100 text-center">
           <h4>{error ? "Something went wrong" : "Product not found"}</h4>
@@ -74,7 +74,10 @@ const ProductDetails = ({ product, related, error, requiresAuth }) => {
   };
 
   return (
-    <Layout>
+    <Layout
+      title={product.title}
+      description={product.description || `Buy ${product.title} direct from the farmer on Maya.`}
+    >
       <PageBanner pageName={product.title} />
       <section className="product-details-area pt-130 rpt-100">
         <div className="container">

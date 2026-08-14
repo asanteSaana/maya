@@ -13,7 +13,10 @@ const PortfolioGridIsotope = dynamic(
 
 const PortfolioGrid = () => {
   return (
-    <Layout>
+    <Layout
+      title="Gallery"
+      description="A look at the produce and the farms behind it."
+    >
       <PageBanner pageName={"Portfolio Grid"} />
       <PortfolioGridIsotope />
       {/* Portfolio Fluid End */}
