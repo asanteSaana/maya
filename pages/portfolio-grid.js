@@ -25,32 +25,32 @@ const PortfolioGrid = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>

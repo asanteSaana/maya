@@ -67,7 +67,7 @@ const Orders = () => {
                     <img
                       src={
                         order.products[0]?.productImageUrl ||
-                        "assets/images/products/product1.png"
+                        "/assets/images/products/product1.png"
                       }
                       alt={order.products[0]?.productName || "Order"}
                     />

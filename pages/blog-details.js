@@ -27,7 +27,7 @@ const BlogDetails = () => {
                   Vegetables &amp; Foods
                 </h3>
                 <div className="image my-35">
-                  <img src="assets/images/news/blog-details.jpg" alt="Blog" />
+                  <img src="/assets/images/news/blog-details.jpg" alt="Blog" />
                 </div>
                 <p>
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -111,7 +111,7 @@ const BlogDetails = () => {
                 <div className="next-prev-post mb-55">
                   <div className="prev-post wow fadeInLeft delay-0-2s">
                     <div className="image">
-                      <img src="assets/images/news/prev-post.jpg" alt="News" />
+                      <img src="/assets/images/news/prev-post.jpg" alt="News" />
                     </div>
                     <div className="content">
                       <h6>
@@ -131,7 +131,7 @@ const BlogDetails = () => {
                   </Link>
                   <div className="next-post wow fadeInRight delay-0-2s">
                     <div className="image">
-                      <img src="assets/images/news/next-post.jpg" alt="News" />
+                      <img src="/assets/images/news/next-post.jpg" alt="News" />
                     </div>
                     <div className="content">
                       <h6>
@@ -151,7 +151,7 @@ const BlogDetails = () => {
                   <div className="news-item wow fadeInUp delay-0-2s">
                     <div className="image">
                       <img
-                        src="assets/images/news/news-slider1.jpg"
+                        src="/assets/images/news/news-slider1.jpg"
                         alt="News"
                       />
                       <span className="date">
@@ -176,7 +176,7 @@ const BlogDetails = () => {
                   <div className="news-item wow fadeInUp delay-0-4s">
                     <div className="image">
                       <img
-                        src="assets/images/news/news-slider2.jpg"
+                        src="/assets/images/news/news-slider2.jpg"
                         alt="News"
                       />
                       <span className="date">
@@ -201,7 +201,7 @@ const BlogDetails = () => {
                   <div className="news-item wow fadeInUp delay-0-2s">
                     <div className="image">
                       <img
-                        src="assets/images/news/news-slider1.jpg"
+                        src="/assets/images/news/news-slider1.jpg"
                         alt="News"
                       />
                       <span className="date">
@@ -226,7 +226,7 @@ const BlogDetails = () => {
                   <div className="news-item wow fadeInUp delay-0-4s">
                     <div className="image">
                       <img
-                        src="assets/images/news/news-slider2.jpg"
+                        src="/assets/images/news/news-slider2.jpg"
                         alt="News"
                       />
                       <span className="date">
@@ -331,7 +331,7 @@ const BlogDetails = () => {
               <div className="blog-sidebar mt-65">
                 <div className="widget widget-about wow fadeInUp delay-0-2s">
                   <div className="image">
-                    <img src="assets/images/widgets/about.jpg" alt="Author" />
+                    <img src="/assets/images/widgets/about.jpg" alt="Author" />
                   </div>
                   <h4>Somalia D. Silva</h4>
                   <span className="sub-title">CO-Founder</span>
@@ -366,7 +366,7 @@ const BlogDetails = () => {
                     </Link>
                   </div>
                   <img
-                    src="assets/images/widgets/about-bg.png"
+                    src="/assets/images/widgets/about-bg.png"
                     alt="BG"
                     className="bg"
                   />
@@ -419,7 +419,7 @@ const BlogDetails = () => {
                     <li>
                       <div className="image">
                         <img
-                          src="assets/images/news/news-widget3.jpg"
+                          src="/assets/images/news/news-widget3.jpg"
                           alt="News"
                         />
                       </div>
@@ -435,7 +435,7 @@ const BlogDetails = () => {
                     <li>
                       <div className="image">
                         <img
-                          src="assets/images/news/news-widget1.jpg"
+                          src="/assets/images/news/news-widget1.jpg"
                           alt="News"
                         />
                       </div>
@@ -451,7 +451,7 @@ const BlogDetails = () => {
                     <li>
                       <div className="image">
                         <img
-                          src="assets/images/news/news-widget2.jpg"
+                          src="/assets/images/news/news-widget2.jpg"
                           alt="News"
                         />
                       </div>

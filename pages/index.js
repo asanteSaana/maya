@@ -26,12 +26,12 @@ const Index = () => {
         </div>
         <img
           className="bg-leaf"
-          src="assets/images/slider/slider-bg-leaf.png"
+          src="/assets/images/slider/slider-bg-leaf.png"
           alt="Shape"
         />
         <img
           className="bg-shape"
-          src="assets/images/slider/slider-bg-shape.png"
+          src="/assets/images/slider/slider-bg-shape.png"
           alt="Shape"
         />
       </section>
@@ -61,48 +61,48 @@ const Index = () => {
           <div className="category-wrap">
             <div className="category-item wow fadeInUp delay-0-3s">
               <div className="icon">
-                {/* <img src="assets/images/category/icon1.png" alt="Icon" /> */}
+                {/* <img src="/assets/images/category/icon1.png" alt="Icon" /> */}
               </div>
               <h5>
                 <Link href="/services">Organic Fruits</Link>
               </h5>
-              <img src="assets/images/category/arrow.png" alt="Arrow" />
+              <img src="/assets/images/category/arrow.png" alt="Arrow" />
             </div>
             <div className="category-item wow fadeInUp delay-0-4s">
               <div className="icon">
-                <img src="assets/images/category/icon2.png" alt="Icon" />
+                <img src="/assets/images/category/icon2.png" alt="Icon" />
               </div>
               <h5>
                 <Link href="/services">Vegetables</Link>
               </h5>
-              <img src="assets/images/category/arrow.png" alt="Arrow" />
+              <img src="/assets/images/category/arrow.png" alt="Arrow" />
             </div>
             <div className="category-item wow fadeInUp delay-0-5s">
               <div className="icon">
-                <img src="assets/images/category/icon3.png" alt="Icon" />
+                <img src="/assets/images/category/icon3.png" alt="Icon" />
               </div>
               <h5>
                 <Link href="/services">Sea Fish’s</Link>
               </h5>
-              <img src="assets/images/category/arrow.png" alt="Arrow" />
+              <img src="/assets/images/category/arrow.png" alt="Arrow" />
             </div>
             <div className="category-item wow fadeInUp delay-0-6s">
               <div className="icon">
-                <img src="assets/images/category/icon4.png" alt="Icon" />
+                <img src="/assets/images/category/icon4.png" alt="Icon" />
               </div>
               <h5>
                 <Link href="/services">Crisp Bakery</Link>
               </h5>
-              <img src="assets/images/category/arrow.png" alt="Arrow" />
+              <img src="/assets/images/category/arrow.png" alt="Arrow" />
             </div>
             <div className="category-item wow fadeInUp delay-0-7s">
               <div className="icon">
-                <img src="assets/images/category/icon5.png" alt="Icon" />
+                <img src="/assets/images/category/icon5.png" alt="Icon" />
               </div>
               <h5>
                 <Link href="/services">Chiken Egg</Link>
               </h5>
-              <img src="assets/images/category/arrow.png" alt="Arrow" />
+              <img src="/assets/images/category/arrow.png" alt="Arrow" />
             </div>
           </div>
         </div>
@@ -116,15 +116,15 @@ const Index = () => {
               <div className="about-images wow fadeInLeft delay-0-2s">
                 <div className="row align-items-center">
                   <div className="col-6">
-                    <img src="assets/images/about/about1.jpg" alt="About" />
+                    <img src="/assets/images/about/about1.jpg" alt="About" />
                   </div>
                   <div className="col-6">
-                    <img src="assets/images/about/about2.jpg" alt="About" />
-                    <img src="assets/images/about/about3.jpg" alt="About" />
+                    <img src="/assets/images/about/about2.jpg" alt="About" />
+                    <img src="/assets/images/about/about3.jpg" alt="About" />
                   </div>
                 </div>
                 <div className="offer">
-                  <img src="assets/images/shapes/organic.png" alt="Offer" />
+                  <img src="/assets/images/shapes/organic.png" alt="Offer" />
                 </div>
               </div>
             </div>
@@ -219,13 +219,13 @@ const Index = () => {
                 </div>
                 <div className="image">
                   <img
-                    src="assets/images/offers/offer-banner1.png"
+                    src="/assets/images/offers/offer-banner1.png"
                     alt="Offer Banner"
                   />
                 </div>
                 <img
                   className="offer-bg"
-                  src="assets/images/offers/offer-baner-bg1.png"
+                  src="/assets/images/offers/offer-baner-bg1.png"
                   alt="Offer BG"
                 />
               </div>
@@ -244,13 +244,13 @@ const Index = () => {
                 </div>
                 <div className="image">
                   <img
-                    src="assets/images/offers/offer-banner2.png"
+                    src="/assets/images/offers/offer-banner2.png"
                     alt="Offer Banner"
                   />
                 </div>
                 <img
                   className="offer-bg"
-                  src="assets/images/offers/offer-baner-bg2.png"
+                  src="/assets/images/offers/offer-baner-bg2.png"
                   alt="Offer BG"
                 />
               </div>
@@ -269,13 +269,13 @@ const Index = () => {
                 </div>
                 <div className="image">
                   <img
-                    src="assets/images/offers/offer-banner3.png"
+                    src="/assets/images/offers/offer-banner3.png"
                     alt="Offer Banner"
                   />
                 </div>
                 <img
                   className="offer-bg"
-                  src="assets/images/offers/offer-baner-bg3.png"
+                  src="/assets/images/offers/offer-baner-bg3.png"
                   alt="Offer BG"
                 />
               </div>
@@ -305,7 +305,7 @@ const Index = () => {
         <div className="container">
           <div
             className="video-inner wow fadeInUp delay-0-2s"
-            style={{ backgroundImage: "url(assets/images/video/cta-video-left.jpg)" }}
+            style={{ backgroundImage: "url(/assets/images/video/cta-video-left.jpg)" }}
           >
             <i className="flaticon-leaf-1" />
             <span className="video-text">Watch Videos</span>
@@ -342,27 +342,27 @@ const Index = () => {
         </div>
         <img
           className="offer-bg"
-          src="assets/images/offers/special-offer-bg.png"
+          src="/assets/images/offers/special-offer-bg.png"
           alt="Offer BG"
         />
         <img
           className="munakoiso"
-          src="assets/images/shapes/munakoiso.png"
+          src="/assets/images/shapes/munakoiso.png"
           alt="Munakoiso"
         />
         <img
           className="litchi"
-          src="assets/images/shapes/litchi.png"
+          src="/assets/images/shapes/litchi.png"
           alt="Litchi"
         />
         <img
           className="special-offer-left"
-          src="assets/images/offers/offer-left.png"
+          src="/assets/images/offers/offer-left.png"
           alt="Offer"
         />
         <img
           className="special-offer-right"
-          src="assets/images/offers/offer-right.png"
+          src="/assets/images/offers/offer-right.png"
           alt="Offer"
         />
       </section>
@@ -373,7 +373,7 @@ const Index = () => {
           <div
             className="cta-inner overlay text-white wow fadeInUp delay-0-2s"
             style={{
-              backgroundImage: "url(assets/images/background/cta-bg.jpg)",
+              backgroundImage: "url(/assets/images/background/cta-bg.jpg)",
             }}
           >
             <div className="row align-items-center">
@@ -411,17 +411,17 @@ const Index = () => {
               <div className="feedback-images wow fadeInRight delay-0-2s">
                 <img
                   className="first-image"
-                  src="assets/images/reviews/feedback-right.jpg"
+                  src="/assets/images/reviews/feedback-right.jpg"
                   alt="Feedback"
                 />
                 <img
                   className="last-image"
-                  src="assets/images/reviews/feedback-right.png"
+                  src="/assets/images/reviews/feedback-right.png"
                   alt="Feedback"
                 />
                 <img
                   className="bg-image"
-                  src="assets/images/shapes/feedback-bg.png"
+                  src="/assets/images/shapes/feedback-bg.png"
                   alt="Feedback"
                 />
               </div>
@@ -441,7 +441,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/news1.jpg" alt="News" />
+                  <img src="/assets/images/news/news1.jpg" alt="News" />
                   <span className="date">
                     <b>25</b> July
                   </span>
@@ -464,7 +464,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-4s">
                 <div className="image">
-                  <img src="assets/images/news/news2.jpg" alt="News" />
+                  <img src="/assets/images/news/news2.jpg" alt="News" />
                   <span className="date">
                     <b>25</b> July
                   </span>
@@ -487,7 +487,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-6s">
                 <div className="image">
-                  <img src="assets/images/news/news3.jpg" alt="News" />
+                  <img src="/assets/images/news/news3.jpg" alt="News" />
                   <span className="date">
                     <b>25</b> July
                   </span>
@@ -512,27 +512,27 @@ const Index = () => {
         <div className="news-shapes">
           <img
             className="onion"
-            src="assets/images/shapes/onion.png"
+            src="/assets/images/shapes/onion.png"
             alt="Onion"
           />
           <img
             className="two-leaf"
-            src="assets/images/slider/two-lear.png"
+            src="/assets/images/slider/two-lear.png"
             alt="Leaf"
           />
           <img
             className="half-leaf"
-            src="assets/images/slider/half-leaf.png"
+            src="/assets/images/slider/half-leaf.png"
             alt="Leaf"
           />
           <img
             className="leaf-two"
-            src="assets/images/shapes/leaf-three.png"
+            src="/assets/images/shapes/leaf-three.png"
             alt="Leaf"
           />
           <img
             className="leaf-three"
-            src="assets/images/shapes/leaf-four.png"
+            src="/assets/images/shapes/leaf-four.png"
             alt="Leaf"
           />
         </div>
@@ -546,32 +546,32 @@ const Index = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>

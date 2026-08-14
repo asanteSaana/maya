@@ -42,12 +42,12 @@ export const HomeSlider1 = () => {
               <div className="slider-images">
                 <img
                   className="image"
-                  src="assets/images/slider/slider-image1.png"
+                  src="/assets/images/slider/slider-image1.png"
                   alt="Slider"
                 />
                 <img
                   className="offer"
-                  src="assets/images/shapes/organic.png"
+                  src="/assets/images/shapes/organic.png"
                   alt="Organic"
                 />
               </div>
@@ -57,27 +57,27 @@ export const HomeSlider1 = () => {
         <div className="slide-shapes">
           <img
             className="pumpkin-shape"
-            src="assets/images/slider/pumpkin.png"
+            src="/assets/images/slider/pumpkin.png"
             alt="Pumpkin"
           />
           <img
             className="two-leaf"
-            src="assets/images/slider/two-lear.png"
+            src="/assets/images/slider/two-lear.png"
             alt="Leaf"
           />
           <img
             className="half-leaf"
-            src="assets/images/slider/half-leaf.png"
+            src="/assets/images/slider/half-leaf.png"
             alt="Leaf"
           />
           <img
             className="leaf-one"
-            src="assets/images/slider/leaf-1.png"
+            src="/assets/images/slider/leaf-1.png"
             alt="Leaf"
           />
           <img
             className="leaf-two"
-            src="assets/images/slider/leaf-2.png"
+            src="/assets/images/slider/leaf-2.png"
             alt="Leaf"
           />
         </div>
@@ -93,12 +93,12 @@ export const HomeSlider1 = () => {
               <div className="slider-images">
                 <img
                   className="image"
-                  src="assets/images/slider/slider-image2.png"
+                  src="/assets/images/slider/slider-image2.png"
                   alt="Slider"
                 />
                 <img
                   className="offer"
-                  src="assets/images/shapes/organic.png"
+                  src="/assets/images/shapes/organic.png"
                   alt="Organic"
                 />
               </div>
@@ -127,27 +127,27 @@ export const HomeSlider1 = () => {
         <div className="slide-shapes">
           <img
             className="pumpkin-shape"
-            src="assets/images/slider/pumpkin.png"
+            src="/assets/images/slider/pumpkin.png"
             alt="Pumpkin"
           />
           <img
             className="two-leaf"
-            src="assets/images/slider/two-lear.png"
+            src="/assets/images/slider/two-lear.png"
             alt="Leaf"
           />
           <img
             className="half-leaf"
-            src="assets/images/slider/half-leaf.png"
+            src="/assets/images/slider/half-leaf.png"
             alt="Leaf"
           />
           <img
             className="leaf-one"
-            src="assets/images/slider/leaf-1.png"
+            src="/assets/images/slider/leaf-1.png"
             alt="Leaf"
           />
           <img
             className="leaf-two"
-            src="assets/images/slider/leaf-2.png"
+            src="/assets/images/slider/leaf-2.png"
             alt="Leaf"
           />
         </div>
@@ -201,12 +201,12 @@ export const HomeSlider2 = () => {
               <div className="slider-images">
                 <img
                   className="image"
-                  src="assets/images/slider/slider-two1.png"
+                  src="/assets/images/slider/slider-two1.png"
                   alt="Slider"
                 />
                 <img
                   className="offer"
-                  src="assets/images/shapes/organic.png"
+                  src="/assets/images/shapes/organic.png"
                   alt="Organic"
                 />
               </div>
@@ -243,12 +243,12 @@ export const HomeSlider2 = () => {
               <div className="slider-images">
                 <img
                   className="image"
-                  src="assets/images/slider/slider-two3.png"
+                  src="/assets/images/slider/slider-two3.png"
                   alt="Slider"
                 />
                 <img
                   className="offer"
-                  src="assets/images/shapes/organic.png"
+                  src="/assets/images/shapes/organic.png"
                   alt="Organic"
                 />
               </div>
@@ -310,7 +310,7 @@ export const HomeSlider3 = () => {
               <div className="slider-images">
                 <img
                   className="image"
-                  src="assets/images/slider/slider-three-1.png"
+                  src="/assets/images/slider/slider-three-1.png"
                   alt="Slider"
                 />
               </div>
@@ -329,7 +329,7 @@ export const HomeSlider3 = () => {
               <div className="slider-images">
                 <img
                   className="image"
-                  src="assets/images/slider/slider-three-1.png"
+                  src="/assets/images/slider/slider-three-1.png"
                   alt="Slider"
                 />
               </div>

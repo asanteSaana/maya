@@ -1,4 +1,4 @@
-const FALLBACK_PRODUCT_IMAGE = "assets/images/products/product1.png";
+const FALLBACK_PRODUCT_IMAGE = "/assets/images/products/product1.png";
 
 export const getProductId = (product) =>
   product?._id || product?.id || product?.productId || "";

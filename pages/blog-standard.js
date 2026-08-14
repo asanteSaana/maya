@@ -12,7 +12,7 @@ const BlogStandard = () => {
             <div className="col-xl-8 mt-65">
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard1.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard1.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -46,7 +46,7 @@ const BlogStandard = () => {
               </div>
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard2.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard2.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -77,7 +77,7 @@ const BlogStandard = () => {
               </div>
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard3.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard3.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -111,7 +111,7 @@ const BlogStandard = () => {
               </div>
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard4.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard4.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -142,7 +142,7 @@ const BlogStandard = () => {
               </div>
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard5.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard5.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -173,7 +173,7 @@ const BlogStandard = () => {
               </div>
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard6.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard6.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -204,7 +204,7 @@ const BlogStandard = () => {
               </div>
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard7.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard7.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -236,7 +236,7 @@ const BlogStandard = () => {
               </div>
               <div className="news-standard-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/blog-standard8.jpg" alt="News" />
+                  <img src="/assets/images/news/blog-standard8.jpg" alt="News" />
                 </div>
                 <div className="content">
                   <ul className="blog-meta">
@@ -276,7 +276,7 @@ const BlogStandard = () => {
               <div className="blog-sidebar mt-65">
                 <div className="widget widget-about wow fadeInUp delay-0-2s">
                   <div className="image">
-                    <img src="assets/images/widgets/about.jpg" alt="Author" />
+                    <img src="/assets/images/widgets/about.jpg" alt="Author" />
                   </div>
                   <h4>Somalia D. Silva</h4>
                   <span className="sub-title">CO-Founder</span>
@@ -307,7 +307,7 @@ const BlogStandard = () => {
                     </Link>
                   </div>
                   <img
-                    src="assets/images/widgets/about-bg.png"
+                    src="/assets/images/widgets/about-bg.png"
                     alt="BG"
                     className="bg"
                   />
@@ -360,7 +360,7 @@ const BlogStandard = () => {
                     <li>
                       <div className="image">
                         <img
-                          src="assets/images/news/news-widget3.jpg"
+                          src="/assets/images/news/news-widget3.jpg"
                           alt="News"
                         />
                       </div>
@@ -376,7 +376,7 @@ const BlogStandard = () => {
                     <li>
                       <div className="image">
                         <img
-                          src="assets/images/news/news-widget1.jpg"
+                          src="/assets/images/news/news-widget1.jpg"
                           alt="News"
                         />
                       </div>
@@ -392,7 +392,7 @@ const BlogStandard = () => {
                     <li>
                       <div className="image">
                         <img
-                          src="assets/images/news/news-widget2.jpg"
+                          src="/assets/images/news/news-widget2.jpg"
                           alt="News"
                         />
                       </div>

@@ -143,9 +143,9 @@ const Nav = () => {
         <div className="mobile-logo my-15 ">
           <Link href="/">
             <a>
-              <img src="assets/images/logos/logo.png" alt="Logo" title="Logo" />
+              <img src="/assets/images/logos/logo.png" alt="Logo" title="Logo" />
               <img
-                src="assets/images/logos/logo-white.png"
+                src="/assets/images/logos/logo-white.png"
                 alt="Logo"
                 title="Logo"
               />
@@ -232,7 +232,7 @@ const DefaultHeader = () => (
               <Link href="/">
                 <a>
                   <img
-                    src="assets/images/logos/logo.png"
+                    src="/assets/images/logos/logo.png"
                     alt="Logo"
                     title="Logo"
                   />
@@ -332,7 +332,7 @@ const Header1 = () => (
               <Link href="/">
                 <a>
                   <img
-                    src="assets/images/logos/logo.png"
+                    src="/assets/images/logos/logo.png"
                     alt="Logo"
                     title="Logo"
                   />
@@ -428,12 +428,12 @@ const Header2 = () => (
               <Link href="/">
                 <a>
                   <img
-                    src="assets/images/logos/logo.png"
+                    src="/assets/images/logos/logo.png"
                     alt="Logo"
                     title="Logo"
                   />
                   <img
-                    src="assets/images/logos/logo-white.png"
+                    src="/assets/images/logos/logo-white.png"
                     alt="Logo"
                     title="Logo"
                   />
@@ -521,7 +521,7 @@ const Header3 = () => (
               <Link href="/">
                 <a>
                   <img
-                    src="assets/images/logos/logo-two.png"
+                    src="/assets/images/logos/logo-two.png"
                     alt="Logo"
                     title="Logo"
                   />

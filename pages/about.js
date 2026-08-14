@@ -80,7 +80,7 @@ const About = () => {
               <div className="about-video wow fadeInRight delay-0-2s">
                 <img
                   className="image"
-                  src="assets/images/about/about-page.jpg"
+                  src="/assets/images/about/about-page.jpg"
                   alt="About"
                 />
                 <a
@@ -91,7 +91,7 @@ const About = () => {
                 </a>
                 <img
                   className="bg-shape"
-                  src="assets/images/about/about-bg-shape.png"
+                  src="/assets/images/about/about-bg-shape.png"
                   alt="Shape"
                 />
               </div>
@@ -99,7 +99,7 @@ const About = () => {
           </div>
         </div>
         <img
-          src="assets/images/shapes/about-page.png"
+          src="/assets/images/shapes/about-page.png"
           alt="Shape"
           className="shape"
         />
@@ -115,7 +115,7 @@ const About = () => {
                   <span className="number">01</span>
                   <div className="image">
                     <img
-                      src="assets/images/features/feature1.png"
+                      src="/assets/images/features/feature1.png"
                       alt="Feature"
                     />
                   </div>
@@ -138,7 +138,7 @@ const About = () => {
                   <span className="number">02</span>
                   <div className="image">
                     <img
-                      src="assets/images/features/feature2.png"
+                      src="/assets/images/features/feature2.png"
                       alt="Feature"
                     />
                   </div>
@@ -161,7 +161,7 @@ const About = () => {
                   <span className="number">03</span>
                   <div className="image">
                     <img
-                      src="assets/images/features/feature3.png"
+                      src="/assets/images/features/feature3.png"
                       alt="Feature"
                     />
                   </div>
@@ -202,12 +202,12 @@ const About = () => {
               <div className="about-two-image not-rounded wow fadeInUp delay-0-2s">
                 <img
                   className="image"
-                  src="assets/images/about/about-page-left.jpg"
+                  src="/assets/images/about/about-page-left.jpg"
                   alt="About"
                 />
                 <img
                   className="about-over"
-                  src="assets/images/about/about-left-over.png"
+                  src="/assets/images/about/about-left-over.png"
                   alt="About"
                 />
               </div>
@@ -230,7 +230,7 @@ const About = () => {
                           <Link href="/service-details">Discount Options</Link>
                         </h4>
                         <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
-                        <img src="assets/images/about/arrow.png" alt="Arrow" />
+                        <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       </div>
                     </div>
                     <div className="col-xl-4 col-md-6">
@@ -245,7 +245,7 @@ const About = () => {
                           </Link>
                         </h4>
                         <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
-                        <img src="assets/images/about/arrow.png" alt="Arrow" />
+                        <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       </div>
                     </div>
                     <div className="col-xl-4 col-md-6">
@@ -258,7 +258,7 @@ const About = () => {
                           <Link href="/service-details">Online Support</Link>
                         </h4>
                         <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
-                        <img src="assets/images/about/arrow.png" alt="Arrow" />
+                        <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       </div>
                     </div>
                   </div>
@@ -268,8 +268,8 @@ const About = () => {
           </div>
         </div>
         <div className="about-shapes">
-          <img src="assets/images/shapes/about-shape1.png" alt="Shape" />
-          <img src="assets/images/shapes/about-shape2.png" alt="Shape" />
+          <img src="/assets/images/shapes/about-shape1.png" alt="Shape" />
+          <img src="/assets/images/shapes/about-shape2.png" alt="Shape" />
         </div>
       </section>
       {/* About Section End */}
@@ -292,32 +292,32 @@ const About = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>

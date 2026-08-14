@@ -50,7 +50,7 @@ const DefaultFooter = () => (
             <div className="footer-logo mb-30">
               <Link href="/">
                 <a>
-                  <img src="assets/images/logos/logo-white.png" alt="Logo" />
+                  <img src="/assets/images/logos/logo-white.png" alt="Logo" />
                 </a>
               </Link>
             </div>
@@ -187,27 +187,27 @@ const DefaultFooter = () => (
     <div className="footer-shapes">
       <img
         className="footer-bg"
-        src="assets/images/background/footer-bg-shape.png"
+        src="/assets/images/background/footer-bg-shape.png"
         alt="Shape"
       />
       <img
         className="shape-one"
-        src="assets/images/shapes/footer1.png"
+        src="/assets/images/shapes/footer1.png"
         alt="Shape"
       />
       <img
         className="shape-two"
-        src="assets/images/shapes/footer2.png"
+        src="/assets/images/shapes/footer2.png"
         alt="Shape"
       />
       <img
         className="shape-three"
-        src="assets/images/shapes/footer3.png"
+        src="/assets/images/shapes/footer3.png"
         alt="Shape"
       />
       <img
         className="shape-four"
-        src="assets/images/shapes/footer4.png"
+        src="/assets/images/shapes/footer4.png"
         alt="Shape"
       />
     </div>
@@ -243,7 +243,7 @@ const Footer3 = () => (
                   <Link href="/">
                     <a>
                       <img
-                        src="assets/images/logos/logo.png"
+                        src="/assets/images/logos/logo.png"
                         alt="Logo"
                       />
                     </a>
@@ -324,7 +324,7 @@ const Footer3 = () => (
                   <li>
                     <div className="image">
                       <img
-                        src="assets/images/news/news-widget1.jpg"
+                        src="/assets/images/news/news-widget1.jpg"
                         alt="News"
                       />
                     </div>
@@ -340,7 +340,7 @@ const Footer3 = () => (
                   <li>
                     <div className="image">
                       <img
-                        src="assets/images/news/news-widget2.jpg"
+                        src="/assets/images/news/news-widget2.jpg"
                         alt="News"
                       />
                     </div>
@@ -383,56 +383,56 @@ const Footer3 = () => (
                 <h4 className="footer-title">Gallery</h4>
                 <ul>
                   <li>
-                    <a href="assets/images/widgets/gallery1.jpg">
+                    <a href="/assets/images/widgets/gallery1.jpg">
                       <i className="fas fa-plus" />
                     </a>
                     <img
-                      src="assets/images/widgets/gallery1.jpg"
+                      src="/assets/images/widgets/gallery1.jpg"
                       alt="Gallery"
                     />
                   </li>
                   <li>
-                    <a href="assets/images/widgets/gallery2.jpg">
+                    <a href="/assets/images/widgets/gallery2.jpg">
                       <i className="fas fa-plus" />
                     </a>
                     <img
-                      src="assets/images/widgets/gallery2.jpg"
+                      src="/assets/images/widgets/gallery2.jpg"
                       alt="Gallery"
                     />
                   </li>
                   <li>
-                    <a href="assets/images/widgets/gallery3.jpg">
+                    <a href="/assets/images/widgets/gallery3.jpg">
                       <i className="fas fa-plus" />
                     </a>
                     <img
-                      src="assets/images/widgets/gallery3.jpg"
+                      src="/assets/images/widgets/gallery3.jpg"
                       alt="Gallery"
                     />
                   </li>
                   <li>
-                    <a href="assets/images/widgets/gallery4.jpg">
+                    <a href="/assets/images/widgets/gallery4.jpg">
                       <i className="fas fa-plus" />
                     </a>
                     <img
-                      src="assets/images/widgets/gallery4.jpg"
+                      src="/assets/images/widgets/gallery4.jpg"
                       alt="Gallery"
                     />
                   </li>
                   <li>
-                    <a href="assets/images/widgets/gallery5.jpg">
+                    <a href="/assets/images/widgets/gallery5.jpg">
                       <i className="fas fa-plus" />
                     </a>
                     <img
-                      src="assets/images/widgets/gallery5.jpg"
+                      src="/assets/images/widgets/gallery5.jpg"
                       alt="Gallery"
                     />
                   </li>
                   <li>
-                    <a href="assets/images/widgets/gallery6.jpg">
+                    <a href="/assets/images/widgets/gallery6.jpg">
                       <i className="fas fa-plus" />
                     </a>
                     <img
-                      src="assets/images/widgets/gallery6.jpg"
+                      src="/assets/images/widgets/gallery6.jpg"
                       alt="Gallery"
                     />
                   </li>
@@ -476,27 +476,27 @@ const Footer3 = () => (
     <div className="footer-shapes">
       <img
         className="footer-bg"
-        src="assets/images/background/footer-bg-shape.png"
+        src="/assets/images/background/footer-bg-shape.png"
         alt="Shape"
       />
       <img
         className="shape-one"
-        src="assets/images/shapes/footer1.png"
+        src="/assets/images/shapes/footer1.png"
         alt="Shape"
       />
       <img
         className="shape-two"
-        src="assets/images/shapes/footer2.png"
+        src="/assets/images/shapes/footer2.png"
         alt="Shape"
       />
       <img
         className="shape-three"
-        src="assets/images/shapes/footer3.png"
+        src="/assets/images/shapes/footer3.png"
         alt="Shape"
       />
       <img
         className="shape-four"
-        src="assets/images/shapes/footer4.png"
+        src="/assets/images/shapes/footer4.png"
         alt="Shape"
       />
     </div>

@@ -12,12 +12,12 @@ const FeedbackTwoSlider = () => {
           </p>
           <div className="image">
             <img
-              src="assets/images/reviews/feedback-author1.jpg"
+              src="/assets/images/reviews/feedback-author1.jpg"
               alt="Authro"
             />
             <img
               className="bg"
-              src="assets/images/reviews/feedback-author-bg.png"
+              src="/assets/images/reviews/feedback-author-bg.png"
               alt="Background"
             />
           </div>
@@ -49,12 +49,12 @@ const FeedbackTwoSlider = () => {
           </p>
           <div className="image">
             <img
-              src="assets/images/reviews/feedback-author2.jpg"
+              src="/assets/images/reviews/feedback-author2.jpg"
               alt="Authro"
             />
             <img
               className="bg"
-              src="assets/images/reviews/feedback-author-bg.png"
+              src="/assets/images/reviews/feedback-author-bg.png"
               alt="Background"
             />
           </div>
@@ -86,12 +86,12 @@ const FeedbackTwoSlider = () => {
           </p>
           <div className="image">
             <img
-              src="assets/images/reviews/feedback-author1.jpg"
+              src="/assets/images/reviews/feedback-author1.jpg"
               alt="Authro"
             />
             <img
               className="bg"
-              src="assets/images/reviews/feedback-author-bg.png"
+              src="/assets/images/reviews/feedback-author-bg.png"
               alt="Background"
             />
           </div>
@@ -123,12 +123,12 @@ const FeedbackTwoSlider = () => {
           </p>
           <div className="image">
             <img
-              src="assets/images/reviews/feedback-author2.jpg"
+              src="/assets/images/reviews/feedback-author2.jpg"
               alt="Authro"
             />
             <img
               className="bg"
-              src="assets/images/reviews/feedback-author-bg.png"
+              src="/assets/images/reviews/feedback-author-bg.png"
               alt="Background"
             />
           </div>

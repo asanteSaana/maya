@@ -226,3 +226,20 @@ img.mfp-img {
     opacity: 0.7;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Currency
+   The template hard-codes a dollar sign before every price through a ::before
+   pseudo-element. Prices are formatted in Ghana Cedis by formatPrice(), so the
+   injected symbol rendered as "$GHS 25.00". Suppressed here rather than edited
+   out of the vendor stylesheet, which would be lost if the template is updated.
+   --------------------------------------------------------------------------- */
+
+.product-item .price span:before,
+.product-details-content .price:before,
+.widget-products ul li .content .price:before,
+.cart-single-item .product-price:before,
+.cart-single-item .product-total-price:before,
+.sub-total-price:before {
+  content: none;
+}

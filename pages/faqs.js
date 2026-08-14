@@ -41,12 +41,12 @@ const Faqs = () => {
                         <Link href="/service-details">Discount Options</Link>
                       </h4>
                       <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
-                      <img src="assets/images/about/arrow.png" alt="Arrow" />
+                      <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       <div
                         className="feature-bg"
                         style={{
                           backgroundImage:
-                            "url(assets/images/features/feature-bg.jpg)",
+                            "url(/assets/images/features/feature-bg.jpg)",
                         }}
                       />
                     </div>
@@ -60,12 +60,12 @@ const Faqs = () => {
                         <Link href="/service-details">Best Return Policy</Link>
                       </h4>
                       <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
-                      <img src="assets/images/about/arrow.png" alt="Arrow" />
+                      <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       <div
                         className="feature-bg"
                         style={{
                           backgroundImage:
-                            "url(assets/images/features/feature-bg.jpg)",
+                            "url(/assets/images/features/feature-bg.jpg)",
                         }}
                       />
                     </div>
@@ -78,12 +78,12 @@ const Faqs = () => {
         <div className="what-we-want-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/www-shape1.png"
+            src="/assets/images/shapes/www-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/www-shape2.png"
+            src="/assets/images/shapes/www-shape2.png"
             alt="Shape"
           />
         </div>
@@ -148,22 +148,22 @@ const Faqs = () => {
         <div className="faq-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/faq-shape1.png"
+            src="/assets/images/shapes/faq-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/faq-shape2.png"
+            src="/assets/images/shapes/faq-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/faq-shape3.png"
+            src="/assets/images/shapes/faq-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/faq-shape4.png"
+            src="/assets/images/shapes/faq-shape4.png"
             alt="Shape"
           />
         </div>
@@ -188,32 +188,32 @@ const Faqs = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>

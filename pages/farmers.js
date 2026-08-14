@@ -81,7 +81,7 @@ const Farmers = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="team-profile-image rmb-65 wow fadeInLeft delay-0-2s">
-                <img src="assets/images/team/team-profile.jpg" alt="Profile" />
+                <img src="/assets/images/team/team-profile.jpg" alt="Profile" />
               </div>
             </div>
             <div className="col-lg-6">
@@ -115,7 +115,7 @@ const Farmers = () => {
         </div>
         <img
           className="team-profile-bg"
-          src="assets/images/team/team-profile-bg.png"
+          src="/assets/images/team/team-profile-bg.png"
           alt="bg"
         />
       </section>
@@ -139,32 +139,32 @@ const Farmers = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>

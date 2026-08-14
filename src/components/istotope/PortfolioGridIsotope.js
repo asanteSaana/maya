@@ -87,7 +87,7 @@ const PortfolioGridIsotope = () => {
         <div className="row portfolio-active">
           <div className="col-lg-4 col-sm-6 item vegetables">
             <div className="gallery-style-two wow fadeInUp delay-0-2s">
-              <img src="assets/images/gellery/portfolio1.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio1.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -100,7 +100,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item fruits bread">
             <div className="gallery-style-two wow fadeInUp delay-0-4s">
-              <img src="assets/images/gellery/portfolio2.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio2.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -113,7 +113,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item vegetables milk">
             <div className="gallery-style-two wow fadeInUp delay-0-6s">
-              <img src="assets/images/gellery/portfolio3.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio3.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -126,7 +126,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item fruits">
             <div className="gallery-style-two wow fadeInUp delay-0-2s">
-              <img src="assets/images/gellery/portfolio4.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio4.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -139,7 +139,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item bread milk">
             <div className="gallery-style-two wow fadeInUp delay-0-4s">
-              <img src="assets/images/gellery/portfolio5.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio5.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -152,7 +152,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item vegetables">
             <div className="gallery-style-two wow fadeInUp delay-0-6s">
-              <img src="assets/images/gellery/portfolio6.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio6.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -165,7 +165,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item fruits">
             <div className="gallery-style-two wow fadeInUp delay-0-2s">
-              <img src="assets/images/gellery/portfolio7.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio7.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -178,7 +178,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item vegetables">
             <div className="gallery-style-two wow fadeInUp delay-0-4s">
-              <img src="assets/images/gellery/portfolio8.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio8.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -191,7 +191,7 @@ const PortfolioGridIsotope = () => {
           </div>
           <div className="col-lg-4 col-sm-6 item fruits milk">
             <div className="gallery-style-two wow fadeInUp delay-0-6s">
-              <img src="assets/images/gellery/portfolio9.jpg" alt="Portfolio" />
+              <img src="/assets/images/gellery/portfolio9.jpg" alt="Portfolio" />
               <div className="gallery-over">
                 <div className="content">
                   <span className="category">Foods</span>
@@ -205,7 +205,7 @@ const PortfolioGridIsotope = () => {
           <div className="col-lg-4 col-sm-6 item bread">
             <div className="gallery-style-two wow fadeInUp delay-0-2s">
               <img
-                src="assets/images/gellery/portfolio10.jpg"
+                src="/assets/images/gellery/portfolio10.jpg"
                 alt="Portfolio"
               />
               <div className="gallery-over">
@@ -221,7 +221,7 @@ const PortfolioGridIsotope = () => {
           <div className="col-lg-4 col-sm-6 item milk fruits">
             <div className="gallery-style-two wow fadeInUp delay-0-4s">
               <img
-                src="assets/images/gellery/portfolio11.jpg"
+                src="/assets/images/gellery/portfolio11.jpg"
                 alt="Portfolio"
               />
               <div className="gallery-over">
@@ -237,7 +237,7 @@ const PortfolioGridIsotope = () => {
           <div className="col-lg-4 col-sm-6 item fruits">
             <div className="gallery-style-two wow fadeInUp delay-0-6s">
               <img
-                src="assets/images/gellery/portfolio12.jpg"
+                src="/assets/images/gellery/portfolio12.jpg"
                 alt="Portfolio"
               />
               <div className="gallery-over">

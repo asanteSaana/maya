@@ -12,7 +12,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/news1.jpg" alt="News" />
+                  <img src="/assets/images/news/news1.jpg" alt="News" />
                   <span className="date">
                     <b>25</b> July
                   </span>
@@ -35,7 +35,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-4s">
                 <div className="image">
-                  <img src="assets/images/news/news2.jpg" alt="News" />
+                  <img src="/assets/images/news/news2.jpg" alt="News" />
                   <span className="date">
                     <b>28</b> July
                   </span>
@@ -58,7 +58,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-6s">
                 <div className="image">
-                  <img src="assets/images/news/news3.jpg" alt="News" />
+                  <img src="/assets/images/news/news3.jpg" alt="News" />
                   <span className="date">
                     <b>30</b> July
                   </span>
@@ -81,7 +81,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/news4.jpg" alt="News" />
+                  <img src="/assets/images/news/news4.jpg" alt="News" />
                   <span className="date">
                     <b>06</b> Nov
                   </span>
@@ -104,7 +104,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-4s">
                 <div className="image">
-                  <img src="assets/images/news/news5.jpg" alt="News" />
+                  <img src="/assets/images/news/news5.jpg" alt="News" />
                   <span className="date">
                     <b>03</b> Sep
                   </span>
@@ -127,7 +127,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-6s">
                 <div className="image">
-                  <img src="assets/images/news/news6.jpg" alt="News" />
+                  <img src="/assets/images/news/news6.jpg" alt="News" />
                   <span className="date">
                     <b>09</b> Sep
                   </span>
@@ -150,7 +150,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-2s">
                 <div className="image">
-                  <img src="assets/images/news/news7.jpg" alt="News" />
+                  <img src="/assets/images/news/news7.jpg" alt="News" />
                   <span className="date">
                     <b>06</b> Nov
                   </span>
@@ -173,7 +173,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-4s">
                 <div className="image">
-                  <img src="assets/images/news/news8.jpg" alt="News" />
+                  <img src="/assets/images/news/news8.jpg" alt="News" />
                   <span className="date">
                     <b>03</b> Sep
                   </span>
@@ -196,7 +196,7 @@ const BlogGrid = () => {
             <div className="col-xl-4 col-md-6">
               <div className="news-item wow fadeInUp delay-0-6s">
                 <div className="image">
-                  <img src="assets/images/news/news9.jpg" alt="News" />
+                  <img src="/assets/images/news/news9.jpg" alt="News" />
                   <span className="date">
                     <b>06</b> Sep
                   </span>
@@ -227,32 +227,32 @@ const BlogGrid = () => {
         <div className="news-shapes">
           <img
             className="onion"
-            src="assets/images/shapes/onion.png"
+            src="/assets/images/shapes/onion.png"
             alt="Onion"
           />
           <img
             className="two-leaf"
-            src="assets/images/slider/two-lear.png"
+            src="/assets/images/slider/two-lear.png"
             alt="Leaf"
           />
           <img
             className="leaf-left"
-            src="assets/images/shapes/leaf-three.png"
+            src="/assets/images/shapes/leaf-three.png"
             alt="Leaf"
           />
           <img
             className="leaf-two"
-            src="assets/images/shapes/leaf-three.png"
+            src="/assets/images/shapes/leaf-three.png"
             alt="Leaf"
           />
           <img
             className="leaf-three"
-            src="assets/images/shapes/leaf-1.png"
+            src="/assets/images/shapes/leaf-1.png"
             alt="Leaf"
           />
           <img
             className="litchi"
-            src="assets/images/shapes/litchi.png"
+            src="/assets/images/shapes/litchi.png"
             alt="Litchi"
           />
         </div>

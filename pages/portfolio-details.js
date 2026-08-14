@@ -11,7 +11,7 @@ const PortfolioDetails = () => {
           <div className="portfolio-details-content">
             <div className="image mb-50 wow fadeInUp delay-0-2s">
               <img
-                src="assets/images/gellery/portfolio-details.jpg"
+                src="/assets/images/gellery/portfolio-details.jpg"
                 alt="Portfolio Details"
               />
             </div>
@@ -81,7 +81,7 @@ const PortfolioDetails = () => {
               <div className="prev-portfolio wow fadeInLeft delay-0-2s">
                 <div className="image">
                   <img
-                    src="assets/images/gellery/portfolio-prev.jpg"
+                    src="/assets/images/gellery/portfolio-prev.jpg"
                     alt="Portfolio"
                   />
                 </div>
@@ -108,7 +108,7 @@ const PortfolioDetails = () => {
                 </div>
                 <div className="image">
                   <img
-                    src="assets/images/gellery/portfolio-next.jpg"
+                    src="/assets/images/gellery/portfolio-next.jpg"
                     alt="News"
                   />
                 </div>
@@ -126,32 +126,32 @@ const PortfolioDetails = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>

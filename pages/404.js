@@ -9,7 +9,7 @@ const E404 = () => {
         <div className="container">
           <div className="error-inner text-center wow fadeInUp delay-0-2s">
             <div className="image mb-70">
-              <img src="assets/images/404.png" alt="404 Error" />
+              <img src="/assets/images/404.png" alt="404 Error" />
             </div>
             <div className="content">
               <div className="section-title mb-20">
@@ -31,22 +31,22 @@ const E404 = () => {
         <div className="error-shapes">
           <img
             className="two-leaf"
-            src="assets/images/slider/two-lear.png"
+            src="/assets/images/slider/two-lear.png"
             alt="Leaf"
           />
           <img
             className="half-leaf"
-            src="assets/images/slider/half-leaf.png"
+            src="/assets/images/slider/half-leaf.png"
             alt="Leaf"
           />
           <img
             className="leaf-two"
-            src="assets/images/shapes/leaf-1.png"
+            src="/assets/images/shapes/leaf-1.png"
             alt="Leaf"
           />
           <img
             className="leaf-three"
-            src="assets/images/shapes/leaf-2.png"
+            src="/assets/images/shapes/leaf-2.png"
             alt="Leaf"
           />
         </div>

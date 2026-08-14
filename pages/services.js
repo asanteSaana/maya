@@ -38,7 +38,7 @@ const Services = () => {
             <div className="col-lg-6 text-lg-right">
               <div className="who-we-are-image wow fadeInRight delay-0-2s">
                 <img
-                  src="assets/images/about/who-we-are.png"
+                  src="/assets/images/about/who-we-are.png"
                   alt="Who We Are"
                 />
               </div>
@@ -48,12 +48,12 @@ const Services = () => {
         <div className="who-we-are-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/who-we-are-1.png"
+            src="/assets/images/shapes/who-we-are-1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/team/team-profile-bg.png"
+            src="/assets/images/team/team-profile-bg.png"
             alt="Shape"
           />
         </div>
@@ -71,7 +71,7 @@ const Services = () => {
               <div className="what-we-provide-left wow fadeInUp delay-0-2s">
                 <div className="ww-provide-item">
                   <div className="icon">
-                    <img src="assets/images/services/icon1.png" alt="Icon" />
+                    <img src="/assets/images/services/icon1.png" alt="Icon" />
                   </div>
                   <h4>
                     <Link href="/service-details">Healthy Food</Link>
@@ -80,7 +80,7 @@ const Services = () => {
                 </div>
                 <div className="ww-provide-item">
                   <div className="icon">
-                    <img src="assets/images/services/icon2.png" alt="Icon" />
+                    <img src="/assets/images/services/icon2.png" alt="Icon" />
                   </div>
                   <h4>
                     <Link href="/service-details">Fresh Vegetables</Link>
@@ -92,12 +92,12 @@ const Services = () => {
             <div className="col-xl-5 col-md-4">
               <div className="what-we-provide-images rmt-10 rmb-55 pr-0 wow fadeInUp delay-0-4s">
                 <img
-                  src="assets/images/services/what-we-provide-2.png"
+                  src="/assets/images/services/what-we-provide-2.png"
                   alt="Service"
                 />
                 <img
                   className="bg"
-                  src="assets/images/services/service-center-bg.png"
+                  src="/assets/images/services/service-center-bg.png"
                   alt="Backgroound"
                 />
               </div>
@@ -106,7 +106,7 @@ const Services = () => {
               <div className="what-we-provide-right wow fadeInUp delay-0-6s">
                 <div className="ww-provide-item">
                   <div className="icon">
-                    <img src="assets/images/services/icon3.png" alt="Icon" />
+                    <img src="/assets/images/services/icon3.png" alt="Icon" />
                   </div>
                   <h4>
                     <Link href="/service-details">Organic Fruits</Link>
@@ -115,7 +115,7 @@ const Services = () => {
                 </div>
                 <div className="ww-provide-item">
                   <div className="icon">
-                    <img src="assets/images/services/icon4.png" alt="Icon" />
+                    <img src="/assets/images/services/icon4.png" alt="Icon" />
                   </div>
                   <h4>
                     <Link href="/service-details">Natural Products</Link>
@@ -129,12 +129,12 @@ const Services = () => {
         <div className="ww-provide-shapes">
           <img
             className="shape-two"
-            src="assets/images/shapes/ww-provide2.png"
+            src="/assets/images/shapes/ww-provide2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/ww-provide3.png"
+            src="/assets/images/shapes/ww-provide3.png"
             alt="Shape"
           />
         </div>
@@ -148,32 +148,32 @@ const Services = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>
@@ -186,7 +186,7 @@ const Services = () => {
             <div className="col-lg-6">
               <div className="team-profile-image rmb-65 wow fadeInRight delay-0-2s">
                 <img
-                  src="assets/images/team/team-profile-2.jpg"
+                  src="/assets/images/team/team-profile-2.jpg"
                   alt="Profile"
                 />
               </div>
@@ -218,7 +218,7 @@ const Services = () => {
         </div>
         <img
           className="team-profile-bg"
-          src="assets/images/team/team-profile-bg.png"
+          src="/assets/images/team/team-profile-bg.png"
           alt="bg"
         />
       </section>
@@ -232,7 +232,7 @@ const Services = () => {
                 className="offer-banner-item wow fadeInUp delay-0-2s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg1.jpg)",
+                    "url(/assets/images/offers/offer-banner-bg1.jpg)",
                 }}
               >
                 <div className="content mb-0">
@@ -252,7 +252,7 @@ const Services = () => {
                 className="offer-banner-item wow fadeInUp delay-0-4s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg2.jpg)",
+                    "url(/assets/images/offers/offer-banner-bg2.jpg)",
                 }}
               >
                 <div className="content mb-0">
@@ -272,7 +272,7 @@ const Services = () => {
                 className="offer-banner-item color-three wow fadeInUp delay-0-6s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg3.jpg)",
+                    "url(/assets/images/offers/offer-banner-bg3.jpg)",
                 }}
               >
                 <div className="content mb-0">
@@ -302,17 +302,17 @@ const Services = () => {
               <div className="feedback-images wow fadeInRight delay-0-2s">
                 <img
                   className="first-image"
-                  src="assets/images/reviews/feedback-right.jpg"
+                  src="/assets/images/reviews/feedback-right.jpg"
                   alt="Feedback"
                 />
                 <img
                   className="last-image"
-                  src="assets/images/reviews/feedback-right.png"
+                  src="/assets/images/reviews/feedback-right.png"
                   alt="Feedback"
                 />
                 <img
                   className="bg-image"
-                  src="assets/images/shapes/feedback-bg.png"
+                  src="/assets/images/shapes/feedback-bg.png"
                   alt="Feedback"
                 />
               </div>

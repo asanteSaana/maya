@@ -14,7 +14,7 @@ const ContactUs = () => {
             <div className="col-xl-4 col-md-6">
               <div className="contact-info-item wow fadeInUp delay-0-4s">
                 <div className="icon">
-                  <img src="assets/images/contact/icon1.png" alt="Icon" />
+                  <img src="/assets/images/contact/icon1.png" alt="Icon" />
                 </div>
                 <div className="content">
                   <h4>Location</h4>
@@ -25,7 +25,7 @@ const ContactUs = () => {
             <div className="col-xl-4 col-md-6">
               <div className="contact-info-item wow fadeInUp delay-0-5s">
                 <div className="icon">
-                  <img src="assets/images/contact/icon2.png" alt="Icon" />
+                  <img src="/assets/images/contact/icon2.png" alt="Icon" />
                 </div>
                 <div className="content">
                   <h4>Email Us</h4>
@@ -39,7 +39,7 @@ const ContactUs = () => {
             <div className="col-xl-4 col-md-6">
               <div className="contact-info-item wow fadeInUp delay-0-6s">
                 <div className="icon">
-                  <img src="assets/images/contact/icon3.png" alt="Icon" />
+                  <img src="/assets/images/contact/icon3.png" alt="Icon" />
                 </div>
                 <div className="content">
                   <h4>Phone Us</h4>
@@ -54,12 +54,12 @@ const ContactUs = () => {
         <div className="contact-shapes">
           <img
             className="leafs"
-            src="assets/images/shapes/contact-leafs.png"
+            src="/assets/images/shapes/contact-leafs.png"
             alt="Leafs"
           />
           <img
             className="pumpkin"
-            src="assets/images/shapes/pumpkin.png"
+            src="/assets/images/shapes/pumpkin.png"
             alt="pumpkin"
           />
         </div>
@@ -158,12 +158,12 @@ const ContactUs = () => {
             <div className="col-lg-6">
               <div className="contact-right-image wow fadeInRight delay-0-4s">
                 <img
-                  src="assets/images/contact/contact-right.png"
+                  src="/assets/images/contact/contact-right.png"
                   alt="Contact From"
                 />
                 <img
                   className="bg"
-                  src="assets/images/contact/contact-right-bg.png"
+                  src="/assets/images/contact/contact-right-bg.png"
                   alt="Contact From BG"
                 />
               </div>
@@ -173,17 +173,17 @@ const ContactUs = () => {
         <div className="contact-shapes">
           <img
             className="leaf"
-            src="assets/images/shapes/leaf-1.png"
+            src="/assets/images/shapes/leaf-1.png"
             alt="Leaf"
           />
           <img
             className="shape"
-            src="assets/images/shapes/contact-shape.png"
+            src="/assets/images/shapes/contact-shape.png"
             alt="Shape"
           />
           <img
             className="two-leaf"
-            src="assets/images/shapes/two-lear.png"
+            src="/assets/images/shapes/two-lear.png"
             alt="Leaf"
           />
         </div>

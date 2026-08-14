@@ -78,7 +78,7 @@ export default class ExperienceTeam extends Component {
         >
           <div className="team-member wow fadeInUp delay-0-2s">
             <div className="image">
-              <img src="assets/images/team/member1.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member1.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -98,13 +98,13 @@ export default class ExperienceTeam extends Component {
             <span className="designation">Senior Developer</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>
           <div className="team-member wow fadeInUp delay-0-3s">
             <div className="image">
-              <img src="assets/images/team/member2.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member2.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -124,13 +124,13 @@ export default class ExperienceTeam extends Component {
             <span className="designation">Junior Manager</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>
           <div className="team-member wow fadeInUp delay-0-4s">
             <div className="image">
-              <img src="assets/images/team/member3.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member3.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -150,13 +150,13 @@ export default class ExperienceTeam extends Component {
             <span className="designation">Business Consultant</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>
           <div className="team-member wow fadeInUp delay-0-5s">
             <div className="image">
-              <img src="assets/images/team/member4.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member4.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -176,13 +176,13 @@ export default class ExperienceTeam extends Component {
             <span className="designation">CO- Founder</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>
           <div className="team-member wow fadeInUp delay-0-6s">
             <div className="image">
-              <img src="assets/images/team/member1.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member1.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -202,13 +202,13 @@ export default class ExperienceTeam extends Component {
             <span className="designation">Senior Developer</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>
           <div className="team-member wow fadeInUp delay-0-7s">
             <div className="image">
-              <img src="assets/images/team/member2.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member2.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -228,13 +228,13 @@ export default class ExperienceTeam extends Component {
             <span className="designation">Junior Manager</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>
           <div className="team-member wow fadeInUp delay-0-8s">
             <div className="image">
-              <img src="assets/images/team/member3.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member3.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -254,13 +254,13 @@ export default class ExperienceTeam extends Component {
             <span className="designation">Business Consultant</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>
           <div className="team-member wow fadeInUp delay-0-9s">
             <div className="image">
-              <img src="assets/images/team/member4.jpg" alt="Team Member" />
+              <img src="/assets/images/team/member4.jpg" alt="Team Member" />
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-facebook-f" />
@@ -280,7 +280,7 @@ export default class ExperienceTeam extends Component {
             <span className="designation">CO- Founder</span>
             <img
               className="team-bg"
-              src="assets/images/team/team-member-bg.png"
+              src="/assets/images/team/team-member-bg.png"
               alt="Bg"
             />
           </div>

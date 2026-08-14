@@ -14,7 +14,7 @@ const ServiceDetails = () => {
               <div className="service-details-content">
                 <div className="image wow fadeInUp delay-0-2s">
                   <img
-                    src="assets/images/services/service-details1.jpg"
+                    src="/assets/images/services/service-details1.jpg"
                     alt="Service"
                   />
                 </div>
@@ -112,7 +112,7 @@ const ServiceDetails = () => {
                 </ul>
                 <div className="image pt-50 wow fadeInUp delay-0-2s">
                   <img
-                    src="assets/images/services/service-details2.jpg"
+                    src="/assets/images/services/service-details2.jpg"
                     alt="Service"
                   />
                 </div>
@@ -176,7 +176,7 @@ const ServiceDetails = () => {
                   <div className="cta-widget-content text-white">
                     <span className="sub-title my-10">Contact Us</span>
                     <h2>Need any Helps</h2>
-                    <img src="assets/images/shapes/wave-white.png" alt="Wave" />
+                    <img src="/assets/images/shapes/wave-white.png" alt="Wave" />
                     <br />
                     <Link href="/contact">
                       <a className="theme-btn style-three bg-white mt-30">
@@ -185,7 +185,7 @@ const ServiceDetails = () => {
                     </Link>
                     <img
                       className="bg"
-                      src="assets/images/widgets/cta-widget.png"
+                      src="/assets/images/widgets/cta-widget.png"
                       alt="Flower"
                     />
                   </div>
@@ -216,7 +216,7 @@ const ServiceDetails = () => {
             <div
               className="video-cta-inner content-part text-white overlay wow fadeInUp delay-0-2s"
               style={{
-                backgroundImage: "url(assets/images/video/cta-video-left.jpg)",
+                backgroundImage: "url(/assets/images/video/cta-video-left.jpg)",
               }}
             >
               <div className="content">
@@ -236,7 +236,7 @@ const ServiceDetails = () => {
             <div
               className="video-cta-inner video-part text-white overlay wow fadeInUp delay-0-4s"
               style={{
-                backgroundImage: "url(assets/images/video/cta-video-right.jpg)",
+                backgroundImage: "url(/assets/images/video/cta-video-right.jpg)",
               }}
             >
               <div className="content">
@@ -265,17 +265,17 @@ const ServiceDetails = () => {
               <div className="feedback-images wow fadeInRight delay-0-2s">
                 <img
                   className="first-image"
-                  src="assets/images/reviews/feedback-right.jpg"
+                  src="/assets/images/reviews/feedback-right.jpg"
                   alt="Feedback"
                 />
                 <img
                   className="last-image"
-                  src="assets/images/reviews/feedback-right.png"
+                  src="/assets/images/reviews/feedback-right.png"
                   alt="Feedback"
                 />
                 <img
                   className="bg-image"
-                  src="assets/images/shapes/feedback-bg.png"
+                  src="/assets/images/shapes/feedback-bg.png"
                   alt="Feedback"
                 />
               </div>
@@ -292,32 +292,32 @@ const ServiceDetails = () => {
         <div className="client-logo-shapes">
           <img
             className="shape-one"
-            src="assets/images/shapes/cl-shape1.png"
+            src="/assets/images/shapes/cl-shape1.png"
             alt="Shape"
           />
           <img
             className="shape-two"
-            src="assets/images/shapes/cl-shape2.png"
+            src="/assets/images/shapes/cl-shape2.png"
             alt="Shape"
           />
           <img
             className="shape-three"
-            src="assets/images/shapes/cl-shape3.png"
+            src="/assets/images/shapes/cl-shape3.png"
             alt="Shape"
           />
           <img
             className="shape-four"
-            src="assets/images/shapes/cl-shape4.png"
+            src="/assets/images/shapes/cl-shape4.png"
             alt="Shape"
           />
           <img
             className="shape-five"
-            src="assets/images/shapes/cl-shape5.png"
+            src="/assets/images/shapes/cl-shape5.png"
             alt="Shape"
           />
           <img
             className="shape-six"
-            src="assets/images/shapes/cl-shape6.png"
+            src="/assets/images/shapes/cl-shape6.png"
             alt="Shape"
           />
         </div>

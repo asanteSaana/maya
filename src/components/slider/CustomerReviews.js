@@ -36,7 +36,7 @@ const CustomerReviews = () => {
               Because of mayaTek my family eats healthy now.
             </p>
             <div className="feedback-author">
-              <img src="assets/images/reviews/fb-author1.png" alt="Authro" />
+              <img src="/assets/images/reviews/fb-author1.png" alt="Authro" />
               <div className="title">
                 <h4>Henry K. Asante</h4>
                 <span>Global &amp; Citizen</span>
@@ -55,7 +55,7 @@ const CustomerReviews = () => {
               You guys are indeed creating solutions for real problems.
             </p>
             <div className="feedback-author">
-              <img src="assets/images/reviews/fb-author1.png" alt="Authro" />
+              <img src="/assets/images/reviews/fb-author1.png" alt="Authro" />
               <div className="title">
                 <h4>W. A. Adu</h4>
                 <span>Idea</span>
@@ -74,7 +74,7 @@ const CustomerReviews = () => {
               Exactly what I expected from a solution driven organization.
             </p>
             <div className="feedback-author">
-              <img src="assets/images/reviews/fb-author1.png" alt="Authro" />
+              <img src="/assets/images/reviews/fb-author1.png" alt="Authro" />
               <div className="title">
                 <h4>Judith</h4>
                 <span>Dream</span>
