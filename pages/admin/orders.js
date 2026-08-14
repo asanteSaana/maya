@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import AdminLayout from "../../src/components/admin/AdminLayout";
 import DataTable from "../../src/components/admin/DataTable";
-import PageHeader from "../../src/components/admin/PageHeader";
 import FormAlert from "../../src/components/FormAlert";
 import OrderStatusBadge from "../../src/components/shop/OrderStatusBadge";
 import {
@@ -178,22 +177,21 @@ const AdminOrders = () => {
   );
 
   return (
-    <AdminLayout pageName="All Orders">
-      <PageHeader
-        title="All orders"
-        subtitle="Every order placed against your listings"
-        icon="flaticon-shopping-bag"
-        actions={
-          <button
-            type="button"
-            className="theme-btn style-two"
-            onClick={load}
-            disabled={isLoading}
-          >
-            Refresh <i className="fas fa-sync-alt" />
-          </button>
-        }
-      />
+    <AdminLayout
+      pageName="All orders"
+      subtitle="Search, filter and update any order in the system"
+      icon="fas fa-receipt"
+      actions={
+        <button
+          type="button"
+          className="theme-btn style-two"
+          onClick={load}
+          disabled={isLoading}
+        >
+          Refresh <i className="fas fa-sync-alt" />
+        </button>
+      }
+    >
 
       <FormAlert error={actionError} success={notice} />
 

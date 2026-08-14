@@ -43,7 +43,11 @@ const EditProduct = () => {
   };
 
   return (
-    <FarmerLayout pageName="Edit Listing">
+    <FarmerLayout
+      pageName="Edit listing"
+      subtitle="Update the details, prices or stock of this product"
+      icon="fas fa-pen"
+    >
       {isLoading && <LoadingState message="Loading listing…" />}
 
       {!isLoading && error && <ErrorState message={error} onRetry={load} />}

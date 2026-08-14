@@ -12,7 +12,11 @@ const NewProduct = () => {
   };
 
   return (
-    <FarmerLayout pageName="Add Listing">
+    <FarmerLayout
+      pageName="Add listing"
+      subtitle="Publish produce for customers to buy"
+      icon="fas fa-plus-circle"
+    >
       <h4 className="mb-25">New listing</h4>
       <ProductForm
         mode="create"

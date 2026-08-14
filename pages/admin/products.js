@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import AdminLayout from "../../src/components/admin/AdminLayout";
 import DataTable from "../../src/components/admin/DataTable";
-import PageHeader from "../../src/components/admin/PageHeader";
 import {
   ErrorState,
   LoadingState,
@@ -112,18 +111,18 @@ const AdminProducts = () => {
   );
 
   return (
-    <AdminLayout pageName="Products">
-      <PageHeader
-        title="Products"
-        subtitle="Every listing on the marketplace"
-        actions={
-          <Link href="/farmer/products/new">
-            <a className="theme-btn style-two">
-              Add listing <i className="fas fa-angle-double-right" />
-            </a>
-          </Link>
-        }
-      />
+    <AdminLayout
+      pageName="Products"
+      subtitle="Every listing on the marketplace"
+      icon="fas fa-carrot"
+      actions={
+        <Link href="/farmer/products/new">
+          <a className="theme-btn style-two">
+            Add listing <i className="fas fa-angle-double-right" />
+          </a>
+        </Link>
+      }
+    >
 
       {isLoading && <LoadingState message="Loading listings…" />}
 

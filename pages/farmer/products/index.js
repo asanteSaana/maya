@@ -32,7 +32,11 @@ const FarmerProducts = () => {
   }, [load]);
 
   return (
-    <FarmerLayout pageName="My Listings">
+    <FarmerLayout
+      pageName="My listings"
+      subtitle="The produce you have published"
+      icon="fas fa-carrot"
+    >
       {isLoading && <LoadingState message="Loading your listings…" />}
 
       {!isLoading && error && <ErrorState message={error} onRetry={load} />}

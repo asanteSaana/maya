@@ -1,101 +1,84 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import PageBanner from "../PageBanner";
-import { LoadingState } from "../shop/StateMessage";
+import AccessNotice from "../dashboard/AccessNotice";
+import DashboardShell from "../dashboard/DashboardShell";
 import { useAuth } from "../../context/AuthContext";
-import Layout from "../../layout/Layout";
 
 const NAV = [
-  { href: "/farmer/dashboard", label: "Dashboard" },
-  { href: "/farmer/products", label: "My Listings" },
-  { href: "/farmer/products/new", label: "Add Listing" },
-  { href: "/farmer/orders", label: "Incoming Orders" },
+  {
+    label: "Overview",
+    items: [
+      {
+        href: "/farmer/dashboard",
+        label: "Dashboard",
+        icon: "fas fa-chart-line",
+        exact: true,
+      },
+    ],
+  },
+  {
+    label: "Produce",
+    items: [
+      { href: "/farmer/products", label: "My listings", icon: "fas fa-carrot", exact: true },
+      { href: "/farmer/products/new", label: "Add listing", icon: "fas fa-plus-circle" },
+    ],
+  },
+  {
+    label: "Sales",
+    items: [
+      { href: "/farmer/orders", label: "Incoming orders", icon: "fas fa-receipt" },
+    ],
+  },
 ];
 
 /**
- * Shell for the seller area. Middleware already blocks signed-out visitors;
- * this additionally handles accounts that are signed in but not partners, which
- * the cookie check cannot tell apart.
+ * Seller area. Middleware already blocks signed-out visitors; this handles the
+ * accounts that are signed in but not sellers, which a cookie check cannot
+ * distinguish.
  */
-const FarmerLayout = ({ pageName, children }) => {
+const FarmerLayout = ({ pageName, subtitle, icon, actions, children }) => {
   const router = useRouter();
   const { isAuthenticated, isPartner, isReady } = useAuth();
 
   useEffect(() => {
     if (isReady && !isAuthenticated) {
-      router.replace(`/login?redirect=${router.pathname}`);
+      router.replace(`/login?redirect=${encodeURIComponent(router.asPath)}`);
     }
   }, [isAuthenticated, isReady, router]);
 
   if (!isReady || !isAuthenticated) {
-    return (
-      <Layout title={pageName}>
-        <PageBanner pageName={pageName} />
-        <div className="container py-130 rpy-100">
-          <LoadingState message="Checking your account…" />
-        </div>
-      </Layout>
-    );
+    return <AccessNotice title="Farmer" loading />;
   }
 
   if (!isPartner) {
     return (
-      <Layout title={pageName}>
-        <PageBanner pageName={pageName} />
-        <div className="container py-130 rpy-100 text-center">
-          <h4>Farmer account required</h4>
-          <p>
-            This area is for accounts registered as farmers. If you signed up as
-            a customer, register a farmer account to start selling.
-          </p>
-          <Link href="/register">
+      <AccessNotice
+        title="Farmer"
+        heading="Farmer account required"
+        message="This area is for accounts registered as farmers. If you signed up as a customer, selling has to be enabled on your account before the dashboard opens."
+        action={
+          <Link href="/account">
             <a className="theme-btn style-two">
-              Register as a farmer <i className="fas fa-angle-double-right" />
+              Back to your account <i className="fas fa-angle-double-right" />
             </a>
           </Link>
-        </div>
-      </Layout>
+        }
+      />
     );
   }
 
   return (
-    <Layout title={pageName}>
-      <PageBanner pageName={pageName} />
-      <div className="account-area py-130 rpy-100">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-3">
-              <div className="widget widget-menu wow fadeInUp delay-0-2s">
-                <h4 className="widget-title">
-                  <i className="flaticon-leaf-1" />
-                  Farmer
-                </h4>
-                <ul>
-                  {NAV.map((entry) => (
-                    <li key={entry.href}>
-                      <Link href={entry.href}>
-                        <a
-                          className={
-                            router.pathname === entry.href ? "active" : ""
-                          }
-                        >
-                          {entry.label}
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
-                  <li>
-                    <Link href="/account">Account settings</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-9">{children}</div>
-          </div>
-        </div>
-      </div>
-    </Layout>
+    <DashboardShell
+      area="Farmer"
+      title={pageName}
+      subtitle={subtitle}
+      icon={icon}
+      actions={actions}
+      nav={NAV}
+    >
+      {children}
+    </DashboardShell>
   );
 };
 

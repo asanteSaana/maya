@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import AdminLayout from "../../src/components/admin/AdminLayout";
-import PageHeader from "../../src/components/admin/PageHeader";
-import StatCard from "../../src/components/admin/StatCard";
+import StatCard, { StatGrid } from "../../src/components/dashboard/StatCard";
 import OrderStatusBadge from "../../src/components/shop/OrderStatusBadge";
 import {
   ErrorState,
@@ -52,21 +51,21 @@ const AdminOverview = () => {
     .slice(0, 8);
 
   return (
-    <AdminLayout pageName="Admin Overview">
-      <PageHeader
-        title="Overview"
-        subtitle="Orders placed against your listings, across every customer"
-        actions={
-          <button
-            type="button"
-            className="theme-btn style-two"
-            onClick={load}
-            disabled={isLoading}
-          >
-            Refresh <i className="fas fa-sync-alt" />
-          </button>
-        }
-      />
+    <AdminLayout
+      pageName="Overview"
+      subtitle="Every order placed across the marketplace"
+      icon="fas fa-chart-pie"
+      actions={
+        <button
+          type="button"
+          className="theme-btn style-two"
+          onClick={load}
+          disabled={isLoading}
+        >
+          Refresh <i className="fas fa-sync-alt" />
+        </button>
+      }
+    >
 
       {isLoading && <LoadingState message="Loading marketplace activity…" />}
 
@@ -74,34 +73,34 @@ const AdminOverview = () => {
 
       {!isLoading && !error && (
         <>
-          <div className="row">
+          <StatGrid>
             <StatCard
               label="Orders received"
               value={orders.length}
-              icon="flaticon-shopping-bag"
+              icon="fas fa-receipt"
             />
             <StatCard
               label="Awaiting action"
               value={pending.length}
               hint="Pending farmer response"
-              icon="flaticon-clock"
+              icon="fas fa-clock"
             />
             <StatCard
               label="Accepted revenue"
               value={formatPrice(revenue)}
               hint={`${accepted.length} accepted · ${rejected.length} rejected`}
-              icon="flaticon-money"
+              icon="fas fa-coins"
             />
             <StatCard
               label="Live listings"
               value={products.length}
-              icon="flaticon-leaf-1"
+              icon="fas fa-carrot"
             />
-          </div>
+          </StatGrid>
 
-          <div className="widget mt-30 wow fadeInUp delay-0-4s">
-            <h4 className="widget-title">
-              <i className="flaticon-leaf-1" />
+          <div className="dash-card">
+            <h4 className="dash-card-title">
+              <i className="fas fa-clock-rotate-left" />
               Latest orders
             </h4>
 

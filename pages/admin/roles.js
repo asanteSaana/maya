@@ -1,6 +1,5 @@
 import { useState } from "react";
 import AdminLayout from "../../src/components/admin/AdminLayout";
-import PageHeader from "../../src/components/admin/PageHeader";
 import FormAlert from "../../src/components/FormAlert";
 import { createRoleAndReadId } from "../../src/services/admin";
 import { CUSTOMER_ROLE_ID, ROLE_IDS } from "../../src/services/constants";
@@ -33,12 +32,11 @@ const AdminRoles = () => {
   };
 
   return (
-    <AdminLayout pageName="Roles">
-      <PageHeader
-        title="Roles"
-        subtitle="Create the roles accounts can be assigned"
-        icon="flaticon-user"
-      />
+    <AdminLayout
+      pageName="Roles"
+      subtitle="Create the roles accounts can be assigned"
+      icon="fas fa-user-shield"
+    >
 
       <div className="alert alert-warning" role="note">
         <strong>Seller signup is blocked on a missing role id.</strong> Creating
@@ -49,8 +47,8 @@ const AdminRoles = () => {
         without a code change.
       </div>
 
-      <div className="widget wow fadeInUp delay-0-2s">
-        <h4 className="widget-title">
+      <div className="dash-card">
+        <h4 className="dash-card-title">
           <i className="flaticon-leaf-1" />
           Known role ids
         </h4>
@@ -76,7 +74,7 @@ const AdminRoles = () => {
         </p>
       </div>
 
-      <div className="contact-page-form mt-30 wow fadeInUp delay-0-4s">
+      <div className="dash-card">
         <h4 className="mb-20">Create a role</h4>
         <FormAlert error={error} />
         <form onSubmit={handleSubmit}>
@@ -119,8 +117,8 @@ const AdminRoles = () => {
       </div>
 
       {created.length > 0 && (
-        <div className="widget mt-30 wow fadeInUp delay-0-2s">
-          <h4 className="widget-title">
+        <div className="dash-card">
+          <h4 className="dash-card-title">
             <i className="flaticon-leaf-1" />
             Created this session
           </h4>

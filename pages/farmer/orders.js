@@ -74,7 +74,11 @@ const FarmerOrders = () => {
   };
 
   return (
-    <FarmerLayout pageName="Incoming Orders">
+    <FarmerLayout
+      pageName="Incoming orders"
+      subtitle="Accept or decline what customers have ordered from you"
+      icon="fas fa-receipt"
+    >
       {isLoading && <LoadingState message="Loading incoming orders…" />}
 
       {!isLoading && error && <ErrorState message={error} onRetry={load} />}

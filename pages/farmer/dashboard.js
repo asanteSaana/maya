@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import FarmerLayout from "../../src/components/farmer/FarmerLayout";
+import StatCard, { StatGrid } from "../../src/components/dashboard/StatCard";
 import {
   ErrorState,
   LoadingState,
@@ -49,36 +50,56 @@ const FarmerDashboard = () => {
   );
 
   const stats = [
-    { label: "Active listings", value: products.length, href: "/farmer/products" },
-    { label: "Pending orders", value: pending.length, href: "/farmer/orders" },
-    { label: "Accepted orders", value: accepted.length, href: "/farmer/orders" },
-    { label: "Accepted revenue", value: formatPrice(revenue) },
+    {
+      label: "Active listings",
+      value: products.length,
+      href: "/farmer/products",
+      icon: "fas fa-carrot",
+    },
+    {
+      label: "Awaiting you",
+      value: pending.length,
+      href: "/farmer/orders",
+      hint: "Orders needing a response",
+      icon: "fas fa-clock",
+    },
+    {
+      label: "Accepted",
+      value: accepted.length,
+      href: "/farmer/orders",
+      icon: "fas fa-check-circle",
+    },
+    {
+      label: "Accepted revenue",
+      value: formatPrice(revenue),
+      icon: "fas fa-coins",
+    },
   ];
 
   return (
-    <FarmerLayout pageName="Farmer Dashboard">
+    <FarmerLayout
+      pageName="Dashboard"
+      subtitle="Your listings and the orders placed against them"
+      icon="fas fa-chart-line"
+      actions={
+        <Link href="/farmer/products/new">
+          <a className="theme-btn style-two">
+            Add listing <i className="fas fa-angle-double-right" />
+          </a>
+        </Link>
+      }
+    >
       {isLoading && <LoadingState message="Loading your dashboard…" />}
 
       {!isLoading && error && <ErrorState message={error} onRetry={load} />}
 
       {!isLoading && !error && (
         <>
-          <div className="row">
+          <StatGrid>
             {stats.map((stat) => (
-              <div className="col-md-6 col-lg-3" key={stat.label}>
-                <div className="widget wow fadeInUp delay-0-2s text-center">
-                  <h2 className="mb-5">{stat.value}</h2>
-                  <p className="mb-0">
-                    {stat.href ? (
-                      <Link href={stat.href}>{stat.label}</Link>
-                    ) : (
-                      stat.label
-                    )}
-                  </p>
-                </div>
-              </div>
+              <StatCard key={stat.label} {...stat} />
             ))}
-          </div>
+          </StatGrid>
 
           {outOfStock.length > 0 && (
             <div className="alert alert-warning mt-25" role="alert">
@@ -91,9 +112,9 @@ const FarmerDashboard = () => {
             </div>
           )}
 
-          <div className="widget mt-30 wow fadeInUp delay-0-4s">
-            <h4 className="widget-title">
-              <i className="flaticon-leaf-1" />
+          <div className="dash-card">
+            <h4 className="dash-card-title">
+              <i className="fas fa-clock-rotate-left" />
               Latest orders
             </h4>
             {orders.length === 0 ? (
@@ -115,14 +136,6 @@ const FarmerDashboard = () => {
                 ))}
               </ul>
             )}
-          </div>
-
-          <div className="pt-25">
-            <Link href="/farmer/products/new">
-              <a className="theme-btn style-two">
-                Add a new listing <i className="fas fa-angle-double-right" />
-              </a>
-            </Link>
           </div>
         </>
       )}
