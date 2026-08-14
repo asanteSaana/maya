@@ -70,6 +70,13 @@ node_modules/
 .next/
 out/
 
-# Coursework submission bundle — Links.txt carries access credentials, which
-# the coursework brief forbids committing to a public repository.
-submission/
+# Coursework submission bundle. The generator is source and is tracked; its
+# output is not. Links.txt carries access credentials, which the coursework
+# brief forbids committing to a public repository.
+submission/*.docx
+submission/Links.txt
+submission/diagrams/
+
+# Python bytecode
+__pycache__/
+*.pyc
