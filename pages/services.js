@@ -21,10 +21,7 @@ const Services = () => {
                   <h2>The Best Organic Foods Provider in Worlds</h2>
                 </div>
                 <p>
-                  Sed ut perspiciatis unde omnis natus volupta accusantium
-                  doloreue laudantium totam rem aperiam{" "}
-                  <mark>eaquesa quae abillo inventore</mark> veritas architecto
-                  beatae vitae dicta sunt explicabo voluptatem
+                  Every listing shows the farm it came from. Where produce is graded by size, the farmer sets a price for each grade, and stock levels come from the farmer rather than an estimate.
                 </p>
                 <ul className="list-style-two pt-10 pb-45">
                   <li>Agriculture &amp; Foods</li>
@@ -201,10 +198,7 @@ const Services = () => {
                   <h2>We Are Professional &amp; Experience For Farming</h2>
                 </div>
                 <p>
-                  Sed perspiciatis unde omnis natus voluptatem accusantiu dolore
-                  mque laudantium totam rem aperiam eaue abillo inventor
-                  veritatis architecto beatae vitae dicta sunt explicabo epsam
-                </p>
+                  Customers order directly, farmers accept or decline, and both sides know exactly who they are dealing with.</p>
                 <div className="circle-counter">
                   <div className="team-skill-item">
                     <ProgressBar value={76} color="#76a713" />

@@ -461,3 +461,59 @@ img.mfp-img {
     padding-top: 35px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Form labels
+   The template pins labels to the top-right of their group with
+   `position: absolute`, because its own forms use the label as a small
+   annotation beside a placeholder. Forms written for this project label the
+   field above it, so the label has to sit in normal flow — otherwise it lands
+   on top of the input.
+   --------------------------------------------------------------------------- */
+
+.form-group label {
+  position: static;
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #274c3b;
+  line-height: 1.4;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 6px;
+  color: #6b726c;
+  font-size: 12.5px;
+}
+
+/* A form ends with one filled action and a way out, not two filled buttons. */
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+a.btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Category strip driven by real catalogue data. The template used bitmap icons
+   per invented category; categories now come from the data, so a scalable
+   glyph is used instead of guessing at an image for each. */
+.category-item .icon i {
+  font-size: 30px;
+  color: #7eb693;
+  line-height: 80px;
+}
+
+.category-count {
+  display: block;
+  font-size: 13px;
+  color: #6b726c;
+  margin-top: 4px;
+}

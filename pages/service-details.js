@@ -23,17 +23,7 @@ const ServiceDetails = () => {
                 </div>
                 <h3>Fruits &amp; Vegetables</h3>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae abillo inventore veritatis et quasi atecto beatae
-                  vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                  voluptas sit asnatur aut odit aut fugit, sed quia consequuntur
-                  magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
-                  porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                  consectetur, adipisci velit, sed quia non numquam eius modi
-                  tempora incidunt ut labore et dolore magnam aliquam quaerat
-                  voluptatem.
-                </p>
+                  Maya connects growers directly with the people buying their produce, so less is lost to intermediaries and less time passes between harvest and table.</p>
                 <div className="row py-20">
                   <div className="col-lg-3 col-sm-6">
                     <div className="about-feature-two style-two wow fadeInUp delay-0-2s">
@@ -101,12 +91,7 @@ const ServiceDetails = () => {
                 </div>
                 <h4>Healthy and Testy Foods</h4>
                 <p>
-                  Zemo enim ipsam voluptatem quia voluptas sit asnatur aut odit
-                  aut fugit sed sequuntur magni dolores eos qui ratione
-                  voluptatem sequi nesciunt. Neque porro quisquam estquis
-                  dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
-                  sed quia non numquam eius tempora incidunt ut labore et dolore
-                  magnam aliquam quaerat voluptatem.
+                  Farmers publish what they have picked, set their own prices, and decide which orders to accept. Customers see the same prices the farmer set, and every listing names the farm it came from.
                 </p>
                 <ul className="list-style-two pt-10">
                   <li>Agriculture &amp; Foods</li>
@@ -128,10 +113,7 @@ const ServiceDetails = () => {
                   blame longs to those who fail in their duty through weakness{" "}
                 </p>
                 <blockquote>
-                  Quis autem veleu mure reprehenderit quin voluptate velit esse
-                  quam nihil molestiae consequatur illum dolorem eum fugiat quo
-                  voluptas nulla pariatur
-                </blockquote>
+                  Produce is listed by the farmer who grew it, priced by the farmer who grew it, and sold without an intermediary in between.</blockquote>
               </div>
             </div>
             <div className="col-xl-4 col-lg-6 col-md-8">

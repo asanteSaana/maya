@@ -7,6 +7,7 @@ import { HomeSlider1 } from "../src/components/HomeSlider";
 import FeaturedProductSlider from "../src/components/shop/FeaturedProductSlider";
 import CustomerReviews from "../src/components/slider/CustomerReviews";
 import PhotoGallery from "../src/components/slider/PhotoGallery";
+import CategoryStrip from "../src/components/shop/CategoryStrip";
 import Layout from "../src/layout/Layout";
 import { productActive } from "../src/sliderProps";
 const MunfimCountdown = dynamic(
@@ -45,7 +46,7 @@ const Index = () => {
                 <span className="sub-title mb-20">
                   Popular Foods and Vegetables go here
                 </span>
-                <h2>Quality Fruits &amp; Vegetables</h2>
+                <h2>What our farmers are selling</h2>
               </div>
             </div>
             <div className="col-lg-5 wow fadeInUp delay-0-4s">
@@ -58,53 +59,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="category-wrap">
-            <div className="category-item wow fadeInUp delay-0-3s">
-              <div className="icon">
-                {/* <img src="/assets/images/category/icon1.png" alt="Icon" /> */}
-              </div>
-              <h5>
-                <Link href="/services">Organic Fruits</Link>
-              </h5>
-              <img src="/assets/images/category/arrow.png" alt="Arrow" />
-            </div>
-            <div className="category-item wow fadeInUp delay-0-4s">
-              <div className="icon">
-                <img src="/assets/images/category/icon2.png" alt="Icon" />
-              </div>
-              <h5>
-                <Link href="/services">Vegetables</Link>
-              </h5>
-              <img src="/assets/images/category/arrow.png" alt="Arrow" />
-            </div>
-            <div className="category-item wow fadeInUp delay-0-5s">
-              <div className="icon">
-                <img src="/assets/images/category/icon3.png" alt="Icon" />
-              </div>
-              <h5>
-                <Link href="/services">Sea Fish’s</Link>
-              </h5>
-              <img src="/assets/images/category/arrow.png" alt="Arrow" />
-            </div>
-            <div className="category-item wow fadeInUp delay-0-6s">
-              <div className="icon">
-                <img src="/assets/images/category/icon4.png" alt="Icon" />
-              </div>
-              <h5>
-                <Link href="/services">Crisp Bakery</Link>
-              </h5>
-              <img src="/assets/images/category/arrow.png" alt="Arrow" />
-            </div>
-            <div className="category-item wow fadeInUp delay-0-7s">
-              <div className="icon">
-                <img src="/assets/images/category/icon5.png" alt="Icon" />
-              </div>
-              <h5>
-                <Link href="/services">Chiken Egg</Link>
-              </h5>
-              <img src="/assets/images/category/arrow.png" alt="Arrow" />
-            </div>
-          </div>
+          <CategoryStrip />
         </div>
       </section>
       {/* Category Section End */}
@@ -291,7 +246,7 @@ const Index = () => {
             <span className="sub-title mb-20">
               Popular Foods and Vegetables
             </span>
-            <h2>Quality Fruits &amp; Vegetables</h2>
+            <h2>What our farmers are selling</h2>
           </div>
           <FeaturedProductSlider
             sliderProps={productActive}

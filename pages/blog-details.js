@@ -33,26 +33,11 @@ const BlogDetails = () => {
                   <img src="/assets/images/news/blog-details.jpg" alt="Blog" />
                 </div>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
-                  quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                  cones sequuntur magni dolores eos qui ratione voluptatem sequi
-                  nesciunt. Neque porro quisquam est, qui do lorem ipsum quia
-                  dolor sit amet, consectetur, adipisci velit, sed quia non
-                  numquam eius modi tempora incidunt ut labore et dolore magnam
-                  aliquam quaerat voluptatem.
-                </p>
+                  Maya connects growers directly with the people buying their produce, so less is lost to intermediaries and less time passes between harvest and table.</p>
                 <br />
                 <h4>Ultimate Digital Clean-Up Checklist Are You Prepared</h4>
                 <p>
-                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                  odit aut fugit sed quia consequuntur magni dolores eos qui
-                  ratione voluptatem sequi nesciunt. Neque porro quisquam estqui
-                  dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                  velit, sed quia non numquam
-                </p>
+                  Farmers publish what they have picked, set their own prices, and decide which orders to accept. Customers see the same prices the farmer set.</p>
                 <ul className="list-style-one mt-25">
                   <li>The Complete Guide To Switching From HTTP To HTTPS</li>
                   <li>
@@ -339,9 +324,7 @@ const BlogDetails = () => {
                   <h4>Somalia D. Silva</h4>
                   <span className="sub-title">CO-Founder</span>
                   <p>
-                    Amet consecte adipiscing elitse doeiusmod tempor incididunt
-                    labre et dolore magna aliqua lacus{" "}
-                  </p>
+                    Produce is listed by the farmer who grew it, priced by the farmer who grew it, and sold without an intermediary in between.</p>
                   <div className="social-style-one">
                     <Link href="/contact">
                       <a>

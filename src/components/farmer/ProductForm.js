@@ -259,9 +259,10 @@ const ProductForm = ({ product, mode = "create", onSubmit, submitLabel }) => {
               <div className="form-group">
                 <button
                   type="button"
-                  className="theme-btn style-two w-100"
+                  className="btn-destructive w-100"
                   onClick={() => removeRow(index)}
                   disabled={form.catalogue.length === 1}
+                  aria-label={`Remove size ${index + 1}`}
                 >
                   Remove
                 </button>
@@ -272,7 +273,7 @@ const ProductForm = ({ product, mode = "create", onSubmit, submitLabel }) => {
 
         <button
           type="button"
-          className="theme-btn style-two mb-25"
+          className="btn-quiet mb-25"
           onClick={addRow}
         >
           Add another size

@@ -18,8 +18,11 @@ const useCountdown = (targetDate) => {
   return getReturnValues(countDown);
 };
 
-const getReturnValues = (countDown) => {
-  // calculate time left
+const getReturnValues = (input) => {
+  // An unparseable target or an elapsed deadline must not render as NaN or as
+  // a negative count; both read as broken.
+  const countDown = Number.isFinite(input) && input > 0 ? input : 0;
+
   const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)

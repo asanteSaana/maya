@@ -21,13 +21,13 @@ const About = () => {
               <div className="about-three-content rmb-35 wow fadeInLeft delay-0-2s">
                 <div className="section-title mb-20">
                   <span className="sub-title mb-20">About Company</span>
-                  <h2>Organic &amp; Helathy Foods Provider Farming</h2>
+                  <h2>Produce that goes straight from the farm to your table</h2>
                 </div>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta sunt explicabo enim voluptatem
+                  Food in Ghana usually reaches the table through a chain of aggregators,
+                  wholesalers and market traders. Every link takes a margin and adds a day.
+                  Maya removes the chain: farmers list what they have picked, customers buy
+                  it directly, and both sides see the same price.
                 </p>
                 <div className="row mt-30">
                   <div className="col-md-6">
@@ -232,7 +232,7 @@ const About = () => {
                         <h4>
                           <Link href="/service-details">Discount Options</Link>
                         </h4>
-                        <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
+                        <p>Farmers set their own prices and can offer a lower rate on larger quantities.</p>
                         <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       </div>
                     </div>
@@ -247,7 +247,7 @@ const About = () => {
                             Best Return Policy
                           </Link>
                         </h4>
-                        <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
+                        <p>Every farmer is verified before their produce appears in the marketplace.</p>
                         <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       </div>
                     </div>
@@ -260,7 +260,7 @@ const About = () => {
                         <h4>
                           <Link href="/service-details">Online Support</Link>
                         </h4>
-                        <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
+                        <p>Every farmer is verified before their produce appears in the marketplace.</p>
                         <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       </div>
                     </div>

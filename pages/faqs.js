@@ -43,7 +43,7 @@ const Faqs = () => {
                       <h4>
                         <Link href="/service-details">Discount Options</Link>
                       </h4>
-                      <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
+                      <p>Farmers set their own prices and can offer a lower rate on larger quantities.</p>
                       <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       <div
                         className="feature-bg"
@@ -62,7 +62,7 @@ const Faqs = () => {
                       <h4>
                         <Link href="/service-details">Best Return Policy</Link>
                       </h4>
-                      <p>Sit amet consectetur adipis cing elit sed eiusmoe</p>
+                      <p>Farmers set their own prices and can offer a better rate on larger quantities.</p>
                       <img src="/assets/images/about/arrow.png" alt="Arrow" />
                       <div
                         className="feature-bg"

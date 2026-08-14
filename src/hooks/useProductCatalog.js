@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import { categoryKey } from "../services/normalizers";
 
@@ -40,11 +41,29 @@ const toCategoryList = (product) =>
 
 /** Search, category, price and sort applied client-side over the full list. */
 export const useProductCatalog = (products, { pageSize = 8 } = {}) => {
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+
   const [priceRange, setPriceRange] = useState(null);
   const [sort, setSort] = useState("default");
   const [page, setPage] = useState(1);
+
+  // A ?category= link from elsewhere in the site should arrive pre-filtered.
+  // Applied once the router has resolved its query, and only as a starting
+  // point — the visitor is free to change it without the URL fighting back.
+  useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
+
+    const requested = router.query.category;
+
+    if (typeof requested === "string" && requested) {
+      setCategory(categoryKey(requested));
+      setPage(1);
+    }
+  }, [router.isReady, router.query.category]);
 
   // The live catalogue spells the same category several ways ("Breakfast" vs
   // "BreaKfast"), which would otherwise render as separate filters splitting

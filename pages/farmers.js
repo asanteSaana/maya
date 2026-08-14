@@ -94,10 +94,7 @@ const Farmers = () => {
                   <h2>We Are Professional &amp; Experience For Farming</h2>
                 </div>
                 <p>
-                  Sed perspiciatis unde omnis natus voluptatem accusantiu dolore
-                  mque laudantium totam rem aperiam eaue abillo inventor
-                  veritatis architecto beatae vitae dicta sunt explicabo epsam
-                </p>
+                  Nothing is listed that has not been harvested, so what appears in the marketplace is what is genuinely available.</p>
                 <div className="circle-counter">
                   <div className="team-skill-item">
                     <ProgressBar color={"#76a713"} value={"76"} />

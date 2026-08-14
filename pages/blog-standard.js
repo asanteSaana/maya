@@ -37,9 +37,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor Every listing shows the farm it came from. Where produce is graded by size, the farmer sets a price for each grade.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -68,9 +66,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor The marketplace runs on real inventory: if a farmer has not listed it, it is not on sale, and stock levels come from the farmer directly.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -102,9 +98,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor Maya connects growers directly with the people buying their produce, so less is lost to intermediaries and less time passes between harvest and table.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -133,9 +127,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor Farmers publish what they have picked, set their own prices, and decide which orders to accept. Customers see the same prices the farmer set.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -164,9 +156,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor Every listing shows the farm it came from. Where produce is graded by size, the farmer sets a price for each grade.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -195,9 +185,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor The marketplace runs on real inventory: if a farmer has not listed it, it is not on sale, and stock levels come from the farmer directly.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -227,9 +215,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor Maya connects growers directly with the people buying their produce, so less is lost to intermediaries and less time passes between harvest and table.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -258,9 +244,7 @@ const BlogStandard = () => {
                     </Link>
                   </h4>
                   <p>
-                    Dolor sit amet consectetur adipiscing sed eiusmods tempor
-                    incididunt ut labore et dolore
-                  </p>
+                    Dolor Farmers publish what they have picked, set their own prices, and decide which orders to accept. Customers see the same prices the farmer set.</p>
                   <Link href="/blog-details">
                     <a className="read-more">
                       Read More <i className="fas fa-angle-double-right" />
@@ -284,9 +268,7 @@ const BlogStandard = () => {
                   <h4>Somalia D. Silva</h4>
                   <span className="sub-title">CO-Founder</span>
                   <p>
-                    Amet consecte adipiscing elitse doeiusmod tempor incididunt
-                    labre et dolore magna aliqua lacus{" "}
-                  </p>
+                    Customers order directly, farmers accept or decline, and both sides know exactly who they are dealing with.</p>
                   <div className="social-style-one">
                     <Link href="/contact">
                       <a>

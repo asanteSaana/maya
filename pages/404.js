@@ -19,10 +19,10 @@ const E404 = () => {
                 <h2>Sorry This Page Can’t Be Found</h2>
               </div>
               <p>
-                Consectetur adipiscing elit sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua suspendisse ultrices gravida
-                commodo viverra maecenas accumsan
-              </p>
+                  The page you asked for is not here. It may have moved, or the produce
+                  you were looking at may no longer be listed. Try the marketplace
+                  instead — there is always something in season.
+                </p>
               <Link href="/">
                 <a className="theme-btn style-three mt-15">
                   Goto Home <i className="fas fa-angle-double-right" />
