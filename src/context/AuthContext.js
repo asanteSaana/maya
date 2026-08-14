@@ -13,7 +13,7 @@ import {
   logoutUser,
   registerUser,
 } from "../services/auth";
-import { isPartnerUser } from "../services/userProfile";
+import { isAdminUser, isPartnerUser } from "../services/userProfile";
 
 // The access token lives in an httpOnly cookie and is never readable here. Only
 // the user profile is cached locally, and purely so the header can render the
@@ -123,6 +123,7 @@ export const AuthProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       isAuthenticated: Boolean(user),
+      isAdmin: isAdminUser(user),
       isPartner: isPartnerUser(user),
       isReady,
       login,

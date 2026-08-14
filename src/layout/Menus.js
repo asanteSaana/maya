@@ -110,7 +110,7 @@ export const Contact = () => (
 );
 
 export const Account = () => {
-  const { isAuthenticated, isPartner, isReady } = useAuth();
+  const { isAdmin, isAuthenticated, isPartner, isReady } = useAuth();
 
   // Render the signed-out links until the session resolves, so the server and
   // first client render agree and React does not warn about a mismatch.
@@ -141,6 +141,11 @@ export const Account = () => {
       {isPartner && (
         <li>
           <Link href="/farmer/dashboard">Farmer dashboard</Link>
+        </li>
+      )}
+      {isAdmin && (
+        <li>
+          <Link href="/admin">Admin console</Link>
         </li>
       )}
     </Fragment>

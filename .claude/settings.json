@@ -4,7 +4,12 @@
       "Bash(grep -n \"productActive\\\\|product-item\\\\|Slider {...\\\\|product-section\" pages/index2.js)",
       "Bash(python -c ' *)",
       "Bash(npm run *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(cd \"C:/Users/Henry Asante/Desktop/GhanaCard/ghcardverification_frontend\" 2>/dev/null && echo \"=== root ===\" && ls -a | head -30 && echo \"\" && echo \"=== package.json ===\" && cat package.json 2>/dev/null || echo \"PATH NOT FOUND\")",
+      "Read(//c/Users/Henry Asante/Desktop/GhanaCard/ghcardverification_frontend/**)",
+      "Bash(sed 's/.*\\\\.//')",
+      "Bash(xargs -n1 basename)",
+      "Bash(cd \"C:/Users/Henry Asante/Desktop/GhanaCard/ghcardverification_frontend\" && echo \"=== Dashboard feature ===\" && find src/Features/Dashboard -type f | sed 's/^/  /' && echo \"\" && echo \"=== shared services ===\" && find src/_shared -type f -name \"*.ts*\" | sed 's/^/  /' | head -25)"
     ]
   }
 }

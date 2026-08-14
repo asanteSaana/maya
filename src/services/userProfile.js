@@ -14,6 +14,13 @@ const PARTNER_ROLE_NAMES = [
   "admin",
 ];
 
+// Staff roles. GET /api/orders/all answers 403 rather than 404 for a customer,
+// so the backend does gate an all-orders view by role — but it never publishes
+// the role names, so this list is a best guess and may need widening once a
+// real staff account exists. Admins are also treated as partners, since every
+// seller screen is a subset of what an administrator should see.
+const ADMIN_ROLE_NAMES = ["admin", "administrator", "superadmin", "super admin"];
+
 const readRole = (payload = {}) => {
   const role = payload.role;
 
@@ -26,6 +33,20 @@ const readRole = (payload = {}) => {
     id: (typeof role === "string" ? role : "") || payload.roleId || "",
     name: payload.roleName || "",
   };
+};
+
+const roleNameOf = (user) => String(readRole(user).name).trim().toLowerCase();
+
+export const isAdminUser = (user) => {
+  if (!user) {
+    return false;
+  }
+
+  if (typeof user.isAdmin === "boolean") {
+    return user.isAdmin;
+  }
+
+  return ADMIN_ROLE_NAMES.includes(roleNameOf(user));
 };
 
 export const isPartnerUser = (user) => {
@@ -41,8 +62,7 @@ export const isPartnerUser = (user) => {
     return true;
   }
 
-  const { name } = readRole(user);
-  return PARTNER_ROLE_NAMES.includes(String(name).trim().toLowerCase());
+  return PARTNER_ROLE_NAMES.includes(roleNameOf(user));
 };
 
 /** Strips the accessToken and anything else not needed by the browser. */
@@ -58,5 +78,7 @@ export const toPublicUser = (payload = {}) => {
     partnerId: payload.partnerId || null,
   };
 
-  return { ...profile, isPartner: isPartnerUser(profile) };
+  const isAdmin = isAdminUser(profile);
+
+  return { ...profile, isAdmin, isPartner: isAdmin || isPartnerUser(profile) };
 };

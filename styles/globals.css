@@ -68,3 +68,161 @@ img.mfp-img {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* ---------------------------------------------------------------------------
+   Admin console
+   Built on the storefront's Bootstrap 4 base rather than a second UI kit, so
+   the console inherits the template's colours, buttons and widget cards.
+   --------------------------------------------------------------------------- */
+
+.admin-page-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--primary-color, #7eb693);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.admin-stat {
+  text-align: center;
+  padding: 25px 15px;
+  height: 100%;
+}
+
+.admin-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(126, 182, 147, 0.15);
+  color: var(--primary-color, #7eb693);
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.admin-stat small {
+  display: block;
+  margin-top: 6px;
+  opacity: 0.75;
+}
+
+.admin-table-search {
+  min-width: 260px;
+  flex: 1 1 260px;
+  margin-right: 15px;
+}
+
+.admin-table {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.admin-table th,
+.admin-table td {
+  vertical-align: middle;
+  padding: 12px 10px;
+}
+
+.admin-table thead th {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+}
+
+.admin-sort-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.admin-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-row-actions .form-control {
+  min-width: 120px;
+  height: auto;
+  padding: 6px 10px;
+}
+
+.admin-danger-btn,
+.admin-link-btn {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.admin-danger-btn {
+  color: #d9534f;
+  border-color: rgba(217, 83, 79, 0.4);
+}
+
+.admin-danger-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-page-btn {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.admin-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Below the table breakpoint each row becomes a stack of labelled fields,
+   because an order row has seven columns and would otherwise be unreadable. */
+@media (max-width: 767px) {
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table,
+  .admin-table tbody,
+  .admin-table tr,
+  .admin-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-table tr {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    padding: 6px 10px;
+  }
+
+  .admin-table td {
+    border: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    opacity: 0.7;
+  }
+}
