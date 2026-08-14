@@ -380,3 +380,84 @@ img.mfp-img {
     font-size: 12px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Compact page heading
+   Used where the visitor arrived to do something rather than to look at
+   something. The photographic banner is 165px of padding top and bottom, which
+   on a laptop pushes a sign-in form or a basket entirely below the fold.
+   --------------------------------------------------------------------------- */
+
+.page-crumb {
+  background: #f5f7f5;
+  border-bottom: 1px solid rgba(39, 76, 59, 0.1);
+  padding: 26px 0 24px;
+}
+
+.page-crumb .page-crumb-trail {
+  background: none;
+  padding: 0;
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.page-crumb .breadcrumb-item,
+.page-crumb .breadcrumb-item a {
+  color: #6b726c;
+}
+
+.page-crumb .breadcrumb-item a:hover {
+  color: #274c3b;
+}
+
+.page-crumb .breadcrumb-item.active {
+  color: #274c3b;
+  font-weight: 600;
+}
+
+.page-crumb-title {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0;
+  color: #274c3b;
+}
+
+@media (max-width: 767px) {
+  .page-crumb {
+    padding: 18px 0 16px;
+  }
+
+  .page-crumb-title {
+    font-size: 24px;
+  }
+}
+
+/* The banner that remains on marketing pages is still taller than it needs to
+   be; trimmed so the content beneath it is visible without scrolling. */
+.page-banner.py-165 {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+@media (max-width: 767px) {
+  .page-banner.py-165 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+/* A compact heading is followed by content that still carries the template's
+   130px top padding, which reinstates most of the space just saved. The gap is
+   closed only where the compact heading is used, so marketing pages keep their
+   original rhythm. */
+.page-crumb + [class*="py-130"],
+.page-crumb + [class*="pt-130"] {
+  padding-top: 55px;
+}
+
+@media (max-width: 767px) {
+  .page-crumb + [class*="py-130"],
+  .page-crumb + [class*="pt-130"] {
+    padding-top: 35px;
+  }
+}

@@ -48,7 +48,7 @@ const Login = () => {
       title="Sign in"
       description="Sign in to your Maya account to order produce or manage your listings."
     >
-      <PageBanner pageName={"Login"} />
+      <PageBanner pageName={"Login"} compact />
       <div className="contact-page-form-area py-130 rpy-100">
         <div className="container">
           <div className="row justify-content-center">

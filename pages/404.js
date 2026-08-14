@@ -7,7 +7,7 @@ const E404 = () => {
       title="Page not found"
       description="The page you were looking for is not here."
     >
-      <PageBanner pageName={"404"} pageTitle={"404 Error"} />
+      <PageBanner pageName={"404"} pageTitle={"404 Error"} compact />
       <section className="error-section rel z-1 py-130 rpy-100">
         <div className="container">
           <div className="error-inner text-center wow fadeInUp delay-0-2s">

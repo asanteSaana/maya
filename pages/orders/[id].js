@@ -55,7 +55,7 @@ const OrderDetails = () => {
 
   return (
     <Layout title="Order details">
-      <PageBanner pageName={"Order Details"} />
+      <PageBanner pageName={"Order Details"} compact />
       <div className="cart-area py-130 rpy-100">
         <div className="container">
           {isLoading && <LoadingState message="Loading your order…" />}

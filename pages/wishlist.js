@@ -27,7 +27,7 @@ const WishlistPage = () => {
       title="Wishlist"
       description="Produce you have saved to buy later."
     >
-      <PageBanner pageName={"Wishlist Page"} />
+      <PageBanner pageName={"Wishlist Page"} compact />
       <div className="wishlist-area py-130 rpy-100">
         <div className="container">
           {!isReady && <LoadingState message="Loading your wishlist…" />}

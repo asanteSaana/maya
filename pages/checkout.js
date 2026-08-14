@@ -123,7 +123,7 @@ const Checkout = () => {
         title="Checkout"
         description="Confirm your delivery details and place your order with the farmer."
       >
-        <PageBanner pageName={"Checkout"} />
+        <PageBanner pageName={"Checkout"} compact />
         <div className="container py-130 rpy-100">
           <LoadingState message="Preparing your checkout…" />
         </div>
@@ -137,7 +137,7 @@ const Checkout = () => {
         title="Checkout"
         description="Confirm your delivery details and place your order with the farmer."
       >
-        <PageBanner pageName={"Checkout"} />
+        <PageBanner pageName={"Checkout"} compact />
         <div className="container py-130 rpy-100">
           <EmptyState
             title="Your cart is empty"
@@ -160,7 +160,7 @@ const Checkout = () => {
       title="Checkout"
       description="Confirm your delivery details and place your order with the farmer."
     >
-      <PageBanner pageName={"Checkout"} />
+      <PageBanner pageName={"Checkout"} compact />
       <div className="checkout-form-area py-130 rpy-100">
         <div className="container">
           {!isAuthenticated && (

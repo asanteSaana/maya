@@ -41,7 +41,7 @@ const Orders = () => {
       title="My orders"
       description="Track the orders you have placed and see how each farmer has responded."
     >
-      <PageBanner pageName={"My Orders"} />
+      <PageBanner pageName={"My Orders"} compact />
       <div className="cart-area py-130 rpy-100">
         <div className="container">
           {isLoading && <LoadingState message="Loading your orders…" />}

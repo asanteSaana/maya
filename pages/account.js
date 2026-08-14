@@ -64,7 +64,7 @@ const Account = () => {
         title="My account"
         description="Manage your Maya account details."
       >
-        <PageBanner pageName={"My Account"} />
+        <PageBanner pageName={"My Account"} compact />
         <div className="py-130 rpy-100 text-center">
           <i className="fas fa-spinner fa-spin fa-2x" aria-hidden="true" />
         </div>
@@ -77,7 +77,7 @@ const Account = () => {
       title="My account"
       description="Manage your Maya account details."
     >
-      <PageBanner pageName={"My Account"} />
+      <PageBanner pageName={"My Account"} compact />
       <div className="account-area py-130 rpy-100">
         <div className="container">
           <div className="row">

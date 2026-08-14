@@ -79,7 +79,7 @@ const Register = () => {
       title="Create account"
       description="Create a Maya account to buy fresh produce, or to start selling your own harvest."
     >
-      <PageBanner pageName={"Create Account"} />
+      <PageBanner pageName={"Create Account"} compact />
       <div className="contact-page-form-area py-130 rpy-100">
         <div className="container">
           <div className="row justify-content-center">

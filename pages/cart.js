@@ -26,7 +26,7 @@ const CartPage = () => {
       title="Your basket"
       description="Review the produce in your basket and continue to checkout."
     >
-      <PageBanner pageName={"Cart Page"} />
+      <PageBanner pageName={"Cart Page"} compact />
       <div className="cart-area py-130 rpy-100">
         <div className="container">
           {error && (
