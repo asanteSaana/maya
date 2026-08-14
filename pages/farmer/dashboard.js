@@ -106,7 +106,7 @@ const FarmerDashboard = () => {
                 {orders.slice(0, 5).map((order) => (
                   <li key={order.id}>
                     <Link href="/farmer/orders">
-                      Order #{order.id.slice(-8)}
+                      <a>Order #{order.id.slice(-8)}</a>
                     </Link>{" "}
                     <span>
                       {formatPrice(order.amount)} · {order.status}

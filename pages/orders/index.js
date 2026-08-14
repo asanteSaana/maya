@@ -74,7 +74,7 @@ const Orders = () => {
                   </div>
                   <h5 className="product-name">
                     <Link href={`/orders/${order.id}`}>
-                      Order #{order.id.slice(-8)}
+                      <a>Order #{order.id.slice(-8)}</a>
                     </Link>
                     <small className="d-block">
                       {formatDate(order.createdAt)} ·{" "}
