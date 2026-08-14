@@ -69,3 +69,7 @@ node_modules/
 # Next.js build output
 .next/
 out/
+
+# Coursework submission bundle — Links.txt carries access credentials, which
+# the coursework brief forbids committing to a public repository.
+submission/

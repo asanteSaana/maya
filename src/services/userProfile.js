@@ -14,12 +14,39 @@ const PARTNER_ROLE_NAMES = [
   "admin",
 ];
 
-// Staff roles. GET /api/orders/all answers 403 rather than 404 for a customer,
-// so the backend does gate an all-orders view by role — but it never publishes
-// the role names, so this list is a best guess and may need widening once a
-// real staff account exists. Admins are also treated as partners, since every
-// seller screen is a subset of what an administrator should see.
-const ADMIN_ROLE_NAMES = ["admin", "administrator", "superadmin", "super admin"];
+// Staff roles — accounts allowed into /admin.
+//
+// This backend ships only two roles, Customer and Partner, and "Partner" is the
+// elevated one: GET /api/orders/all answers 403 for a customer, and the staff
+// account confirmed in use carries roleName "Partner" with an id that also
+// appears as partnerId on catalogue products. There is no separate admin role
+// to key on, so Partner grants the console.
+//
+// The list is configurable so a genuine admin role can be adopted later by
+// setting NEXT_PUBLIC_MAYA_ADMIN_ROLES (comma-separated) in the hosting
+// environment, without shipping a code change.
+const DEFAULT_ADMIN_ROLE_NAMES = [
+  "partner",
+  "admin",
+  "administrator",
+  "superadmin",
+  "super admin",
+];
+
+const adminRoleNames = () => {
+  const configured = process.env.NEXT_PUBLIC_MAYA_ADMIN_ROLES;
+
+  if (!configured) {
+    return DEFAULT_ADMIN_ROLE_NAMES;
+  }
+
+  const names = configured
+    .split(",")
+    .map((name) => name.trim().toLowerCase())
+    .filter(Boolean);
+
+  return names.length ? names : DEFAULT_ADMIN_ROLE_NAMES;
+};
 
 const readRole = (payload = {}) => {
   const role = payload.role;
@@ -37,16 +64,28 @@ const readRole = (payload = {}) => {
 
 const roleNameOf = (user) => String(readRole(user).name).trim().toLowerCase();
 
+/**
+ * The role name is consulted before any stored flag.
+ *
+ * The profile cookie carries the isAdmin/isPartner values computed when the
+ * session began and lives for seven days. Trusting those first would mean a
+ * change to the accepted role names only reached a user after they signed out
+ * and back in — so a configuration fix would appear not to work. Deriving from
+ * the role name keeps the decision current; the stored flag is a fallback for
+ * payloads that carry no role at all.
+ */
 export const isAdminUser = (user) => {
   if (!user) {
     return false;
   }
 
-  if (typeof user.isAdmin === "boolean") {
-    return user.isAdmin;
+  const name = roleNameOf(user);
+
+  if (name) {
+    return adminRoleNames().includes(name);
   }
 
-  return ADMIN_ROLE_NAMES.includes(roleNameOf(user));
+  return typeof user.isAdmin === "boolean" ? user.isAdmin : false;
 };
 
 export const isPartnerUser = (user) => {
@@ -54,15 +93,18 @@ export const isPartnerUser = (user) => {
     return false;
   }
 
-  if (typeof user.isPartner === "boolean") {
-    return user.isPartner;
+  // Same ordering as isAdminUser, and for the same reason.
+  const name = roleNameOf(user);
+
+  if (name) {
+    return PARTNER_ROLE_NAMES.includes(name) || Boolean(user.partnerId);
   }
 
   if (user.partnerId) {
     return true;
   }
 
-  return PARTNER_ROLE_NAMES.includes(roleNameOf(user));
+  return typeof user.isPartner === "boolean" ? user.isPartner : false;
 };
 
 /** Strips the accessToken and anything else not needed by the browser. */
