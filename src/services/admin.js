@@ -1,24 +1,24 @@
-import { unwrapApiData } from "./api";
-import { createRole, getPartnerOrders } from "./partner";
+import { apiRequest, unwrapApiData } from "./api";
+import { normalizeOrders } from "./orders";
+import { createRole } from "./partner";
 
 /**
- * The widest view of orders a staff account can obtain.
+ * Every order in the marketplace, across all sellers and customers.
  *
- * There is no marketplace-wide orders endpoint. An earlier version of this
- * module called `/api/orders/all`, which looked like a hidden administrative
- * route because it answers 403 for a customer instead of 404. It is not: that
- * is `GET /api/orders/:id` refusing the request. With a staff token it gets
- * past the guard, reaches the database, fails to cast "all" to an ObjectId and
- * returns 500 — the same behaviour `/api/products/all` shows. The published
- * collection has no such route.
+ * Two earlier attempts were wrong and are worth recording. `/api/orders/all`
+ * is not an administrative route at all — it is `GET /api/orders/:id` given
+ * "all" as the identifier, which answers 403 to a customer (hence the mistaken
+ * inference that it existed) and 500 with a Mongoose CastError to a staff
+ * token. `/api/partner/orders` does exist but is narrower: it returns only the
+ * orders placed against the signed-in partner's own listings.
  *
- * `/api/partner/orders` is what genuinely exists: every order placed against
- * the signed-in partner's listings. Where one partner owns the catalogue, that
- * is every order in the marketplace; where several do, each sees only their
- * own. Listing users, listing roles and any statistics endpoint all return 404,
- * so those screens cannot be built until the backend grows them.
+ * `/api/partner/orders/system/all` was added to the API documentation later
+ * and is the genuine system-wide view, verified returning every order.
  */
-export const getAllOrders = (options) => getPartnerOrders(options);
+export const getAllOrders = async ({ signal } = {}) => {
+  const payload = await apiRequest("/api/partner/orders/system/all", { signal });
+  return normalizeOrders(unwrapApiData(payload));
+};
 
 /**
  * Creates a role and returns its id.
