@@ -218,10 +218,13 @@ const HeaderActions = () => {
       <HeaderCartButton />
       <HeaderUserButton />
       {/* Recruiting sellers is what this marketplace needs; farmers who are
-          already selling get their dashboard instead. */}
+          already selling get their dashboard instead. The label is kept to two
+          words: the slot is narrow, and anything longer wraps and stretches the
+          whole header. Visibility is handled in CSS rather than with Bootstrap
+          display utilities, which would override the button's flex alignment. */}
       <Link href={isReady && isPartner ? "/farmer/dashboard" : "/register"}>
-        <a className="theme-btn d-none d-md-inline-block">
-          {isReady && isPartner ? "My dashboard" : "Sell your produce"}{" "}
+        <a className="header-cta theme-btn">
+          {isReady && isPartner ? "My dashboard" : "Start selling"}
           <i className="fas fa-angle-double-right" />
         </a>
       </Link>

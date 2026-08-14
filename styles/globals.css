@@ -351,3 +351,32 @@ img.mfp-img {
 .stock.status-rejected {
   color: #c0392b;
 }
+
+/* ---------------------------------------------------------------------------
+   Header call to action
+   The template's button held a single word, so it never needed a wrapping
+   rule. A two-word label in the same narrow slot broke onto three lines and
+   stretched the header with it. Pinned to one line, sized to sit level with
+   the icons beside it, and shown only where there is room for it.
+   --------------------------------------------------------------------------- */
+
+.menu-icons .header-cta {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .menu-icons .header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    padding: 10px 20px;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-left: 8px;
+  }
+
+  .menu-icons .header-cta i {
+    font-size: 12px;
+  }
+}
