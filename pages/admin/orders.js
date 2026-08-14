@@ -181,7 +181,7 @@ const AdminOrders = () => {
     <AdminLayout pageName="All Orders">
       <PageHeader
         title="All orders"
-        subtitle="Every order placed across the marketplace"
+        subtitle="Every order placed against your listings"
         icon="flaticon-shopping-bag"
         actions={
           <button

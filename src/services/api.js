@@ -62,28 +62,57 @@ const notifyUnauthorized = () => {
 // Mongo's duplicate-key errors are forwarded verbatim by the backend and are
 // meaningless to a shopper.
 const isInternalDatabaseError = (message) =>
-  /E11000|duplicate key|MongoError|ValidationError:/i.test(message);
+  /E11000|duplicate key|MongoError|ValidationError:|Cast to ObjectId/i.test(message);
+
+// Express serves its failures as HTML error pages, which must never be shown
+// to a user as-is.
+const looksLikeHtml = (text) => /^\s*(<!doctype|<html|<pre)/i.test(text);
 
 /**
- * The backend does not always answer with JSON — the rate limiter replies with
- * a bare string — so plain-text bodies have to be read as the message too,
- * otherwise the useful part is dropped for a generic status line.
+ * Reduces any error body to a single readable string.
+ *
+ * The backend answers in at least four shapes: a JSON object with a message, a
+ * bare string from the rate limiter, an HTML error page from Express, and an
+ * object whose own message is another object. That last one is why a failure
+ * once reached the screen as "[object Object]" — the value was passed to Error
+ * unchanged and stringified. Everything is coerced to text here instead.
  */
+const asText = (value, depth = 0) => {
+  if (value === null || value === undefined || depth > 3) {
+    return "";
+  }
+
+  if (typeof value === "string") {
+    return value.trim();
+  }
+
+  if (typeof value === "object") {
+    const nested = value.message ?? value.error ?? value.msg;
+    return nested === undefined ? "" : asText(nested, depth + 1);
+  }
+
+  return String(value);
+};
+
 const errorMessage = (data, status) => {
-  const raw =
-    (data && typeof data === "object" && (data.message || data.error)) ||
-    (typeof data === "string" ? data.trim() : "");
+  const raw = asText(data);
 
   if (status === 429 || /exceeded your .* limit/i.test(raw)) {
     return "Too many requests just now. Please wait a moment and try again.";
   }
 
   if (!raw) {
-    return `Request failed with status ${status}`;
+    return `Request failed with status ${status}.`;
+  }
+
+  // The full body stays on the error for debugging; the user sees something
+  // they can act on rather than a stack of markup.
+  if (looksLikeHtml(raw)) {
+    return `The store backend returned an unexpected response (status ${status}). Please try again.`;
   }
 
   if (isInternalDatabaseError(raw)) {
-    return "We could not save that. Please refresh and try again.";
+    return "We could not complete that. Please refresh and try again.";
   }
 
   return raw.length > 200 ? `${raw.slice(0, 200)}…` : raw;

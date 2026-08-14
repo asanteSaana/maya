@@ -17,9 +17,9 @@ const PARTNER_ROLE_NAMES = [
 // Staff roles — accounts allowed into /admin.
 //
 // This backend ships only two roles, Customer and Partner, and "Partner" is the
-// elevated one: GET /api/orders/all answers 403 for a customer, and the staff
-// account confirmed in use carries roleName "Partner" with an id that also
-// appears as partnerId on catalogue products. There is no separate admin role
+// elevated one: the staff account in use carries roleName "Partner" with an id
+// that also appears as partnerId on catalogue products, and /api/partner/orders
+// returns orders placed against those listings. There is no separate admin role
 // to key on, so Partner grants the console.
 //
 // The list is configurable so a genuine admin role can be adopted later by

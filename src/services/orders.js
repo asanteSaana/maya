@@ -1,4 +1,5 @@
 import { apiRequest, unwrapApiData } from "./api";
+import { getProductId } from "./normalizers";
 
 /**
  * `products.size` is a validated enum on the backend and it is case-sensitive:
@@ -22,6 +23,15 @@ export const toOrderProduct = (item) => ({
  * than an array, so a bare object has to be read as a one-line order. Arrays
  * are still accepted in case the schema is ever widened.
  */
+/**
+ * `/api/orders` returns productId as a plain id string, but
+ * `/api/partner/orders` returns it populated as `{ _id, partnerId }`. Left
+ * as-is the object reaches href and key props, producing links to
+ * "/product/[object Object]".
+ */
+const toProductId = (value) =>
+  value && typeof value === "object" ? getProductId(value) : String(value || "");
+
 const toOrderLines = (products) => {
   if (Array.isArray(products)) {
     return products;
@@ -39,7 +49,7 @@ export const normalizeOrder = (order = {}) => {
     address: order.address || null,
     createdAt: order.createdAt || order.created_at || "",
     products: products.map((product) => ({
-      productId: product.productId || "",
+      productId: toProductId(product.productId),
       productName: product.productName || "",
       productImageUrl: product.productImageUrl || "",
       size: product.size || "",

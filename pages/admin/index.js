@@ -55,7 +55,7 @@ const AdminOverview = () => {
     <AdminLayout pageName="Admin Overview">
       <PageHeader
         title="Overview"
-        subtitle="Marketplace activity across every customer"
+        subtitle="Orders placed against your listings, across every customer"
         actions={
           <button
             type="button"
@@ -76,7 +76,7 @@ const AdminOverview = () => {
         <>
           <div className="row">
             <StatCard
-              label="Total orders"
+              label="Orders received"
               value={orders.length}
               icon="flaticon-shopping-bag"
             />
